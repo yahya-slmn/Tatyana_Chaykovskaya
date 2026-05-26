@@ -7349,3 +7349,775 @@ main>section:not(.hero) {
     height: 240px !important;
   }
 }
+
+/* =========================================================
+   FINAL RESPONSIVE REPAIR LAYER
+   Fixes: 750–1180 tablet hero, cropped portrait, hidden portrait
+   around 912–973px, nav overflow from 1000–1300px, Health card text,
+   and Universe cards on all device widths.
+   ========================================================= */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+}
+
+.site-header {
+  min-height: 74px;
+}
+
+.menu-btn {
+  border: 0;
+  cursor: pointer;
+  line-height: 1;
+  z-index: 60;
+}
+
+/* Desktop header: keep full nav only when there is enough room */
+@media (min-width: 1181px) {
+  .site-header {
+    padding: 22px clamp(42px, 6vw, 108px);
+    gap: 24px;
+  }
+
+  .brand {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  .nav {
+    flex: 1 1 auto;
+    justify-content: flex-end;
+    gap: clamp(14px, 1.65vw, 28px);
+    min-width: 0;
+  }
+
+  .nav a {
+    font-size: clamp(10px, .82vw, 13px);
+    letter-spacing: .11em;
+    white-space: nowrap;
+  }
+}
+
+/* Tablet/laptop narrow: use clean hamburger before nav starts cutting */
+@media (max-width: 1180px) {
+  .site-header {
+    padding: 18px clamp(40px, 7vw, 72px);
+  }
+
+  .brand {
+    font-size: clamp(25px, 3.2vw, 31px);
+    white-space: nowrap;
+  }
+
+  .menu-btn {
+    display: grid !important;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    background: rgba(255, 255, 255, .48);
+    border-radius: 14px;
+  }
+
+  .nav {
+    position: fixed !important;
+    top: 86px !important;
+    left: clamp(24px, 6vw, 72px) !important;
+    right: clamp(24px, 6vw, 72px) !important;
+    display: none !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 14px;
+    padding: 22px;
+    border-radius: 26px;
+    background: rgba(251, 247, 239, .97);
+    border: 1px solid rgba(61, 42, 21, .12);
+    box-shadow: 0 28px 80px rgba(77, 55, 31, .18);
+    backdrop-filter: blur(18px);
+    z-index: 55;
+  }
+
+  .nav.active {
+    display: grid !important;
+  }
+
+  .nav a {
+    padding: 13px 14px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, .46);
+    font-size: 12px;
+  }
+}
+
+/* Main hero shared fixes */
+.hero {
+  overflow: hidden;
+}
+
+.hero-stats strong {
+  white-space: nowrap;
+}
+
+.hero-stats span {
+  overflow-wrap: anywhere;
+}
+
+/* 1001px–1180px: keep image visible and stop the circle-only problem */
+@media (min-width: 1001px) and (max-width: 1180px) {
+  .hero.section {
+    min-height: auto;
+    padding: 132px clamp(48px, 7vw, 78px) 70px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.02fr) minmax(340px, .98fr);
+    gap: clamp(30px, 4vw, 48px);
+    align-items: center;
+  }
+
+  .hero h1 {
+    font-size: clamp(72px, 8.1vw, 92px);
+    line-height: .82;
+    max-width: 620px;
+  }
+
+  .hero-text {
+    font-size: clamp(17px, 1.75vw, 20px);
+    line-height: 1.65;
+    max-width: 620px;
+  }
+
+  .hero-actions {
+    gap: 14px;
+  }
+
+  .hero-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    max-width: 720px;
+  }
+
+  .hero-stats div {
+    min-width: 0;
+    padding: 22px 18px;
+  }
+
+  .hero-stats strong {
+    font-size: clamp(29px, 3.5vw, 38px);
+  }
+
+  .hero-stats span {
+    font-size: 12px;
+    line-height: 1.38;
+  }
+
+  .hero-quote {
+    max-width: 720px;
+  }
+
+  .hero-visual {
+    display: grid !important;
+    min-height: 600px;
+    place-items: center;
+    align-self: center;
+  }
+
+  .mobile-hero-portrait {
+    display: none !important;
+  }
+
+  .portrait-frame {
+    display: block !important;
+    width: min(410px, 38vw);
+    height: 560px;
+    border-radius: 48% 48% 28px 28px;
+  }
+
+  .portrait-frame img {
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .hero-orbit {
+    display: block;
+    width: 520px;
+    height: 520px;
+  }
+
+  .floating-card {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    max-width: 230px;
+    font-size: 13px;
+    padding: 12px 15px;
+  }
+
+  .card-one {
+    top: 72px;
+    left: 10px;
+  }
+
+  .card-two {
+    right: -4px;
+    top: 292px;
+  }
+
+  .card-three {
+    left: 28px;
+    bottom: 98px;
+  }
+
+  .feature-strip {
+    margin-top: 0;
+  }
+}
+
+/* 741px–1000px: tablet layout should be one clean column with portrait below title */
+@media (min-width: 741px) and (max-width: 1000px) {
+  .hero.section {
+    min-height: auto;
+    display: flex !important;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 118px clamp(40px, 7vw, 68px) 60px;
+  }
+
+  .hero-copy {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero .eyebrow {
+    order: 1;
+    display: inline-flex;
+    align-self: flex-start;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .62);
+    box-shadow: 0 12px 35px rgba(77, 55, 31, .07);
+    letter-spacing: .22em;
+    font-size: 11px;
+    margin-bottom: 28px;
+  }
+
+  .hero h1 {
+    order: 2;
+    font-size: clamp(64px, 9.6vw, 88px);
+    line-height: .78;
+    max-width: 680px;
+    margin-bottom: 22px;
+  }
+
+  .mobile-hero-portrait {
+    order: 3;
+    display: block !important;
+    width: 100%;
+    max-width: none;
+    height: clamp(390px, 52vw, 520px);
+    margin: 0 0 24px;
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 32px 95px rgba(77, 55, 31, .18);
+    background: #111;
+  }
+
+  .mobile-hero-portrait img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center 16%;
+  }
+
+  .hero h2 {
+    order: 4;
+    font-size: 18px;
+    margin-top: 0;
+  }
+
+  .title-line {
+    order: 5;
+  }
+
+  .hero-text {
+    order: 6;
+    max-width: 760px;
+    font-size: 19px;
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    order: 7;
+    display: grid;
+    grid-template-columns: minmax(0, 260px) minmax(0, 260px);
+    gap: 14px;
+  }
+
+  .hero-stats {
+    order: 8;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    width: 100%;
+  }
+
+  .hero-stats div {
+    min-width: 0;
+    padding: 24px 22px;
+  }
+
+  .hero-stats strong {
+    font-size: 34px;
+  }
+
+  .hero-stats span {
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .hero-quote {
+    order: 9;
+    max-width: none;
+  }
+
+  .hero-visual {
+    display: none !important;
+  }
+
+  .feature-strip {
+    margin-top: 0;
+    padding-top: 0;
+  }
+}
+
+/* Around 912/973px: avoid the blank circle and keep portrait visible */
+@media (min-width: 860px) and (max-width: 1000px) {
+  .mobile-hero-portrait {
+    height: clamp(410px, 49vw, 500px);
+  }
+
+  .mobile-hero-portrait img {
+    object-position: center 12%;
+  }
+}
+
+/* 641px–740px: softer tablet/mobile transition */
+@media (min-width: 641px) and (max-width: 740px) {
+  .site-header {
+    padding: 17px 5.5vw;
+  }
+
+  .hero.section {
+    min-height: auto;
+    padding: 112px 5.5vw 56px;
+    display: flex !important;
+    flex-direction: column;
+  }
+
+  .hero-copy {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero h1 {
+    order: 2;
+    font-size: clamp(58px, 11vw, 76px);
+    line-height: .8;
+    margin-bottom: 18px;
+  }
+
+  .mobile-hero-portrait {
+    order: 3;
+    display: block !important;
+    height: 430px;
+    border-radius: 30px;
+    overflow: hidden;
+    background: #111;
+    box-shadow: 0 28px 80px rgba(77, 55, 31, .16);
+    margin-bottom: 22px;
+  }
+
+  .mobile-hero-portrait img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center 14%;
+  }
+
+  .hero h2 { order: 4; }
+  .title-line { order: 5; }
+  .hero-text { order: 6; }
+  .hero-actions { order: 7; }
+  .hero-stats { order: 8; }
+  .hero-quote { order: 9; }
+
+  .hero-visual {
+    display: none !important;
+  }
+
+  .hero-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .hero-stats div {
+    min-width: 0;
+    padding: 20px 16px;
+  }
+}
+
+/* Phone */
+@media (max-width: 640px) {
+  .site-header {
+    min-height: 68px;
+    padding: 15px 5vw;
+  }
+
+  .brand {
+    font-size: clamp(23px, 6.5vw, 28px);
+  }
+
+  .nav {
+    top: 76px !important;
+    left: 5vw !important;
+    right: 5vw !important;
+    grid-template-columns: 1fr;
+  }
+
+  .hero.section {
+    min-height: auto;
+    padding: 100px 5vw 54px;
+    display: flex !important;
+    flex-direction: column;
+  }
+
+  .hero-copy {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero .eyebrow {
+    order: 1;
+    font-size: 10px;
+    letter-spacing: .18em;
+    line-height: 1.5;
+    margin-bottom: 18px;
+  }
+
+  .hero h1 {
+    order: 2;
+    font-size: clamp(46px, 14vw, 64px) !important;
+    line-height: .82;
+    margin-bottom: 18px;
+  }
+
+  .mobile-hero-portrait {
+    order: 3;
+    display: block !important;
+    height: clamp(330px, 72vw, 430px);
+    border-radius: 28px;
+    overflow: hidden;
+    background: #111;
+    box-shadow: 0 24px 72px rgba(77, 55, 31, .16);
+    margin-bottom: 22px;
+  }
+
+  .mobile-hero-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 15%;
+  }
+
+  .hero h2 {
+    order: 4;
+    margin-top: 0;
+    font-size: 17px;
+  }
+
+  .title-line { order: 5; }
+
+  .hero-text {
+    order: 6;
+    font-size: 17px;
+    line-height: 1.7;
+    margin: 22px 0;
+  }
+
+  .hero-actions {
+    order: 7;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .hero-stats {
+    order: 8;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .hero-stats div {
+    padding: 22px;
+  }
+
+  .hero-stats span {
+    overflow-wrap: normal;
+  }
+
+  .hero-quote {
+    order: 9;
+    padding: 18px;
+  }
+
+  .hero-visual {
+    display: none !important;
+  }
+
+  .feature-strip {
+    margin-top: 0;
+    padding: 0 5vw 36px;
+  }
+}
+
+/* Very small phone refinements */
+@media (max-width: 430px) {
+  .mobile-hero-portrait {
+    height: 350px;
+  }
+
+  .hero h1 {
+    font-size: clamp(42px, 13.5vw, 56px) !important;
+  }
+
+  .hero-text {
+    font-size: 16px;
+  }
+}
+
+/* Health stat: more elegant and never ugly/cut */
+.hero-stats div:nth-child(3) strong {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  color: #9b7041;
+  letter-spacing: -.035em;
+}
+
+/* Universe responsive rebuild */
+.universe {
+  overflow: hidden;
+}
+
+.universe-card span {
+  display: block;
+  white-space: normal;
+  overflow-wrap: normal;
+  line-height: 1.15;
+}
+
+/* Large desktop: keep editorial floating layout */
+@media (min-width: 1301px) {
+  .universe-stage {
+    min-height: 720px;
+  }
+
+  .u-card-1 {
+    top: 28px;
+    left: 5%;
+  }
+
+  .u-card-2 {
+    top: 110px;
+    right: 3%;
+  }
+
+  .u-card-3 {
+    left: 17%;
+    bottom: 64px;
+  }
+
+  .u-card-4 {
+    right: 16%;
+    bottom: 18px;
+  }
+}
+
+/* Mac 13 / 1000-1300: no overlap, no cut, stable 2x2 cards */
+@media (min-width: 1001px) and (max-width: 1300px) {
+  .universe.section {
+    min-height: auto;
+    grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+    gap: clamp(28px, 4vw, 46px);
+    padding: 118px clamp(46px, 7vw, 80px) 82px;
+    align-items: center;
+  }
+
+  .universe-copy h2 {
+    font-size: clamp(62px, 7.2vw, 84px);
+    line-height: .92;
+  }
+
+  .universe-copy p:not(.eyebrow) {
+    max-width: 520px;
+    font-size: 18px;
+  }
+
+  .universe-stage {
+    min-height: auto;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    align-content: center;
+    perspective: none;
+  }
+
+  .universe-stage::before {
+    inset: 5% 3%;
+    opacity: .45;
+  }
+
+  .universe-card,
+  .u-card-1,
+  .u-card-2,
+  .u-card-3,
+  .u-card-4 {
+    position: relative !important;
+    inset: auto !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    width: 100% !important;
+    max-width: none;
+    transform: none !important;
+    padding: 11px;
+    border-radius: 26px;
+  }
+
+  .universe-card img {
+    height: clamp(150px, 16vw, 190px) !important;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+
+  .universe-card span {
+    font-size: 11px;
+    letter-spacing: .07em;
+    padding: 10px 4px 3px;
+  }
+}
+
+/* Tablet universe: cards become clean responsive grid under text */
+@media (min-width: 741px) and (max-width: 1000px) {
+  .universe.section {
+    min-height: auto;
+    display: block !important;
+    padding: 105px clamp(40px, 7vw, 68px) 70px;
+  }
+
+  .universe-copy {
+    max-width: 760px;
+    margin-bottom: 36px;
+  }
+
+  .universe-copy h2 {
+    font-size: clamp(58px, 9.4vw, 84px);
+  }
+
+  .universe-stage {
+    min-height: auto;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    perspective: none;
+  }
+
+  .universe-stage::before {
+    display: none;
+  }
+
+  .universe-card,
+  .u-card-1,
+  .u-card-2,
+  .u-card-3,
+  .u-card-4 {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    transform: none !important;
+  }
+
+  .universe-card img {
+    height: 230px !important;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+/* Mobile universe */
+@media (max-width: 740px) {
+  .universe.section {
+    min-height: auto;
+    display: block !important;
+    padding: 96px 5vw 60px;
+  }
+
+  .universe-copy h2 {
+    font-size: clamp(46px, 12vw, 64px);
+    line-height: .94;
+  }
+
+  .universe-copy p:not(.eyebrow) {
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
+  .universe-stage {
+    min-height: auto;
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 30px;
+    perspective: none;
+  }
+
+  .universe-stage::before {
+    display: none;
+  }
+
+  .universe-card,
+  .u-card-1,
+  .u-card-2,
+  .u-card-3,
+  .u-card-4 {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    transform: none !important;
+    padding: 12px;
+  }
+
+  .universe-card img {
+    height: 240px !important;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .universe-card img {
+    height: 210px !important;
+  }
+}
