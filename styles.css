@@ -6494,3 +6494,421 @@ main>section:not(.hero) {
     min-height: auto;
   }
 }
+
+
+/* =========================================================
+   FINAL REDESIGN: Consulting + Concept Development sections
+   Cleaner section names, grouped consulting expertise, and a
+   more premium combined R&D/Future journey.
+========================================================= */
+.site-header .nav a[href="#lab"] {
+  white-space: nowrap;
+}
+
+.consulting,
+.development {
+  min-height: auto;
+  padding-top: 135px;
+  padding-bottom: 135px;
+  overflow: hidden;
+}
+
+.consulting {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(216, 183, 123, .18), transparent 30%),
+    radial-gradient(circle at 88% 72%, rgba(233, 191, 196, .20), transparent 32%),
+    linear-gradient(135deg, #fffaf4, #efe2d1);
+}
+
+.ops-shell,
+.development-shell {
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.ops-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 390px;
+  gap: 44px;
+  align-items: stretch;
+  margin-bottom: 44px;
+}
+
+.ops-copy {
+  padding: clamp(34px, 5vw, 62px);
+  border-radius: 44px;
+  background: rgba(255, 255, 255, .58);
+  border: 1px solid rgba(216, 183, 123, .24);
+  box-shadow: 0 34px 110px rgba(77, 55, 31, .12);
+  backdrop-filter: blur(18px);
+}
+
+.ops-copy h2,
+.development-left h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 7vw, 104px);
+  line-height: .92;
+  letter-spacing: -.06em;
+}
+
+.ops-copy p:not(.eyebrow),
+.development-left p:not(.eyebrow) {
+  max-width: 760px;
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: 19px;
+  line-height: 1.78;
+}
+
+.ops-statement {
+  position: relative;
+  padding: 38px;
+  border-radius: 38px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 360px;
+  color: var(--ivory);
+  background:
+    linear-gradient(145deg, rgba(35, 33, 31, .92), rgba(87, 65, 40, .88)),
+    radial-gradient(circle at 20% 20%, rgba(216, 183, 123, .35), transparent 36%);
+  box-shadow: 0 34px 110px rgba(77, 55, 31, .22);
+  overflow: hidden;
+}
+
+.ops-statement::before {
+  content: "";
+  position: absolute;
+  inset: 24px;
+  border: 1px solid rgba(216, 183, 123, .28);
+  border-radius: 28px;
+}
+
+.ops-statement span {
+  position: relative;
+  z-index: 1;
+  color: #d8b77b;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.ops-statement strong {
+  position: relative;
+  z-index: 1;
+  display: block;
+  margin-top: 12px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(42px, 4vw, 64px);
+  line-height: .95;
+  letter-spacing: -.05em;
+}
+
+.ops-statement p {
+  position: relative;
+  z-index: 1;
+  margin-top: 18px;
+  color: rgba(251, 247, 239, .76);
+  line-height: 1.7;
+  font-weight: 600;
+}
+
+.ops-pillars {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.ops-pillar {
+  padding: 28px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, .66);
+  border: 1px solid rgba(216, 183, 123, .22);
+  box-shadow: 0 24px 80px rgba(77, 55, 31, .10);
+  backdrop-filter: blur(16px);
+  transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+}
+
+.ops-pillar:hover {
+  transform: translateY(-8px);
+  border-color: rgba(181, 137, 79, .40);
+  box-shadow: 0 34px 100px rgba(77, 55, 31, .16);
+}
+
+.ops-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  color: #9b7041;
+  background: rgba(243, 234, 223, .78);
+  border: 1px solid rgba(216, 183, 123, .25);
+  margin-bottom: 22px;
+}
+
+.ops-icon i {
+  font-size: 28px;
+}
+
+.ops-pillar h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: -.03em;
+  margin-bottom: 18px;
+}
+
+.ops-pillar ul {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+.ops-pillar li {
+  position: relative;
+  padding-left: 18px;
+  color: #5f574f;
+  line-height: 1.45;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.ops-pillar li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .62em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #b5894f;
+}
+
+.ops-footer-note {
+  margin-top: 28px;
+  padding: 24px 28px;
+  border-radius: 26px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: rgba(35, 33, 31, .06);
+  border: 1px solid rgba(216, 183, 123, .22);
+}
+
+.ops-footer-note i {
+  color: #9b7041;
+  font-size: 30px;
+  flex: 0 0 auto;
+}
+
+.ops-footer-note p {
+  color: var(--muted);
+  line-height: 1.75;
+  font-weight: 650;
+}
+
+.development {
+  background:
+    radial-gradient(circle at 85% 15%, rgba(216, 183, 123, .19), transparent 30%),
+    radial-gradient(circle at 18% 78%, rgba(200, 212, 191, .22), transparent 34%),
+    linear-gradient(135deg, #fffaf4, #f3eadf);
+}
+
+.development-shell {
+  display: grid;
+  grid-template-columns: .88fr 1.12fr;
+  gap: 52px;
+  align-items: center;
+}
+
+.development-left {
+  position: sticky;
+  top: 130px;
+  align-self: start;
+}
+
+.development-left::before {
+  content: "R&D";
+  position: absolute;
+  z-index: -1;
+  left: -8%;
+  top: -75px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(110px, 18vw, 250px);
+  line-height: 1;
+  color: rgba(155, 112, 65, .055);
+  font-weight: 700;
+  letter-spacing: -.08em;
+}
+
+.development-roadmap {
+  display: grid;
+  gap: 18px;
+  position: relative;
+}
+
+.development-roadmap::before {
+  content: "";
+  position: absolute;
+  left: 42px;
+  top: 30px;
+  bottom: 30px;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(181, 137, 79, .38), transparent);
+}
+
+.dev-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 84px minmax(0, 1fr);
+  gap: 22px;
+  align-items: stretch;
+}
+
+.dev-step span {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 34px;
+  color: #b5894f;
+  background: rgba(255, 255, 255, .58);
+  border: 1px solid rgba(216, 183, 123, .28);
+  box-shadow: 0 22px 70px rgba(77, 55, 31, .10);
+  z-index: 1;
+}
+
+.dev-step div {
+  padding: 28px 32px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, .68);
+  border: 1px solid rgba(216, 183, 123, .22);
+  box-shadow: 0 24px 80px rgba(77, 55, 31, .10);
+  backdrop-filter: blur(16px);
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.dev-step:hover div {
+  transform: translateX(8px);
+  box-shadow: 0 34px 100px rgba(77, 55, 31, .15);
+}
+
+.dev-step strong {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 38px;
+  line-height: 1;
+  letter-spacing: -.04em;
+}
+
+.dev-step p {
+  margin-top: 10px;
+  color: var(--muted);
+  line-height: 1.65;
+  font-weight: 600;
+}
+
+.development-signals {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.development-signals div {
+  min-height: 94px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 22px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, .56);
+  border: 1px solid rgba(216, 183, 123, .22);
+  box-shadow: 0 20px 60px rgba(77, 55, 31, .08);
+}
+
+.development-signals i {
+  color: #9b7041;
+  font-size: 30px;
+}
+
+.development-signals span {
+  font-weight: 900;
+  color: #4d473e;
+}
+
+.system-bridge,
+.consulting-grid,
+.consulting-note,
+.clean-journey,
+.merged-future-cards,
+.clean-lab-intro {
+  display: none !important;
+}
+
+@media(max-width:1180px) {
+  .ops-hero,
+  .development-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .development-left {
+    position: relative;
+    top: auto;
+  }
+
+  .ops-pillars,
+  .development-signals {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media(max-width:760px) {
+  .consulting,
+  .development {
+    padding-top: 105px;
+    padding-bottom: 90px;
+  }
+
+  .ops-copy,
+  .ops-statement {
+    padding: 28px;
+    border-radius: 30px;
+  }
+
+  .ops-pillars,
+  .development-signals {
+    grid-template-columns: 1fr;
+  }
+
+  .dev-step {
+    grid-template-columns: 58px minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .dev-step span {
+    width: 58px;
+    height: 58px;
+    font-size: 26px;
+  }
+
+  .development-roadmap::before {
+    left: 29px;
+  }
+
+  .dev-step div {
+    padding: 22px;
+    border-radius: 24px;
+  }
+
+  .dev-step strong {
+    font-size: 30px;
+  }
+}
