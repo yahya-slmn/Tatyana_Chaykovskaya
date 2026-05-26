@@ -6296,3 +6296,201 @@ main>section:not(.hero) {
     min-height: 300px !important;
   }
 }
+
+/* ---------- FINAL STRUCTURE: Consulting + merged R&D Future ---------- */
+.consulting {
+  min-height: auto;
+  padding-top: 135px;
+  padding-bottom: 135px;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(216, 183, 123, .18), transparent 30%),
+    radial-gradient(circle at 86% 62%, rgba(233, 191, 196, .2), transparent 30%),
+    linear-gradient(135deg, #fffaf4, #f2e7d8);
+}
+
+.consulting-shell {
+  max-width: 1680px;
+  margin: 0 auto;
+}
+
+.consulting-heading {
+  max-width: 980px;
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+.consulting-heading h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 7vw, 104px);
+  line-height: .94;
+  letter-spacing: -.06em;
+  color: var(--charcoal);
+}
+
+.consulting-heading p:not(.eyebrow) {
+  max-width: 850px;
+  margin: 24px auto 0;
+  color: var(--muted);
+  font-size: 19px;
+  line-height: 1.8;
+}
+
+.system-bridge {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin: 44px 0 28px;
+}
+
+.system-bridge article {
+  min-height: 230px;
+  padding: 30px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, .66);
+  border: 1px solid rgba(216, 183, 123, .2);
+  box-shadow: 0 28px 80px rgba(77, 55, 31, .12);
+}
+
+.system-bridge span {
+  font-family: 'Cormorant Garamond', serif;
+  display: block;
+  color: rgba(181, 137, 79, .32);
+  font-size: 58px;
+  line-height: .8;
+  margin-bottom: 24px;
+}
+
+.system-bridge h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.system-bridge p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.consulting-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.consulting-card {
+  position: relative;
+  min-height: 152px;
+  padding: 24px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, .62);
+  border: 1px solid rgba(216, 183, 123, .2);
+  box-shadow: 0 24px 70px rgba(77, 55, 31, .11);
+  overflow: hidden;
+  transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+}
+
+.consulting-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 18% 10%, rgba(216, 183, 123, .16), transparent 36%);
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+
+.consulting-card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(181, 137, 79, .34);
+  box-shadow: 0 34px 95px rgba(77, 55, 31, .18);
+}
+
+.consulting-card:hover::before {
+  opacity: 1;
+}
+
+.consulting-card i {
+  position: relative;
+  z-index: 1;
+  color: #9b7041;
+  font-size: 30px;
+}
+
+.consulting-card span {
+  position: absolute;
+  top: 20px;
+  right: 22px;
+  color: rgba(181, 137, 79, .35);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 34px;
+  font-weight: 700;
+}
+
+.consulting-card strong {
+  position: relative;
+  z-index: 1;
+  display: block;
+  margin-top: 28px;
+  max-width: 260px;
+  font-size: 18px;
+  line-height: 1.35;
+  color: var(--charcoal);
+}
+
+.consulting-note {
+  max-width: 980px;
+  margin: 34px auto 0;
+  padding: 24px 28px;
+  border-radius: 28px;
+  text-align: center;
+  color: #6f6257;
+  line-height: 1.75;
+  font-weight: 700;
+  background: rgba(255, 255, 255, .58);
+  border: 1px solid rgba(216, 183, 123, .2);
+  box-shadow: 0 24px 70px rgba(77, 55, 31, .1);
+}
+
+.future-lab {
+  min-height: auto;
+  background:
+    radial-gradient(circle at 18% 48%, rgba(233, 191, 196, .25), transparent 30%),
+    radial-gradient(circle at 82% 35%, rgba(200, 212, 191, .28), transparent 32%),
+    linear-gradient(135deg, #fffaf3, #f3eadf);
+}
+
+.future-lab .lab-intro h2 {
+  max-width: 1050px;
+}
+
+.merged-future-cards {
+  max-width: 100%;
+  margin-top: 46px;
+}
+
+@media (max-width: 1200px) {
+  .system-bridge,
+  .consulting-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .consulting {
+    padding-top: 105px;
+    padding-bottom: 90px;
+  }
+
+  .consulting-heading h2 {
+    font-size: 52px;
+  }
+
+  .system-bridge,
+  .consulting-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .system-bridge article,
+  .consulting-card {
+    min-height: auto;
+  }
+}
