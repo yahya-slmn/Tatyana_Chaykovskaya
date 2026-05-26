@@ -6087,6 +6087,7 @@ main>section:not(.hero) {
     transform: translateY(16px) !important;
   }
 }
+
 /* ---------- FINAL HARD FIX: Gallery image ratio / full height display ---------- */
 /* This block intentionally sits at the very end to override older gallery rules. */
 .creations .slideshow-shell {
@@ -6161,6 +6162,7 @@ main>section:not(.hero) {
 }
 
 @media (max-width: 1000px) {
+
   .creations .slide-stage,
   .creations .slide-media {
     height: auto !important;
@@ -6191,5 +6193,106 @@ main>section:not(.hero) {
 
   .creations .slide-stage::after {
     font-size: 34px !important;
+  }
+}
+
+/* =========================================================
+   FINAL FIX — Philosophy images full-height preview
+   Goal: make the Philosophy cards show the visuals clearly,
+   not as short cropped strips.
+   ========================================================= */
+.philosophy.section {
+  padding-top: clamp(120px, 9vw, 155px);
+  padding-bottom: clamp(90px, 8vw, 130px);
+}
+
+.philosophy .section-heading {
+  max-width: 1120px;
+  margin-bottom: clamp(46px, 5vw, 72px);
+}
+
+.visual-philosophy-grid {
+  align-items: stretch !important;
+  gap: clamp(22px, 2.2vw, 34px) !important;
+}
+
+.philosophy-card {
+  min-height: 650px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  border-radius: 34px !important;
+  overflow: hidden !important;
+}
+
+.philosophy-card .story-image {
+  height: clamp(340px, 25vw, 430px) !important;
+  min-height: 340px !important;
+  border-radius: 34px 34px 0 0 !important;
+  background: linear-gradient(135deg, #fffaf3, #eadfce) !important;
+}
+
+.philosophy-card .story-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  display: block !important;
+}
+
+.philosophy-card>span {
+  margin-top: 30px !important;
+}
+
+.philosophy-card>h3,
+.philosophy-card>p {
+  position: relative;
+  z-index: 2;
+}
+
+.philosophy-card>p {
+  padding-bottom: 4px;
+}
+
+@media (min-width: 1001px) and (max-width: 1440px) {
+  .philosophy-card {
+    min-height: 600px !important;
+  }
+
+  .philosophy-card .story-image {
+    height: 330px !important;
+    min-height: 330px !important;
+  }
+
+  .philosophy-card>span,
+  .philosophy-card>h3,
+  .philosophy-card>p {
+    margin-left: 30px !important;
+    margin-right: 30px !important;
+  }
+}
+
+@media (max-width: 1000px) {
+  .visual-philosophy-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .philosophy-card {
+    min-height: auto !important;
+  }
+
+  .philosophy-card .story-image {
+    height: clamp(300px, 52vw, 430px) !important;
+    min-height: 300px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .philosophy.section {
+    padding-top: 105px;
+  }
+
+  .philosophy-card .story-image {
+    height: 300px !important;
+    min-height: 300px !important;
   }
 }
