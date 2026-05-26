@@ -20,7 +20,7 @@ menuBtn?.setAttribute('aria-expanded', 'false');
 menuBtn?.addEventListener('click', () => setMenuState(!nav?.classList.contains('active')));
 document.querySelectorAll('.nav a').forEach(a => a.addEventListener('click', () => setMenuState(false)));
 window.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuState(false); });
-window.addEventListener('resize', () => { if (window.innerWidth > 820) setMenuState(false); });
+window.addEventListener('resize', () => { if (window.innerWidth > 1180) setMenuState(false); });
 
 const canUsePointerFX = window.matchMedia('(pointer: fine)').matches && window.innerWidth > 1024;
 let pointerFrame = null;

@@ -7071,3 +7071,281 @@ main>section:not(.hero) {
     height: 190px !important;
   }
 }
+/* =========================================================
+   FINAL RESPONSIVE FIXES - Header + Universe Section
+   Covers the problematic 1000px - 1300px range and prevents
+   Universe cards from overlapping on every device.
+   ========================================================= */
+
+/* Desktop/tablet header safety: prevent nav clipping before mobile menu */
+@media (min-width: 1181px) and (max-width: 1320px) {
+  .site-header {
+    padding: 18px 4.2vw !important;
+    gap: 18px !important;
+  }
+
+  .brand {
+    font-size: clamp(24px, 2.1vw, 30px) !important;
+    line-height: .92 !important;
+    flex: 0 0 auto !important;
+  }
+
+  .nav {
+    gap: clamp(13px, 1.45vw, 20px) !important;
+    align-items: center !important;
+    white-space: nowrap !important;
+  }
+
+  .nav a {
+    font-size: clamp(10px, .92vw, 12px) !important;
+    letter-spacing: .105em !important;
+  }
+}
+
+/* Switch to hamburger earlier, because the full nav is too wide on 13 inch / 1000-1180px */
+@media (max-width: 1180px) {
+  .site-header {
+    padding: 18px 5vw !important;
+  }
+
+  .menu-btn {
+    display: grid !important;
+    place-items: center !important;
+    border: 0 !important;
+    cursor: pointer !important;
+    z-index: 32 !important;
+  }
+
+  .nav {
+    position: fixed !important;
+    top: 78px !important;
+    right: 20px !important;
+    left: 20px !important;
+    display: none !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+    padding: 22px !important;
+    background: rgba(251, 247, 239, .96) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 24px !important;
+    box-shadow: var(--shadow) !important;
+    backdrop-filter: blur(18px) !important;
+    -webkit-backdrop-filter: blur(18px) !important;
+    white-space: normal !important;
+  }
+
+  .nav.active {
+    display: grid !important;
+  }
+
+  .nav a {
+    padding: 13px 12px !important;
+    border-radius: 16px !important;
+    background: rgba(255, 255, 255, .52) !important;
+    text-align: center !important;
+    font-size: 12px !important;
+    letter-spacing: .11em !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .nav {
+    grid-template-columns: 1fr !important;
+    top: 72px !important;
+    right: 14px !important;
+    left: 14px !important;
+    max-height: calc(100vh - 92px) !important;
+    overflow-y: auto !important;
+  }
+}
+
+/* Universe base reset: ignore older nth-child / wrong class rules */
+.universe {
+  overflow: hidden !important;
+}
+
+.universe-stage {
+  position: relative !important;
+}
+
+.universe-card {
+  box-sizing: border-box !important;
+}
+
+.universe-card span {
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+}
+
+/* Large desktop: keep the premium floating collage, with safe class-based placement */
+@media (min-width: 1451px) {
+  .universe {
+    grid-template-columns: .82fr 1.18fr !important;
+    gap: 52px !important;
+  }
+
+  .universe-stage {
+    min-height: 720px !important;
+    display: block !important;
+    perspective: 1100px !important;
+  }
+
+  .universe-stage::before {
+    display: block !important;
+  }
+
+  .universe-card {
+    position: absolute !important;
+    width: 260px !important;
+    inset: auto !important;
+  }
+
+  .universe-card img {
+    height: 230px !important;
+  }
+
+  .u-card-1 { left: 6% !important; top: 8% !important; right: auto !important; bottom: auto !important; transform: rotate(-7deg) !important; }
+  .u-card-2 { right: 6% !important; top: 18% !important; left: auto !important; bottom: auto !important; transform: rotate(8deg) !important; }
+  .u-card-3 { left: 20% !important; bottom: 8% !important; right: auto !important; top: auto !important; transform: rotate(5deg) !important; }
+  .u-card-4 { right: 18% !important; bottom: 2% !important; left: auto !important; top: auto !important; transform: rotate(-6deg) !important; }
+}
+
+/* Mac 13 inch / 1000-1450px: clean 2x2 cards, no overlap */
+@media (min-width: 1001px) and (max-width: 1450px) {
+  .universe {
+    min-height: auto !important;
+    grid-template-columns: minmax(420px, .9fr) minmax(430px, 1.1fr) !important;
+    gap: clamp(28px, 4vw, 56px) !important;
+    align-items: center !important;
+    padding: 130px clamp(48px, 7vw, 96px) 90px !important;
+  }
+
+  .universe-copy {
+    max-width: 620px !important;
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  .universe-copy h2 {
+    font-size: clamp(62px, 6.15vw, 94px) !important;
+    line-height: .94 !important;
+    letter-spacing: -.06em !important;
+  }
+
+  .universe-copy p:not(.eyebrow) {
+    max-width: 540px !important;
+    font-size: clamp(16px, 1.35vw, 19px) !important;
+  }
+
+  .universe-stage {
+    min-height: auto !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(190px, 245px)) !important;
+    gap: clamp(16px, 2vw, 24px) !important;
+    justify-content: center !important;
+    align-content: center !important;
+    perspective: none !important;
+    transform: none !important;
+  }
+
+  .universe-stage::before,
+  .universe-stage::after {
+    display: none !important;
+  }
+
+  .universe-card,
+  .universe-card:nth-child(n) {
+    position: relative !important;
+    inset: auto !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    max-width: 245px !important;
+    transform: none !important;
+    translate: none !important;
+    rotate: 0deg !important;
+    padding: 10px !important;
+    border-radius: 26px !important;
+  }
+
+  .universe-card img {
+    height: clamp(150px, 14.5vw, 190px) !important;
+    border-radius: 18px !important;
+    object-fit: cover !important;
+  }
+
+  .universe-card span {
+    min-height: 36px !important;
+    padding: 11px 6px 3px !important;
+    font-size: 10px !important;
+    line-height: 1.25 !important;
+    letter-spacing: .06em !important;
+  }
+}
+
+/* Narrow desktop / tablet: stack section, keep cards in a tidy 2x2 grid */
+@media (max-width: 1000px) {
+  .universe {
+    min-height: auto !important;
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+    padding: 105px 5vw 78px !important;
+  }
+
+  .universe-copy {
+    max-width: 760px !important;
+  }
+
+  .universe-copy h2 {
+    font-size: clamp(52px, 10vw, 82px) !important;
+  }
+
+  .universe-stage {
+    min-height: auto !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 16px !important;
+    perspective: none !important;
+  }
+
+  .universe-stage::before,
+  .universe-stage::after {
+    display: none !important;
+  }
+
+  .universe-card,
+  .universe-card:nth-child(n) {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    max-width: none !important;
+    transform: none !important;
+    translate: none !important;
+    rotate: 0deg !important;
+    padding: 10px !important;
+  }
+
+  .universe-card img {
+    height: clamp(170px, 28vw, 260px) !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .universe {
+    padding: 92px 5vw 64px !important;
+  }
+
+  .universe-copy h2 {
+    font-size: clamp(46px, 13vw, 64px) !important;
+  }
+
+  .universe-stage {
+    grid-template-columns: 1fr !important;
+  }
+
+  .universe-card img {
+    height: 240px !important;
+  }
+}
