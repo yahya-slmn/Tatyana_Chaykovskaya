@@ -6912,3 +6912,114 @@ main>section:not(.hero) {
     font-size: 30px;
   }
 }
+
+
+/* ---------- PATCH: premium Consulting Scope card without image ---------- */
+.ops-statement {
+  isolation: isolate;
+  position: relative;
+  transform: translateZ(0);
+  background:
+    radial-gradient(circle at 18% 18%, rgba(216, 183, 123, .22), transparent 34%),
+    linear-gradient(135deg, rgba(25, 22, 18, .96), rgba(78, 58, 36, .94) 58%, rgba(35, 28, 22, .98)) !important;
+  box-shadow:
+    0 42px 130px rgba(77, 55, 31, .30),
+    inset 0 1px 0 rgba(255, 255, 255, .12);
+  transition: transform .55s ease, box-shadow .55s ease, border-color .55s ease;
+}
+
+/* Simulated darkened visual layer — no image required */
+.ops-statement::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background:
+    linear-gradient(135deg, rgba(0, 0, 0, .42), rgba(0, 0, 0, .08) 42%, rgba(0, 0, 0, .50)),
+    radial-gradient(circle at 72% 18%, rgba(216, 183, 123, .26), transparent 30%),
+    radial-gradient(circle at 20% 88%, rgba(255, 255, 255, .10), transparent 30%),
+    repeating-linear-gradient(115deg,
+      rgba(255, 255, 255, .035) 0,
+      rgba(255, 255, 255, .035) 1px,
+      transparent 1px,
+      transparent 18px);
+  opacity: .88;
+  transform: scale(1.02);
+  transition: transform 1s ease, opacity .55s ease;
+}
+
+/* Soft gold premium overlay */
+.ops-statement::before {
+  content: "";
+  position: absolute;
+  inset: 22px;
+  z-index: 2;
+  border: 1px solid rgba(216, 183, 123, .34);
+  border-radius: 30px;
+  pointer-events: none;
+  background:
+    linear-gradient(135deg, rgba(216, 183, 123, .09), transparent 38%, rgba(255, 255, 255, .045));
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, .045),
+    inset 0 0 60px rgba(216, 183, 123, .045);
+}
+
+/* Text sits clearly above the overlay */
+.ops-statement span,
+.ops-statement strong,
+.ops-statement p {
+  z-index: 3;
+  text-shadow: 0 16px 38px rgba(0, 0, 0, .30);
+}
+
+.ops-statement span {
+  color: #e6c98f !important;
+}
+
+.ops-statement strong {
+  color: #fff7e8;
+}
+
+.ops-statement p {
+  color: rgba(251, 247, 239, .82) !important;
+}
+
+/* Hover motion: subtle cinematic zoom */
+.ops-statement:hover {
+  transform: translateY(-10px);
+  box-shadow:
+    0 56px 150px rgba(77, 55, 31, .38),
+    inset 0 1px 0 rgba(255, 255, 255, .14);
+}
+
+.ops-statement:hover::after {
+  transform: scale(1.09);
+  opacity: 1;
+}
+
+.ops-statement:hover::before {
+  border-color: rgba(216, 183, 123, .48);
+}
+
+/* Small glowing detail to mimic premium lighting */
+.ops-statement span::before {
+  content: "";
+  display: inline-block;
+  width: 34px;
+  height: 1px;
+  margin-right: 10px;
+  vertical-align: middle;
+  background: linear-gradient(90deg, transparent, #e6c98f);
+}
+
+@media(max-width:760px) {
+  .ops-statement::before {
+    inset: 16px;
+    border-radius: 24px;
+  }
+
+  .ops-statement:hover {
+    transform: translateY(-6px);
+  }
+}
