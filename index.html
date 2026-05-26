@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tatyana Chaykovskaya | Culinary R&D Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+  <!-- Performance: preload only the critical first images -->
+  <link rel="preload" as="image" href="assets/optimized/intro.webp" fetchpriority="high">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="cinematic-loader" id="cinematicLoader" aria-label="Loading culinary portfolio">
+    <div class="loader-aura"></div>
+    <div class="loader-mark">TC</div>
+    <p>Culinary R&D Experience</p>
+    <div class="loader-line"><span id="loaderLine"></span></div>
+  </div>
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="grain"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="luxury-spotlight" id="luxurySpotlight" aria-hidden="true"></div>
+  <div class="ambient-dishes" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <header class="site-header">
+    <a href="#home" class="brand">Tatyana <span>Chaykovskaya</span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu"><i class='bx bx-menu'></i></button>
+    <nav class="nav" id="nav">
+      <a href="#home">Home</a>
+      <a href="#philosophy">Philosophy</a>
+      <a href="#creations">Creations</a>
+      <a href="#experience">Experience</a>
+      <a href="#universe">Universe</a>
+      <a href="#lab">R&D Lab</a>
+      <a href="#future">Future</a>
+      <a href="#recognition">Recognition</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Culinary R&D • Wellness • Artistic Food</p>
+        <h1>Tatyana<br><span>Chaykovskaya</span></h1>
+        <div class="mobile-hero-portrait" aria-label="Tatyana Chaykovskaya portrait">
+          <img src="assets/optimized/intro.webp" alt="Tatyana Chaykovskaya portrait preview" loading="eager"
+            decoding="async" fetchpriority="high" />
+        </div>
+        <h2>Head of Culinary R&D</h2>
+        <div class="title-line" aria-hidden="true"></div>
+        <p class="hero-text">A culinary R&amp;D portfolio built around premium food concepts, wellness thinking,
+          artistic presentation, and business-ready execution.</p>
+        <div class="hero-actions">
+          <a class="btn primary magnetic" href="#creations">Explore Creations</a>
+          <a class="btn ghost magnetic" href="#philosophy">Discover Philosophy</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>18+</strong><span>Years in the Middle East</span></div>
+          <div><strong>R&D</strong><span>Recipe Innovation</span></div>
+          <div><strong>Health</strong><span>Future Food Vision</span></div>
+        </div>
+        <div class="hero-quote reveal">
+          <i class='bx bxs-quote-alt-left'></i>
+          <span>Food is not only served. It is designed to communicate care, culture, wellness, and memorable
+            emotion.</span>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <div class="hero-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="portrait-frame tilt-card">
+          <img src="assets/optimized/intro.webp" alt="Tatyana Chaykovskaya portrait preview" loading="eager"
+            decoding="async" fetchpriority="high" />
+          <span class="portrait-glass"></span>
+        </div>
+        <div class="floating-card card-one"><i class='bx bx-leaf'></i> Functional Nutrition</div>
+        <div class="floating-card card-two"><i class='bx bx-bowl-hot'></i> Culinary Innovation</div>
+        <div class="floating-card card-three"><i class='bx bx-diamond'></i> Premium Creations</div>
+      </div>
+    </section>
+
+    <section class="feature-strip feature-ticker" aria-label="Featured highlights">
+      <div class="ticker-shell reveal">
+        <div class="ticker-track" aria-hidden="true">
+          <span>Gastro Erasmus 2026</span>
+          <span>World Feature</span>
+          <span>Business Women Recognition</span>
+          <span>Culinary R&amp;D Leadership</span>
+          <span>Functional Nutrition Vision</span>
+          <span>Gastro Erasmus 2026</span>
+          <span>World Feature</span>
+          <span>Business Women Recognition</span>
+          <span>Culinary R&amp;D Leadership</span>
+          <span>Functional Nutrition Vision</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="brand-lens" aria-label="Portfolio positioning lens">
+      <div class="lens-card reveal">
+        <span>01</span>
+        <strong>Culinary Identity</strong>
+        <p>Signature taste, plating direction, and visual storytelling.</p>
+      </div>
+      <div class="lens-card reveal">
+        <span>02</span>
+        <strong>Wellness Logic</strong>
+        <p>Healthier choices shaped without losing pleasure or beauty.</p>
+      </div>
+      <div class="lens-card reveal">
+        <span>03</span>
+        <strong>R&amp;D Method</strong>
+        <p>Testing, refinement, consistency, and production readiness.</p>
+      </div>
+      <div class="lens-card reveal">
+        <span>04</span>
+        <strong>Market Impact</strong>
+        <p>Concepts designed for guests, brands, operations, and growth.</p>
+      </div>
+    </section>
+
+    <section class="philosophy section" id="philosophy">
+      <div class="section-heading reveal">
+        <p class="eyebrow">The Philosophy</p>
+        <h2>A refined culinary point of view where taste, wellness, presentation, and purpose work together.</h2>
+      </div>
+      <div class="philosophy-grid visual-philosophy-grid">
+        <article class="story-card philosophy-card reveal">
+          <div class="story-image">
+            <img src="assets/optimized/philosophy/philosophy-01.webp" alt="Emotional culinary inspiration visual"
+              loading="lazy" decoding="async">
+          </div>
+          <span>01</span>
+          <h3>Inspiration</h3>
+          <p>Every concept begins with a clear emotional direction: the occasion, the guest, the texture, the memory,
+            and the feeling the dish should leave behind.</p>
+        </article>
+        <article class="story-card philosophy-card reveal">
+          <div class="story-image">
+            <img src="assets/optimized/philosophy/philosophy-02.webp" alt="Wellness and balance culinary visual"
+              loading="lazy" decoding="async">
+          </div>
+          <span>02</span>
+          <h3>Healthier Eating</h3>
+          <p>A wellness-led approach to food that respects pleasure while creating smarter choices for families,
+            children, and modern hospitality concepts.</p>
+        </article>
+        <article class="story-card philosophy-card reveal">
+          <div class="story-image">
+            <img src="assets/optimized/philosophy/philosophy-03.webp" alt="Creative culinary identity visual"
+              loading="lazy" decoding="async">
+          </div>
+          <span>03</span>
+          <h3>Change</h3>
+          <p>Culinary creativity becomes stronger when it connects to lifestyle, market demand, service experience, and
+            long-term brand value.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="creations section" id="creations">
+      <div class="split-heading reveal">
+        <div>
+          <p class="eyebrow">Signature Creations</p>
+          <h2>Editorial Gallery</h2>
+        </div>
+
+      </div>
+      <div class="gallery-controls reveal" aria-label="Gallery category filters">
+        <button class="gallery-filter active" data-filter="all">All</button>
+        <button class="gallery-filter" data-filter="vision">Vision</button>
+        <button class="gallery-filter" data-filter="rd">R&D</button>
+        <button class="gallery-filter" data-filter="business">Business</button>
+        <button class="gallery-filter" data-filter="story">Story</button>
+      </div>
+
+      <div class="slideshow-shell reveal">
+        <div class="slide-stage">
+          <button class="slide-nav prev" id="prevSlide" aria-label="Previous gallery image"><i
+              class='bx bx-chevron-left'></i></button>
+          <div class="slide-media">
+            <img id="slideImage" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+              data-src="assets/optimized/slideshow/slide-01.webp" alt="Featured culinary creation slideshow"
+              loading="lazy" decoding="async" fetchpriority="low">
+          </div>
+          <button class="slide-nav next" id="nextSlide" aria-label="Next gallery image"><i
+              class='bx bx-chevron-right'></i></button>
+        </div>
+        <div class="slide-info">
+          <p id="slideKicker">Editorial Gallery</p>
+          <h3 id="slideTitle">Signature Visual Identity</h3>
+          <span id="slideCounter">01 / 08</span>
+        </div>
+        <div class="slide-thumbs" id="slideThumbs" aria-label="Gallery slideshow thumbnails"></div>
+      </div>
+    </section>
+
+
+    <section class="signature-film section" id="experience">
+      <div class="experience-shell reveal">
+        <div class="experience-heading">
+          <p class="eyebrow">Signature Experience</p>
+          <h2>From first emotion to final plate.</h2>
+          <p>An immersive culinary story showing how a concept becomes atmosphere, emotion, hospitality, and memorable
+            guest experience.</p>
+        </div>
+
+        <div class="experience-gallery" aria-label="Signature experience visual story">
+          <article class="experience-card experience-card-large reveal">
+            <img src="assets/optimized/experience/Signature Experience.webp"
+              alt="Signature cinematic culinary experience" loading="lazy" decoding="async">
+            <div class="experience-overlay">
+              <span>01 / Signature</span>
+              <h3>Define the emotion</h3>
+              <p>Every creation begins with a feeling, a purpose, and a guest memory.</p>
+            </div>
+          </article>
+
+          <article class="experience-card reveal">
+            <img src="assets/optimized/experience/Premium Hospitality.webp" alt="Premium hospitality dessert experience"
+              loading="lazy" decoding="async">
+            <div class="experience-overlay">
+              <span>02 / Hospitality</span>
+              <h3>Shape the purpose</h3>
+              <p>Food becomes more meaningful when pleasure and nourishment work together.</p>
+            </div>
+          </article>
+
+          <article class="experience-card reveal">
+            <img src="assets/optimized/experience/Culinary Emotion.webp" alt="Culinary emotion and sensory composition"
+              loading="lazy" decoding="async">
+            <div class="experience-overlay">
+              <span>03 / Emotion</span>
+              <h3>Build the memory</h3>
+              <p>Color, texture, aroma, and story turn a dessert into a moment.</p>
+            </div>
+          </article>
+
+          <article class="experience-card reveal">
+            <img src="assets/optimized/experience/Guest Delight.webp" alt="Guest delight dessert presentation"
+              loading="lazy" decoding="async">
+            <div class="experience-overlay">
+              <span>04 / Delight</span>
+              <h3>Deliver the result</h3>
+              <p>A dish should be beautiful, realistic, and valuable to the experience.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="universe section" id="universe">
+      <div class="universe-copy reveal">
+        <p class="eyebrow">Culinary Universe</p>
+        <h2>One personal brand. Many layers of taste, design, wellness, and strategy.</h2>
+        <p>A brand world that connects artistic direction, wellness vision, research, market awareness, and signature
+          creations in one elegant experience.</p>
+      </div>
+      <div class="universe-stage reveal" aria-label="Floating culinary storytelling cards">
+        <article class="universe-card u-card-1" data-depth="0.18">
+          <img src="assets/optimized/universe/Artistic Direction.webp" alt="Signature creation preview" loading="lazy"
+            decoding="async">
+          <span>Artistic Direction</span>
+        </article>
+        <article class="universe-card u-card-2" data-depth="0.28">
+          <img src="assets/optimized/universe/Wellness Vision.webp" alt="Health vision preview" loading="lazy"
+            decoding="async">
+          <span>Wellness Vision</span>
+        </article>
+        <article class="universe-card u-card-3" data-depth="0.22">
+          <img src="assets/optimized/universe/R&D Method.webp" alt="R&D strategy preview" loading="lazy"
+            decoding="async">
+          <span>R&D Method</span>
+        </article>
+        <article class="universe-card u-card-4" data-depth="0.32">
+          <img src="assets/optimized/universe/Market Thinking.webp" alt="Market demand preview" loading="lazy"
+            decoding="async">
+          <span>Market Thinking</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="lab section" id="lab">
+      <div class="lab-shell reveal">
+        <div class="lab-intro clean-lab-intro">
+          <p class="eyebrow">Culinary R&D Lab</p>
+          <h2>Culinary Development Journey</h2>
+          <p>A clear development flow for turning inspiration into dishes that can be tested, refined, served, scaled,
+            and remembered.</p>
+        </div>
+
+        <div class="journey-map clean-journey" aria-label="Culinary development journey">
+          <div class="journey-line" aria-hidden="true"></div>
+
+          <article class="journey-step reveal">
+            <div class="journey-number">01</div>
+            <div class="journey-content">
+              <span>Concept Direction</span>
+              <h3>Idea</h3>
+              <p>Clarify the audience, occasion, story, wellness intention, and the exact experience the concept should
+                deliver.</p>
+            </div>
+          </article>
+
+          <article class="journey-step reveal">
+            <div class="journey-number">02</div>
+            <div class="journey-content">
+              <span>Flavor Architecture</span>
+              <h3>Taste</h3>
+              <p>Build balance through aroma, acidity, sweetness, texture, mouthfeel, contrast, and finish.</p>
+            </div>
+          </article>
+
+          <article class="journey-step reveal">
+            <div class="journey-number">03</div>
+            <div class="journey-content">
+              <span>Visual Language</span>
+              <h3>Shape & Design</h3>
+              <p>Create a recognizable visual language through shape, color, portion, plating, photography, and
+                presentation rhythm.</p>
+            </div>
+          </article>
+
+          <article class="journey-step reveal">
+            <div class="journey-number">04</div>
+            <div class="journey-content">
+              <span>Operational Reality</span>
+              <h3>Technical Execution</h3>
+              <p>Finalize cost, consistency, prep flow, quality checks, team guidance, and real-service execution.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="future section" id="future">
+      <div class="future-bg-word" aria-hidden="true">FUTURE</div>
+      <div class="future-content reveal">
+        <p class="eyebrow">The Future of Food</p>
+        <h2>Designing meals that can carry emotion, culture, wellness, and business value.</h2>
+        <p>This portfolio positions Tatyana as a culinary innovator who connects health, product development, guest
+          experience, brand storytelling, and market impact.</p>
+      </div>
+      <div class="future-cards">
+        <article class="future-card reveal"><i class='bx bx-heart-circle'></i><span>Wellness</span><strong>Wellness with
+            elegance</strong></article>
+        <article class="future-card reveal"><i class='bx bx-test-tube'></i><span>R&D</span><strong>Concept to
+            launch</strong></article>
+        <article class="future-card reveal"><i class='bx bx-line-chart'></i><span>Business</span><strong>Business-aware
+            innovation</strong></article>
+      </div>
+    </section>
+
+
+    <section class="behind section" id="behind">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Behind The Creation</p>
+        <h2>Every dish carries a system, not only a recipe.</h2>
+      </div>
+      <div class="behind-grid">
+        <article class="behind-card reveal"><span>01</span>
+          <h3>Inspiration</h3>
+          <p>Define the emotional story and guest memory behind the creation.</p>
+        </article>
+        <article class="behind-card reveal"><span>02</span>
+          <h3>Flavor Balance</h3>
+          <p>Build harmony between sweetness, acidity, texture, aroma, and finish.</p>
+        </article>
+        <article class="behind-card reveal"><span>03</span>
+          <h3>Wellness Purpose</h3>
+          <p>Shape recipes that support healthier eating without losing pleasure.</p>
+        </article>
+        <article class="behind-card reveal"><span>04</span>
+          <h3>Production Logic</h3>
+          <p>Make the idea scalable, consistent, cost-aware, and operationally realistic.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="recognition section" id="recognition">
+      <div class="recognition-shell reveal">
+        <div class="recognition-copy">
+          <p class="eyebrow">Recognition & Influence</p>
+          <h2>From culinary artistry to global personal branding.</h2>
+          <p>Recognition, media features, competitions, leadership moments, and signature creations presented with the
+            confidence of a luxury personal brand.</p>
+          <div class="recognition-badges">
+            <span>World Feature</span>
+            <span>Gastro Erasmus 2026</span>
+            <span>Business Women Recognition</span>
+            <span>Culinary R&D Leadership</span>
+          </div>
+        </div>
+
+        <div class="recognition-gallery" aria-label="Recognition and awards visuals">
+          <figure class="recognition-figure primary-recognition">
+            <img src="assets/awards/culinary_competition.jpg" alt="Gastro Erasmus culinary competition recognition"
+              loading="lazy" decoding="async">
+            <figcaption>Gastro Erasmus 2026</figcaption>
+          </figure>
+          <figure class="recognition-figure certificate-card">
+            <img src="assets/awards/judge_certification.jpg" alt="WACS judge certificate" loading="lazy"
+              decoding="async">
+            <figcaption>WACS Judge Certificate</figcaption>
+          </figure>
+          <a class="award-link" href="assets/awards/AWARDS.pdf" target="_blank" rel="noopener">
+            <i class='bx bxs-file-pdf'></i>
+            <span>Open Awards PDF</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="blueprint section" id="blueprint">
+      <div class="blueprint-panel reveal">
+        <div>
+          <p class="eyebrow">Recipe Blueprint</p>
+          <h2>Luxury on the surface. Discipline underneath.</h2>
+          <p>A clear framework for presenting signature dishes with concept notes, key ingredients, texture logic,
+            allergen awareness, wellness purpose, cost thinking, and production quality.</p>
+        </div>
+        <div class="blueprint-grid" aria-label="Recipe blueprint layers">
+          <span>Concept</span><span>Ingredients</span><span>Texture</span><span>Allergens</span><span>Nutrition</span><span>Cost</span><span>Production</span><span>Quality</span>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="contact section contact-editorial" id="contact">
+      <div class="contact-shell reveal">
+        <div class="contact-portrait-card">
+          <div class="contact-image-frame">
+            <img src="assets/optimized/outro.webp" alt="Tatyana Chaykovskaya cinematic outro portrait" loading="lazy"
+              decoding="async">
+          </div>
+          <div class="contact-signature">
+            <span>TC</span>
+            <p>Luxury culinary R&amp;D, wellness concepts, and artistic food direction.</p>
+          </div>
+        </div>
+
+        <div class="contact-content">
+          <p class="eyebrow">Contact &amp; Collaborations</p>
+          <h2>Let’s create meaningful culinary experiences.</h2>
+          <p class="contact-lead">Open to culinary innovation projects, wellness concepts, premium hospitality
+            experiences, brand collaborations, and international opportunities.</p>
+
+          <div class="contact-links" aria-label="Contact links">
+            <a class="contact-link" href="https://www.linkedin.com/in/tatyana-chaykovskaya-870b68101/" target="_blank"
+              rel="noopener">
+              <i class='bx bxl-linkedin'></i>
+              <span>
+                <strong>LinkedIn</strong>
+                <small>Professional portfolio &amp; collaborations</small>
+              </span>
+            </a>
+
+            <a class="contact-link" href="https://www.instagram.com/tatyana_chaykovskaya/" target="_blank"
+              rel="noopener">
+              <i class='bx bxl-instagram'></i>
+              <span>
+                <strong>Instagram</strong>
+                <small>Creative culinary universe &amp; visual storytelling</small>
+              </span>
+            </a>
+
+            <a class="contact-link" href="https://www.facebook.com/studiocarving" target="_blank" rel="noopener">
+              <i class='bx bxl-facebook'></i>
+              <span>
+                <strong>Facebook</strong>
+                <small>Community, projects &amp; updates</small>
+              </span>
+            </a>
+
+            <a class="contact-link" href="mailto:mywayislife@gmail.com">
+              <i class='bx bx-envelope'></i>
+              <span>
+                <strong>Email</strong>
+                <small>mywayislife@gmail.com</small>
+              </span>
+            </a>
+
+            <a class="contact-link" href="https://wa.me/380962219623" target="_blank" rel="noopener">
+              <i class='bx bxl-whatsapp'></i>
+              <span>
+                <strong>WhatsApp</strong>
+                <small>Direct collaborations & opportunities</small>
+              </span>
+            </a>
+          </div>
+
+
+        </div>
+      </div>
+    </section>
+    <footer class="site-footer">
+      <p>© 2026 Tatyana Chaykovskaya — All Rights Reserved</p>
+    </footer>
+  </main>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button id="closeLightbox" aria-label="Close image"><i class='bx bx-x'></i></button>
+    <button class="lightbox-arrow lightbox-prev" id="lightboxPrev" aria-label="Previous image"><i
+        class='bx bx-chevron-left'></i></button>
+    <img id="lightboxImg" src="" alt="Expanded portfolio image" />
+    <button class="lightbox-arrow lightbox-next" id="lightboxNext" aria-label="Next image"><i
+        class='bx bx-chevron-right'></i></button>
+    <p id="lightboxTitle"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
