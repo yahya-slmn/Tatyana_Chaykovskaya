@@ -6468,6 +6468,7 @@ main>section:not(.hero) {
 }
 
 @media (max-width: 1200px) {
+
   .system-bridge,
   .consulting-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -6854,6 +6855,7 @@ main>section:not(.hero) {
 }
 
 @media(max-width:1180px) {
+
   .ops-hero,
   .development-shell {
     grid-template-columns: 1fr;
@@ -6871,6 +6873,7 @@ main>section:not(.hero) {
 }
 
 @media(max-width:760px) {
+
   .consulting,
   .development {
     padding-top: 105px;
@@ -7023,6 +7026,7 @@ main>section:not(.hero) {
     transform: translateY(-6px);
   }
 }
+
 @media (min-width: 1025px) and (max-width: 1440px) {
   .universe-hero {
     grid-template-columns: 0.9fr 1.1fr;
@@ -7071,6 +7075,7 @@ main>section:not(.hero) {
     height: 190px !important;
   }
 }
+
 /* =========================================================
    FINAL RESPONSIVE FIXES - Header + Universe Section
    Covers the problematic 1000px - 1300px range and prevents
@@ -7204,10 +7209,37 @@ main>section:not(.hero) {
     height: 230px !important;
   }
 
-  .u-card-1 { left: 6% !important; top: 8% !important; right: auto !important; bottom: auto !important; transform: rotate(-7deg) !important; }
-  .u-card-2 { right: 6% !important; top: 18% !important; left: auto !important; bottom: auto !important; transform: rotate(8deg) !important; }
-  .u-card-3 { left: 20% !important; bottom: 8% !important; right: auto !important; top: auto !important; transform: rotate(5deg) !important; }
-  .u-card-4 { right: 18% !important; bottom: 2% !important; left: auto !important; top: auto !important; transform: rotate(-6deg) !important; }
+  .u-card-1 {
+    left: 6% !important;
+    top: 8% !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: rotate(-7deg) !important;
+  }
+
+  .u-card-2 {
+    right: 6% !important;
+    top: 18% !important;
+    left: auto !important;
+    bottom: auto !important;
+    transform: rotate(8deg) !important;
+  }
+
+  .u-card-3 {
+    left: 20% !important;
+    bottom: 8% !important;
+    right: auto !important;
+    top: auto !important;
+    transform: rotate(5deg) !important;
+  }
+
+  .u-card-4 {
+    right: 18% !important;
+    bottom: 2% !important;
+    left: auto !important;
+    top: auto !important;
+    transform: rotate(-6deg) !important;
+  }
 }
 
 /* Mac 13 inch / 1000-1450px: clean 2x2 cards, no overlap */
@@ -7350,11 +7382,15 @@ main>section:not(.hero) {
   }
 }
 
+
 /* =========================================================
-   FINAL RESPONSIVE REPAIR LAYER
-   Fixes: 750–1180 tablet hero, cropped portrait, hidden portrait
-   around 912–973px, nav overflow from 1000–1300px, Health card text,
-   and Universe cards on all device widths.
+   FINAL OVERRIDE — generated responsive fix
+   Fixes:
+   1) black side edges on phone hero portrait
+   2) hero portrait crop from 400px–900px
+   3) nav overflow between 1000px–1300px
+   4) contact email overflow
+   5) consulting services grid text
    ========================================================= */
 
 html,
@@ -7367,6 +7403,11 @@ img {
   max-width: 100%;
 }
 
+.mobile-hero-portrait {
+  display: none;
+}
+
+/* Header / nav */
 .site-header {
   min-height: 74px;
 }
@@ -7375,13 +7416,12 @@ img {
   border: 0;
   cursor: pointer;
   line-height: 1;
-  z-index: 60;
+  z-index: 70;
 }
 
-/* Desktop header: keep full nav only when there is enough room */
 @media (min-width: 1181px) {
   .site-header {
-    padding: 22px clamp(42px, 6vw, 108px);
+    padding: 22px clamp(42px, 6vw, 108px) !important;
     gap: 24px;
   }
 
@@ -7393,25 +7433,24 @@ img {
   .nav {
     flex: 1 1 auto;
     justify-content: flex-end;
-    gap: clamp(14px, 1.65vw, 28px);
+    gap: clamp(14px, 1.65vw, 28px) !important;
     min-width: 0;
   }
 
   .nav a {
-    font-size: clamp(10px, .82vw, 13px);
-    letter-spacing: .11em;
+    font-size: clamp(10px, .82vw, 13px) !important;
+    letter-spacing: .11em !important;
     white-space: nowrap;
   }
 }
 
-/* Tablet/laptop narrow: use clean hamburger before nav starts cutting */
 @media (max-width: 1180px) {
   .site-header {
-    padding: 18px clamp(40px, 7vw, 72px);
+    padding: 16px clamp(20px, 5vw, 64px) !important;
   }
 
   .brand {
-    font-size: clamp(25px, 3.2vw, 31px);
+    font-size: clamp(24px, 4vw, 31px) !important;
     white-space: nowrap;
   }
 
@@ -7420,15 +7459,15 @@ img {
     place-items: center;
     width: 46px;
     height: 46px;
-    background: rgba(255, 255, 255, .48);
     border-radius: 14px;
+    background: rgba(255, 255, 255, .55);
   }
 
   .nav {
     position: fixed !important;
-    top: 86px !important;
-    left: clamp(24px, 6vw, 72px) !important;
-    right: clamp(24px, 6vw, 72px) !important;
+    top: 82px !important;
+    left: clamp(18px, 5vw, 64px) !important;
+    right: clamp(18px, 5vw, 64px) !important;
     display: none !important;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px 14px;
@@ -7438,7 +7477,7 @@ img {
     border: 1px solid rgba(61, 42, 21, .12);
     box-shadow: 0 28px 80px rgba(77, 55, 31, .18);
     backdrop-filter: blur(18px);
-    z-index: 55;
+    z-index: 60;
   }
 
   .nav.active {
@@ -7448,12 +7487,12 @@ img {
   .nav a {
     padding: 13px 14px;
     border-radius: 16px;
-    background: rgba(255, 255, 255, .46);
-    font-size: 12px;
+    background: rgba(255, 255, 255, .48);
+    font-size: 12px !important;
   }
 }
 
-/* Main hero shared fixes */
+/* Hero */
 .hero {
   overflow: hidden;
 }
@@ -7466,130 +7505,22 @@ img {
   overflow-wrap: anywhere;
 }
 
-/* 1001px–1180px: keep image visible and stop the circle-only problem */
-@media (min-width: 1001px) and (max-width: 1180px) {
+/* Tablet / small laptop: full portrait visible without black edges */
+@media (min-width: 641px) and (max-width: 1000px) {
   .hero.section {
-    min-height: auto;
-    padding: 132px clamp(48px, 7vw, 78px) 70px;
-    display: grid;
-    grid-template-columns: minmax(0, 1.02fr) minmax(340px, .98fr);
-    gap: clamp(30px, 4vw, 48px);
-    align-items: center;
-  }
-
-  .hero h1 {
-    font-size: clamp(72px, 8.1vw, 92px);
-    line-height: .82;
-    max-width: 620px;
-  }
-
-  .hero-text {
-    font-size: clamp(17px, 1.75vw, 20px);
-    line-height: 1.65;
-    max-width: 620px;
-  }
-
-  .hero-actions {
-    gap: 14px;
-  }
-
-  .hero-stats {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 14px;
-    max-width: 720px;
-  }
-
-  .hero-stats div {
-    min-width: 0;
-    padding: 22px 18px;
-  }
-
-  .hero-stats strong {
-    font-size: clamp(29px, 3.5vw, 38px);
-  }
-
-  .hero-stats span {
-    font-size: 12px;
-    line-height: 1.38;
-  }
-
-  .hero-quote {
-    max-width: 720px;
-  }
-
-  .hero-visual {
-    display: grid !important;
-    min-height: 600px;
-    place-items: center;
-    align-self: center;
-  }
-
-  .mobile-hero-portrait {
-    display: none !important;
-  }
-
-  .portrait-frame {
-    display: block !important;
-    width: min(410px, 38vw);
-    height: 560px;
-    border-radius: 48% 48% 28px 28px;
-  }
-
-  .portrait-frame img {
-    object-fit: cover;
-    object-position: center top;
-  }
-
-  .hero-orbit {
-    display: block;
-    width: 520px;
-    height: 520px;
-  }
-
-  .floating-card {
-    display: inline-flex;
-    align-items: center;
-    white-space: nowrap;
-    max-width: 230px;
-    font-size: 13px;
-    padding: 12px 15px;
-  }
-
-  .card-one {
-    top: 72px;
-    left: 10px;
-  }
-
-  .card-two {
-    right: -4px;
-    top: 292px;
-  }
-
-  .card-three {
-    left: 28px;
-    bottom: 98px;
-  }
-
-  .feature-strip {
-    margin-top: 0;
-  }
-}
-
-/* 741px–1000px: tablet layout should be one clean column with portrait below title */
-@media (min-width: 741px) and (max-width: 1000px) {
-  .hero.section {
-    min-height: auto;
+    min-height: auto !important;
     display: flex !important;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    padding: 118px clamp(40px, 7vw, 68px) 60px;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+    padding: 112px clamp(36px, 6vw, 68px) 60px !important;
+    overflow: visible !important;
   }
 
   .hero-copy {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
   }
 
   .hero .eyebrow {
@@ -7600,44 +7531,46 @@ img {
     border-radius: 999px;
     background: rgba(255, 255, 255, .62);
     box-shadow: 0 12px 35px rgba(77, 55, 31, .07);
-    letter-spacing: .22em;
-    font-size: 11px;
-    margin-bottom: 28px;
+    letter-spacing: .20em !important;
+    font-size: 11px !important;
+    margin-bottom: 26px !important;
   }
 
   .hero h1 {
     order: 2;
-    font-size: clamp(64px, 9.6vw, 88px);
-    line-height: .78;
-    max-width: 680px;
-    margin-bottom: 22px;
+    font-size: clamp(58px, 9vw, 84px) !important;
+    line-height: .80 !important;
+    max-width: 760px !important;
+    margin-bottom: 20px !important;
   }
 
   .mobile-hero-portrait {
     order: 3;
     display: block !important;
-    width: 100%;
-    max-width: none;
-    height: clamp(390px, 52vw, 520px);
-    margin: 0 0 24px;
-    border-radius: 32px;
-    overflow: hidden;
-    box-shadow: 0 32px 95px rgba(77, 55, 31, .18);
-    background: #111;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 4 / 3.05 !important;
+    max-height: 560px !important;
+    margin: 0 0 24px !important;
+    border-radius: 32px !important;
+    overflow: hidden !important;
+    background: #eadfce !important;
+    box-shadow: 0 32px 95px rgba(77, 55, 31, .18) !important;
   }
 
   .mobile-hero-portrait img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-    object-position: center 16%;
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+    object-fit: cover !important;
+    object-position: center 18% !important;
+    background: transparent !important;
   }
 
   .hero h2 {
     order: 4;
-    font-size: 18px;
-    margin-top: 0;
+    margin-top: 0 !important;
+    font-size: 18px !important;
   }
 
   .title-line {
@@ -7646,667 +7579,191 @@ img {
 
   .hero-text {
     order: 6;
-    max-width: 760px;
-    font-size: 19px;
-    line-height: 1.7;
+    max-width: 820px !important;
+    font-size: 19px !important;
+    line-height: 1.7 !important;
   }
 
   .hero-actions {
     order: 7;
-    display: grid;
+    display: grid !important;
     grid-template-columns: minmax(0, 260px) minmax(0, 260px);
     gap: 14px;
   }
 
   .hero-stats {
     order: 8;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
-    width: 100%;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 16px !important;
+    width: 100% !important;
   }
 
   .hero-stats div {
-    min-width: 0;
-    padding: 24px 22px;
+    min-width: 0 !important;
+    padding: 22px 18px !important;
   }
 
   .hero-stats strong {
-    font-size: 34px;
+    font-size: clamp(30px, 4vw, 38px) !important;
   }
 
   .hero-stats span {
-    font-size: 12px;
-    line-height: 1.35;
+    font-size: 12px !important;
+    line-height: 1.35 !important;
   }
 
   .hero-quote {
     order: 9;
-    max-width: none;
+    max-width: none !important;
   }
 
   .hero-visual {
     display: none !important;
   }
-
-  .feature-strip {
-    margin-top: 0;
-    padding-top: 0;
-  }
 }
 
-/* Around 912/973px: avoid the blank circle and keep portrait visible */
-@media (min-width: 860px) and (max-width: 1000px) {
-  .mobile-hero-portrait {
-    height: clamp(410px, 49vw, 500px);
-  }
-
-  .mobile-hero-portrait img {
-    object-position: center 12%;
-  }
-}
-
-/* 641px–740px: softer tablet/mobile transition */
-@media (min-width: 641px) and (max-width: 740px) {
-  .site-header {
-    padding: 17px 5.5vw;
-  }
-
-  .hero.section {
-    min-height: auto;
-    padding: 112px 5.5vw 56px;
-    display: flex !important;
-    flex-direction: column;
-  }
-
-  .hero-copy {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .hero h1 {
-    order: 2;
-    font-size: clamp(58px, 11vw, 76px);
-    line-height: .8;
-    margin-bottom: 18px;
-  }
-
-  .mobile-hero-portrait {
-    order: 3;
-    display: block !important;
-    height: 430px;
-    border-radius: 30px;
-    overflow: hidden;
-    background: #111;
-    box-shadow: 0 28px 80px rgba(77, 55, 31, .16);
-    margin-bottom: 22px;
-  }
-
-  .mobile-hero-portrait img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-    object-position: center 14%;
-  }
-
-  .hero h2 { order: 4; }
-  .title-line { order: 5; }
-  .hero-text { order: 6; }
-  .hero-actions { order: 7; }
-  .hero-stats { order: 8; }
-  .hero-quote { order: 9; }
-
-  .hero-visual {
-    display: none !important;
-  }
-
-  .hero-stats {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .hero-stats div {
-    min-width: 0;
-    padding: 20px 16px;
-  }
-}
-
-/* Phone */
+/* Phone hero: remove black side bars using cover, keep face visible */
 @media (max-width: 640px) {
   .site-header {
-    min-height: 68px;
-    padding: 15px 5vw;
+    min-height: 66px !important;
+    padding: 14px 5vw !important;
   }
 
   .brand {
-    font-size: clamp(23px, 6.5vw, 28px);
+    font-size: clamp(22px, 6.3vw, 28px) !important;
   }
 
   .nav {
-    top: 76px !important;
+    top: 74px !important;
     left: 5vw !important;
     right: 5vw !important;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
 
   .hero.section {
-    min-height: auto;
-    padding: 100px 5vw 54px;
+    min-height: auto !important;
     display: flex !important;
-    flex-direction: column;
+    flex-direction: column !important;
+    padding: 92px 5vw 52px !important;
+    overflow: visible !important;
   }
 
   .hero-copy {
-    display: flex;
-    flex-direction: column;
+    display: flex !important;
+    flex-direction: column !important;
   }
 
   .hero .eyebrow {
     order: 1;
-    font-size: 10px;
-    letter-spacing: .18em;
-    line-height: 1.5;
-    margin-bottom: 18px;
+    font-size: 9px !important;
+    letter-spacing: .14em !important;
+    line-height: 1.5 !important;
+    margin-bottom: 14px !important;
   }
 
   .hero h1 {
     order: 2;
-    font-size: clamp(46px, 14vw, 64px) !important;
-    line-height: .82;
-    margin-bottom: 18px;
+    font-size: clamp(46px, 14vw, 62px) !important;
+    line-height: .84 !important;
+    margin-bottom: 16px !important;
   }
 
   .mobile-hero-portrait {
     order: 3;
     display: block !important;
-    height: clamp(330px, 72vw, 430px);
-    border-radius: 28px;
-    overflow: hidden;
-    background: #111;
-    box-shadow: 0 24px 72px rgba(77, 55, 31, .16);
-    margin-bottom: 22px;
-  }
-
-  .mobile-hero-portrait img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 15%;
-  }
-
-  .hero h2 {
-    order: 4;
-    margin-top: 0;
-    font-size: 17px;
-  }
-
-  .title-line { order: 5; }
-
-  .hero-text {
-    order: 6;
-    font-size: 17px;
-    line-height: 1.7;
-    margin: 22px 0;
-  }
-
-  .hero-actions {
-    order: 7;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
-    width: 100%;
-  }
-
-  .btn {
-    width: 100%;
-  }
-
-  .hero-stats {
-    order: 8;
-    grid-template-columns: 1fr;
-    gap: 12px;
-    margin-top: 28px;
-  }
-
-  .hero-stats div {
-    padding: 22px;
-  }
-
-  .hero-stats span {
-    overflow-wrap: normal;
-  }
-
-  .hero-quote {
-    order: 9;
-    padding: 18px;
-  }
-
-  .hero-visual {
-    display: none !important;
-  }
-
-  .feature-strip {
-    margin-top: 0;
-    padding: 0 5vw 36px;
-  }
-}
-
-/* Very small phone refinements */
-@media (max-width: 430px) {
-  .mobile-hero-portrait {
-    height: 350px;
-  }
-
-  .hero h1 {
-    font-size: clamp(42px, 13.5vw, 56px) !important;
-  }
-
-  .hero-text {
-    font-size: 16px;
-  }
-}
-
-/* Health stat: more elegant and never ugly/cut */
-.hero-stats div:nth-child(3) strong {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 700;
-  color: #9b7041;
-  letter-spacing: -.035em;
-}
-
-/* Universe responsive rebuild */
-.universe {
-  overflow: hidden;
-}
-
-.universe-card span {
-  display: block;
-  white-space: normal;
-  overflow-wrap: normal;
-  line-height: 1.15;
-}
-
-/* Large desktop: keep editorial floating layout */
-@media (min-width: 1301px) {
-  .universe-stage {
-    min-height: 720px;
-  }
-
-  .u-card-1 {
-    top: 28px;
-    left: 5%;
-  }
-
-  .u-card-2 {
-    top: 110px;
-    right: 3%;
-  }
-
-  .u-card-3 {
-    left: 17%;
-    bottom: 64px;
-  }
-
-  .u-card-4 {
-    right: 16%;
-    bottom: 18px;
-  }
-}
-
-/* Mac 13 / 1000-1300: no overlap, no cut, stable 2x2 cards */
-@media (min-width: 1001px) and (max-width: 1300px) {
-  .universe.section {
-    min-height: auto;
-    grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
-    gap: clamp(28px, 4vw, 46px);
-    padding: 118px clamp(46px, 7vw, 80px) 82px;
-    align-items: center;
-  }
-
-  .universe-copy h2 {
-    font-size: clamp(62px, 7.2vw, 84px);
-    line-height: .92;
-  }
-
-  .universe-copy p:not(.eyebrow) {
-    max-width: 520px;
-    font-size: 18px;
-  }
-
-  .universe-stage {
-    min-height: auto;
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px;
-    align-content: center;
-    perspective: none;
-  }
-
-  .universe-stage::before {
-    inset: 5% 3%;
-    opacity: .45;
-  }
-
-  .universe-card,
-  .u-card-1,
-  .u-card-2,
-  .u-card-3,
-  .u-card-4 {
-    position: relative !important;
-    inset: auto !important;
-    left: auto !important;
-    right: auto !important;
-    top: auto !important;
-    bottom: auto !important;
     width: 100% !important;
-    max-width: none;
-    transform: none !important;
-    padding: 11px;
-    border-radius: 26px;
-  }
-
-  .universe-card img {
-    height: clamp(150px, 16vw, 190px) !important;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 20px;
-  }
-
-  .universe-card span {
-    font-size: 11px;
-    letter-spacing: .07em;
-    padding: 10px 4px 3px;
-  }
-}
-
-/* Tablet universe: cards become clean responsive grid under text */
-@media (min-width: 741px) and (max-width: 1000px) {
-  .universe.section {
-    min-height: auto;
-    display: block !important;
-    padding: 105px clamp(40px, 7vw, 68px) 70px;
-  }
-
-  .universe-copy {
-    max-width: 760px;
-    margin-bottom: 36px;
-  }
-
-  .universe-copy h2 {
-    font-size: clamp(58px, 9.4vw, 84px);
-  }
-
-  .universe-stage {
-    min-height: auto;
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px;
-    perspective: none;
-  }
-
-  .universe-stage::before {
-    display: none;
-  }
-
-  .universe-card,
-  .u-card-1,
-  .u-card-2,
-  .u-card-3,
-  .u-card-4 {
-    position: relative !important;
-    inset: auto !important;
-    width: 100% !important;
-    transform: none !important;
-  }
-
-  .universe-card img {
-    height: 230px !important;
-    width: 100%;
-    object-fit: cover;
-  }
-}
-
-/* Mobile universe */
-@media (max-width: 740px) {
-  .universe.section {
-    min-height: auto;
-    display: block !important;
-    padding: 96px 5vw 60px;
-  }
-
-  .universe-copy h2 {
-    font-size: clamp(46px, 12vw, 64px);
-    line-height: .94;
-  }
-
-  .universe-copy p:not(.eyebrow) {
-    font-size: 17px;
-    line-height: 1.7;
-  }
-
-  .universe-stage {
-    min-height: auto;
-    display: grid !important;
-    grid-template-columns: 1fr;
-    gap: 16px;
-    margin-top: 30px;
-    perspective: none;
-  }
-
-  .universe-stage::before {
-    display: none;
-  }
-
-  .universe-card,
-  .u-card-1,
-  .u-card-2,
-  .u-card-3,
-  .u-card-4 {
-    position: relative !important;
-    inset: auto !important;
-    width: 100% !important;
-    transform: none !important;
-    padding: 12px;
-  }
-
-  .universe-card img {
-    height: 240px !important;
-    width: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-}
-
-@media (max-width: 420px) {
-  .universe-card img {
-    height: 210px !important;
-  }
-}
-
-/* =========================================================
-   FINAL PATCH 02 — Hero visible 400px–900px + consulting list polish
-   ========================================================= */
-
-@media (max-width: 1000px) {
-  .hero.section {
-    overflow: visible !important;
-  }
-
-  .hero-visual {
-    display: none !important;
-  }
-
-  .mobile-hero-portrait {
-    display: block !important;
-    width: 100% !important;
-    max-width: none !important;
+    height: clamp(350px, 92vw, 440px) !important;
+    aspect-ratio: auto !important;
+    border-radius: 28px !important;
     overflow: hidden !important;
-    background: #111 !important;
-    box-shadow: 0 28px 85px rgba(77, 55, 31, .17) !important;
+    background: #eadfce !important;
+    box-shadow: 0 24px 72px rgba(77, 55, 31, .16) !important;
+    margin: 0 0 22px !important;
   }
 
   .mobile-hero-portrait img {
     width: 100% !important;
     height: 100% !important;
     display: block !important;
-    object-fit: contain !important;
-    object-position: center center !important;
-    background: #111 !important;
-  }
-}
-
-/* 741px–900px: full portrait, no face crop */
-@media (min-width: 741px) and (max-width: 900px) {
-  .hero.section {
-    padding: 112px 5vw 58px !important;
+    object-fit: cover !important;
+    object-position: center top !important;
+    background: transparent !important;
+    border-radius: inherit !important;
   }
 
-  .hero h1 {
-    font-size: clamp(58px, 9vw, 78px) !important;
-    margin-bottom: 20px !important;
+  .hero h2 {
+    order: 4;
+    margin-top: 0 !important;
+    font-size: 17px !important;
   }
 
-  .mobile-hero-portrait {
-    height: auto !important;
-    aspect-ratio: 4 / 3 !important;
-    border-radius: 30px !important;
+  .title-line {
+    order: 5;
   }
 
   .hero-text {
-    max-width: 100% !important;
-  }
-
-  .hero-stats {
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  }
-
-  .hero-stats div {
-    min-width: 0 !important;
-    padding: 20px 16px !important;
-  }
-}
-
-/* 501px–740px: full portrait with comfortable scale */
-@media (min-width: 501px) and (max-width: 740px) {
-  .hero.section {
-    padding: 104px 5vw 54px !important;
-  }
-
-  .hero h1 {
-    font-size: clamp(52px, 10vw, 70px) !important;
-    margin-bottom: 18px !important;
-  }
-
-  .mobile-hero-portrait {
-    height: auto !important;
-    aspect-ratio: 4 / 3.15 !important;
-    border-radius: 28px !important;
+    order: 6;
+    font-size: 16.5px !important;
+    line-height: 1.7 !important;
+    margin: 22px 0 !important;
   }
 
   .hero-actions {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    order: 7;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+
+  .hero-actions .btn,
+  .btn {
+    width: 100%;
   }
 
   .hero-stats {
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    order: 8;
+    grid-template-columns: 1fr !important;
     gap: 12px !important;
+    margin-top: 28px !important;
   }
 
   .hero-stats div {
-    min-width: 0 !important;
-    padding: 18px 14px !important;
-  }
-
-  .hero-stats strong {
-    font-size: clamp(28px, 5vw, 36px) !important;
+    padding: 22px !important;
   }
 
   .hero-stats span {
-    font-size: 11px !important;
-    line-height: 1.35 !important;
+    overflow-wrap: normal !important;
+  }
+
+  .hero-quote {
+    order: 9;
+    padding: 18px !important;
+  }
+
+  .hero-visual {
+    display: none !important;
+  }
+
+  .feature-strip {
+    margin-top: 0 !important;
+    padding: 0 5vw 36px !important;
   }
 }
 
-/* 400px–500px: full portrait, not cropped */
-@media (min-width: 400px) and (max-width: 500px) {
-  .hero.section {
-    padding: 96px 5vw 50px !important;
-  }
-
-  .hero h1 {
-    font-size: clamp(45px, 13vw, 58px) !important;
-    line-height: .84 !important;
-    margin-bottom: 18px !important;
-  }
-
-  .hero .eyebrow {
-    font-size: 9.5px !important;
-    letter-spacing: .15em !important;
-  }
-
+@media (max-width: 430px) {
   .mobile-hero-portrait {
-    height: auto !important;
-    aspect-ratio: 3 / 2.75 !important;
+    height: clamp(340px, 96vw, 390px) !important;
     border-radius: 24px !important;
   }
 
-  .hero-actions {
-    grid-template-columns: 1fr !important;
-  }
-
-  .hero-stats {
-    grid-template-columns: 1fr !important;
+  .hero h1 {
+    font-size: clamp(44px, 13.4vw, 58px) !important;
   }
 }
 
-/* Small phones below 400px */
-@media (max-width: 399px) {
-  .hero.section {
-    padding: 92px 5vw 48px !important;
-  }
-
-  .mobile-hero-portrait {
-    height: auto !important;
-    aspect-ratio: 3 / 2.9 !important;
-    border-radius: 22px !important;
-  }
-}
-
-/* Consulting / blueprint services requested by Tatyana */
-.blueprint-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  align-items: stretch;
-}
-
-.blueprint-grid span {
-  text-align: center;
-  line-height: 1.35 !important;
-  padding: 16px 18px !important;
-  min-height: 78px !important;
-  letter-spacing: .06em !important;
-}
-
-@media (min-width: 1181px) {
-  .blueprint-grid {
-    grid-template-columns: repeat(2, minmax(220px, 1fr)) !important;
-  }
-}
-
-@media (max-width: 820px) {
-  .blueprint-panel {
-    grid-template-columns: 1fr !important;
-  }
-
-  .blueprint-grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  .blueprint-grid span {
-    min-height: 64px !important;
-  }
-}
-
+/* Contact email/card overflow fix */
 @media (max-width: 1100px) {
-
   .contact-grid {
     grid-template-columns: 1fr !important;
     gap: 34px !important;
@@ -8340,7 +7797,6 @@ img {
 }
 
 @media (max-width: 700px) {
-
   .contact-links {
     grid-template-columns: 1fr !important;
   }
@@ -8351,5 +7807,33 @@ img {
 
   .contact-link p {
     font-size: 13px !important;
+  }
+}
+
+/* Consulting services */
+.blueprint-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  align-items: stretch;
+}
+
+.blueprint-grid span {
+  text-align: center !important;
+  line-height: 1.35 !important;
+  padding: 16px 18px !important;
+  min-height: 78px !important;
+  letter-spacing: .06em !important;
+}
+
+@media (max-width: 820px) {
+  .blueprint-panel {
+    grid-template-columns: 1fr !important;
+  }
+
+  .blueprint-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .blueprint-grid span {
+    min-height: 64px !important;
   }
 }
