@@ -8748,11 +8748,11 @@ img {
     border-radius: 20px;
     border: 1px solid rgba(216, 183, 123, .2);
     background:
-      radial-gradient(circle at 30% 22%, rgba(255,255,255,.92), transparent 34%),
-      linear-gradient(135deg, rgba(255,255,255,.9), rgba(243,234,223,.76));
+      radial-gradient(circle at 30% 22%, rgba(255, 255, 255, .92), transparent 34%),
+      linear-gradient(135deg, rgba(255, 255, 255, .9), rgba(243, 234, 223, .76));
     box-shadow:
-      0 18px 45px rgba(77,55,31,.12),
-      inset 0 1px 0 rgba(255,255,255,.78);
+      0 18px 45px rgba(77, 55, 31, .12),
+      inset 0 1px 0 rgba(255, 255, 255, .78);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     cursor: pointer;
@@ -8769,8 +8769,8 @@ img {
   .culinary-menu:hover {
     transform: translateY(-2px);
     box-shadow:
-      0 24px 60px rgba(77,55,31,.16),
-      inset 0 1px 0 rgba(255,255,255,.82);
+      0 24px 60px rgba(77, 55, 31, .16),
+      inset 0 1px 0 rgba(255, 255, 255, .82);
   }
 
   .nav {
@@ -8867,13 +8867,23 @@ img {
 }
 
 @keyframes orbitBallOne {
-  from { transform: rotate(0deg) translateX(135px) rotate(0deg); }
-  to { transform: rotate(360deg) translateX(135px) rotate(-360deg); }
+  from {
+    transform: rotate(0deg) translateX(135px) rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg) translateX(135px) rotate(-360deg);
+  }
 }
 
 @keyframes orbitBallTwo {
-  from { transform: rotate(180deg) translateX(135px) rotate(-180deg); }
-  to { transform: rotate(540deg) translateX(135px) rotate(-540deg); }
+  from {
+    transform: rotate(180deg) translateX(135px) rotate(-180deg);
+  }
+
+  to {
+    transform: rotate(540deg) translateX(135px) rotate(-540deg);
+  }
 }
 
 @keyframes loaderLineRun {
@@ -8881,10 +8891,12 @@ img {
     width: 0%;
     opacity: .35;
   }
+
   55% {
     width: 100%;
     opacity: 1;
   }
+
   100% {
     width: 100%;
     opacity: .45;
@@ -8938,6 +8950,7 @@ img {
   from {
     transform: rotate(0deg) translateX(var(--loader-radius)) rotate(0deg);
   }
+
   to {
     transform: rotate(360deg) translateX(var(--loader-radius)) rotate(-360deg);
   }
@@ -8947,6 +8960,7 @@ img {
   from {
     transform: rotate(180deg) translateX(var(--loader-radius)) rotate(-180deg);
   }
+
   to {
     transform: rotate(540deg) translateX(var(--loader-radius)) rotate(-540deg);
   }
@@ -8958,16 +8972,19 @@ img {
     transform: translateX(-8%);
     opacity: .28;
   }
+
   48% {
     width: 68%;
     transform: translateX(18%);
     opacity: 1;
   }
+
   78% {
     width: 100%;
     transform: translateX(0);
     opacity: .86;
   }
+
   100% {
     width: 100%;
     transform: translateX(0);
@@ -9120,5 +9137,225 @@ img {
 
   .universe-card img {
     height: 166px !important;
+  }
+}
+
+@media (min-width: 1001px) and (max-width: 1550px) {
+  .universe {
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 24px;
+    padding-top: 105px;
+    padding-bottom: 70px;
+  }
+
+  .universe-copy h2 {
+    font-size: clamp(64px, 5.4vw, 82px);
+    max-width: 520px;
+    line-height: .94;
+  }
+
+  .universe-copy p:not(.eyebrow) {
+    max-width: 500px;
+    font-size: 17px;
+    line-height: 1.65;
+  }
+
+  .universe-stage {
+    min-height: 560px;
+    transform: scale(.86);
+    transform-origin: center;
+  }
+
+  .universe-card {
+    width: 220px;
+  }
+
+  .universe-card img {
+    height: 180px;
+  }
+
+  .u-card-1 {
+    left: 8%;
+    top: 4%;
+  }
+
+  .u-card-2 {
+    right: 8%;
+    top: 14%;
+  }
+
+  .u-card-3 {
+    left: 22%;
+    bottom: 14%;
+  }
+
+  .u-card-4 {
+    right: 18%;
+    bottom: 8%;
+  }
+}
+
+/* ========================================================================== */
+/* FINAL AUTHORITATIVE FIX — Universe desktop spacing                         */
+/* Fixes only the awkward 1450px → large desktop range where the              */
+/* "Market Thinking" card overlaps the "R&D Method" card.                    */
+/* Keep this block at the VERY END of styles.css.                             */
+/* ========================================================================== */
+
+@media (min-width: 1451px) and (max-width: 1800px) {
+  .universe {
+    grid-template-columns: .92fr 1.08fr !important;
+    gap: clamp(34px, 3vw, 58px) !important;
+    padding-top: 120px !important;
+    padding-bottom: 115px !important;
+    min-height: 100vh !important;
+    align-items: center !important;
+    overflow: hidden !important;
+  }
+
+  .universe-copy {
+    max-width: 610px !important;
+  }
+
+  .universe-copy h2 {
+    font-size: clamp(76px, 5.85vw, 104px) !important;
+    line-height: .92 !important;
+    letter-spacing: -.058em !important;
+    max-width: 610px !important;
+  }
+
+  .universe-copy p:not(.eyebrow) {
+    max-width: 540px !important;
+    font-size: 18px !important;
+    line-height: 1.72 !important;
+  }
+
+  .universe-stage {
+    min-height: 640px !important;
+    width: min(760px, 100%) !important;
+    justify-self: end !important;
+    transform: none !important;
+    transform-origin: center right !important;
+  }
+
+  .universe-stage::before {
+    inset: 8% 6% 10% 2% !important;
+  }
+
+  .universe-card {
+    width: 232px !important;
+    padding: 11px !important;
+    border-radius: 28px !important;
+  }
+
+  .universe-card img {
+    height: 188px !important;
+    border-radius: 20px !important;
+  }
+
+  .universe-card span {
+    padding: 12px 8px 4px !important;
+    font-size: 10px !important;
+    letter-spacing: .075em !important;
+  }
+
+  .u-card-1 {
+    left: 6% !important;
+    top: 5% !important;
+    transform: rotate(-6deg) !important;
+    z-index: 3 !important;
+  }
+
+  .u-card-2 {
+    right: 3% !important;
+    top: 13% !important;
+    transform: rotate(6deg) !important;
+    z-index: 4 !important;
+  }
+
+  .u-card-3 {
+    left: 20% !important;
+    bottom: 5% !important;
+    transform: rotate(4deg) !important;
+    z-index: 2 !important;
+  }
+
+  .u-card-4 {
+    right: 13% !important;
+    bottom: -2% !important;
+    transform: rotate(-5deg) !important;
+    z-index: 5 !important;
+  }
+}
+
+/* Slightly tighter version for the exact 1450–1600px laptop/full-browser zone. */
+@media (min-width: 1451px) and (max-width: 1600px) {
+  .universe {
+    grid-template-columns: .88fr 1.12fr !important;
+    gap: 28px !important;
+    padding-top: 112px !important;
+    padding-bottom: 105px !important;
+  }
+
+  .universe-copy h2 {
+    font-size: clamp(70px, 5.35vw, 88px) !important;
+    max-width: 540px !important;
+  }
+
+  .universe-copy p:not(.eyebrow) {
+    max-width: 500px !important;
+    font-size: 17px !important;
+  }
+
+  .universe-stage {
+    width: 690px !important;
+    min-height: 600px !important;
+    transform: none !important;
+  }
+
+  .universe-card {
+    width: 210px !important;
+  }
+
+  .universe-card img {
+    height: 170px !important;
+  }
+
+  .u-card-1 {
+    left: 6% !important;
+    top: 4% !important;
+  }
+
+  .u-card-2 {
+    right: 2% !important;
+    top: 15% !important;
+  }
+
+  .u-card-3 {
+    left: 21% !important;
+    bottom: 6% !important;
+  }
+
+  .u-card-4 {
+    right: 11% !important;
+    bottom: -3% !important;
+  }
+}
+
+/* Ultra-wide desktop: keep the original rich visual, but preserve separation. */
+@media (min-width: 1801px) {
+  .universe-stage {
+    width: min(860px, 100%) !important;
+    justify-self: end !important;
+  }
+
+  .u-card-3 {
+    left: 16% !important;
+    bottom: 5% !important;
+  }
+
+  .u-card-4 {
+    right: 14% !important;
+    bottom: 0 !important;
   }
 }
