@@ -8032,3 +8032,126 @@ img {
     min-height: 460px !important;
   }
 }
+
+/* ---------- FINAL CONSULTING FIX ---------- */
+
+.consulting-layout {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 38px;
+  align-items: stretch;
+}
+
+.consulting-panel {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.consulting-panel h2 {
+  overflow-wrap: break-word;
+}
+
+.consulting-panel p {
+  overflow-wrap: break-word;
+}
+
+.consulting-services {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(180px, 1fr));
+  gap: 16px;
+  align-content: start;
+}
+
+.consulting-service {
+  position: relative;
+
+  min-height: 132px;
+  padding: 24px 18px;
+
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.82),
+      rgba(243,234,223,.72)
+    );
+
+  border: 1px solid rgba(216,183,123,.18);
+
+  box-shadow:
+    0 18px 50px rgba(77,55,31,.08);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  font-size: 15px;
+  line-height: 1.4;
+  font-weight: 800;
+  letter-spacing: .04em;
+
+  color: #8a6438;
+
+  overflow-wrap: break-word;
+  word-break: normal;
+
+  transition:
+    transform .3s ease,
+    background .3s ease,
+    color .3s ease,
+    box-shadow .3s ease;
+}
+
+.consulting-service:hover,
+.consulting-service.active {
+
+  background: #1f1c19;
+  color: #fff;
+
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 26px 70px rgba(35,33,31,.18);
+}
+
+.consulting-service:last-child {
+  grid-column: 1 / 3;
+}
+
+@media (max-width: 1100px) {
+
+  .consulting-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .consulting-services {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .consulting-service {
+    min-height: 118px;
+    font-size: 14px;
+    padding: 20px 16px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .consulting-services {
+    grid-template-columns: 1fr;
+  }
+
+  .consulting-service,
+  .consulting-service:last-child {
+    grid-column: auto;
+  }
+
+  .consulting-service {
+    min-height: auto;
+    padding: 22px 18px;
+    font-size: 14px;
+  }
+}
