@@ -9,16 +9,34 @@ const spotlight = document.getElementById('luxurySpotlight');
 function setMenuState(isOpen) {
   nav?.classList.toggle('active', isOpen);
   menuBtn?.setAttribute('aria-expanded', String(isOpen));
+  menuBtn?.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
   document.body.classList.toggle('menu-open', isOpen);
-  const icon = menuBtn?.querySelector('i');
-  if (icon) {
-    icon.classList.toggle('bx-menu', !isOpen);
-    icon.classList.toggle('bx-x', isOpen);
-  }
 }
 menuBtn?.setAttribute('aria-expanded', 'false');
 menuBtn?.addEventListener('click', () => setMenuState(!nav?.classList.contains('active')));
-document.querySelectorAll('.nav a').forEach(a => a.addEventListener('click', () => setMenuState(false)));
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    const href = link.getAttribute('href');
+    if (!href || href === '#') return;
+
+    const target = document.querySelector(href);
+    if (!target) return;
+
+    e.preventDefault();
+    setMenuState(false);
+
+    const headerHeight = document.querySelector('.site-header')?.offsetHeight || 0;
+    const targetTop = target.getBoundingClientRect().top + window.scrollY - headerHeight - 12;
+
+    window.scrollTo({
+      top: Math.max(targetTop, 0),
+      behavior: 'smooth'
+    });
+
+    window.history.pushState(null, '', href);
+    window.setTimeout(setActiveNav, 450);
+  });
+});
 window.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuState(false); });
 window.addEventListener('resize', () => { if (window.innerWidth > 1180) setMenuState(false); });
 
@@ -47,10 +65,30 @@ if (canUsePointerFX) {
   }, { passive: true });
 }
 
+const loaderStartTime = performance.now();
+const minimumLoaderTime = 1500;
+
+if (loaderLine) {
+  requestAnimationFrame(() => {
+    loaderLine.style.width = '72%';
+  });
+}
+
 window.addEventListener('load', () => {
-  if (loaderLine) loaderLine.style.width = '100%';
-  setTimeout(() => loader?.classList.add('hide'), 180);
-  setTimeout(() => loader?.remove(), 850);
+  const elapsed = performance.now() - loaderStartTime;
+  const delay = Math.max(minimumLoaderTime - elapsed, 0);
+
+  window.setTimeout(() => {
+    if (loaderLine) loaderLine.style.width = '100%';
+  }, Math.max(delay - 260, 0));
+
+  window.setTimeout(() => {
+    loader?.classList.add('hide');
+  }, delay);
+
+  window.setTimeout(() => {
+    loader?.remove();
+  }, delay + 850);
 });
 
 let scrollFrame = null;
@@ -274,36 +312,58 @@ function initGallery(shouldAutoplay = true) {
 }
 
 
-/* ---------- Mobile touch swipe gallery with soft page-turn effect ---------- */
+/* ---------- Mobile touch swipe gallery with controlled page-turn effect ---------- */
 const slideStageTouch = document.querySelector('.slide-stage');
 let galleryTouchStartX = 0;
 let galleryTouchStartY = 0;
-let galleryTouchLocked = false;
+let gallerySwipeLock = false;
 
-function playPageTurn(direction) {
-  if (!slideStageTouch) return;
+function playPageTurn(direction, changeSlide) {
+  if (!slideStageTouch) {
+    changeSlide();
+    return;
+  }
+
   slideStageTouch.classList.remove('swipe-next', 'swipe-prev');
   void slideStageTouch.offsetWidth;
   slideStageTouch.classList.add(direction === 'next' ? 'swipe-next' : 'swipe-prev');
+
+  window.setTimeout(() => {
+    changeSlide();
+  }, 260);
+
   window.setTimeout(() => {
     slideStageTouch.classList.remove('swipe-next', 'swipe-prev');
-  }, 520);
+  }, 760);
+}
+
+function safeSwipeSlide(direction) {
+  if (gallerySwipeLock) return;
+
+  gallerySwipeLock = true;
+  clearInterval(autoSlideTimer);
+
+  playPageTurn(direction, () => {
+    if (direction === 'next') {
+      goToSlide(currentSlide + 1, false);
+    } else {
+      goToSlide(currentSlide - 1, false);
+    }
+  });
+
+  window.setTimeout(() => {
+    gallerySwipeLock = false;
+  }, 820);
+
+  window.setTimeout(() => {
+    if (galleryInView) startAutoSlide();
+  }, 3600);
 }
 
 slideStageTouch?.addEventListener('touchstart', (e) => {
   const touch = e.changedTouches[0];
   galleryTouchStartX = touch.clientX;
   galleryTouchStartY = touch.clientY;
-  galleryTouchLocked = false;
-}, { passive: true });
-
-slideStageTouch?.addEventListener('touchmove', (e) => {
-  const touch = e.changedTouches[0];
-  const diffX = touch.clientX - galleryTouchStartX;
-  const diffY = touch.clientY - galleryTouchStartY;
-  if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 18) {
-    galleryTouchLocked = true;
-  }
 }, { passive: true });
 
 slideStageTouch?.addEventListener('touchend', (e) => {
@@ -311,16 +371,10 @@ slideStageTouch?.addEventListener('touchend', (e) => {
   const diffX = touch.clientX - galleryTouchStartX;
   const diffY = touch.clientY - galleryTouchStartY;
 
-  if (!galleryTouchLocked && Math.abs(diffX) < 56) return;
-  if (Math.abs(diffX) < 56 || Math.abs(diffX) < Math.abs(diffY)) return;
+  if (Math.abs(diffX) < 64 || Math.abs(diffX) < Math.abs(diffY) * 1.25) return;
 
-  if (diffX < 0) {
-    playPageTurn('next');
-    goToSlide(currentSlide + 1, true);
-  } else {
-    playPageTurn('prev');
-    goToSlide(currentSlide - 1, true);
-  }
+  if (diffX < 0) safeSwipeSlide('next');
+  else safeSwipeSlide('prev');
 }, { passive: true });
 
 
@@ -487,7 +541,7 @@ document.addEventListener('visibilitychange', () => {
 // Active navigation state while scrolling.
 const pageSections = [...document.querySelectorAll('main section[id]')];
 const pageNavLinks = [...document.querySelectorAll('.nav a')];
-function setActiveNav(){
+function setActiveNav() {
   const y = window.scrollY + window.innerHeight * 0.35;
   let current = pageSections[0]?.id;
   pageSections.forEach(section => {
@@ -501,7 +555,7 @@ setActiveNav();
 // Scroll-driven cinematic film card motion.
 const filmSection = document.querySelector('.signature-film');
 const filmTrack = document.querySelector('.film-track');
-function updateFilmMotion(){
+function updateFilmMotion() {
   if (!filmSection || !filmTrack || window.innerWidth < 900) return;
   const rect = filmSection.getBoundingClientRect();
   const progress = Math.min(Math.max(-rect.top / (rect.height - window.innerHeight), 0), 1);
@@ -519,22 +573,3 @@ document.querySelectorAll('.film-card, .future-card, .behind-card, .journey-step
 
 // Experience section is now a stable editorial mosaic, so no horizontal scroll transform is needed.
 if (filmTrack) filmTrack.style.transform = 'none';
-
-let touchStartX = 0;
-let touchEndX = 0;
-
-const slideStage = document.querySelector('.slide-stage');
-
-slideStage?.addEventListener('touchstart', (e) => {
-  touchStartX = e.changedTouches[0].screenX;
-}, { passive: true });
-
-slideStage?.addEventListener('touchend', (e) => {
-  touchEndX = e.changedTouches[0].screenX;
-  const diff = touchStartX - touchEndX;
-
-  if (Math.abs(diff) > 50) {
-    if (diff > 0) goToSlide(currentSlide + 1, true);
-    else goToSlide(currentSlide - 1, true);
-  }
-}, { passive: true });
