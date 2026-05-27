@@ -14,6 +14,18 @@ function setMenuState(isOpen) {
 }
 menuBtn?.setAttribute('aria-expanded', 'false');
 menuBtn?.addEventListener('click', () => setMenuState(!nav?.classList.contains('active')));
+function scrollToSection(target, behavior = 'smooth') {
+  if (!target) return;
+
+  const headerHeight = document.querySelector('.site-header')?.offsetHeight || 0;
+  const targetTop = target.getBoundingClientRect().top + window.scrollY - headerHeight - 14;
+
+  window.scrollTo({
+    top: Math.max(targetTop, 0),
+    behavior
+  });
+}
+
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', (e) => {
     const href = link.getAttribute('href');
@@ -25,16 +37,14 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     e.preventDefault();
     setMenuState(false);
 
-    const headerHeight = document.querySelector('.site-header')?.offsetHeight || 0;
-    const targetTop = target.getBoundingClientRect().top + window.scrollY - headerHeight - 12;
+    scrollToSection(target, 'smooth');
 
-    window.scrollTo({
-      top: Math.max(targetTop, 0),
-      behavior: 'smooth'
-    });
+    // Recalculate after lazy images/reveal effects settle so first-load clicks land correctly.
+    window.setTimeout(() => scrollToSection(target, 'smooth'), 520);
+    window.setTimeout(() => scrollToSection(target, 'auto'), 1150);
 
     window.history.pushState(null, '', href);
-    window.setTimeout(setActiveNav, 450);
+    window.setTimeout(setActiveNav, 1300);
   });
 });
 window.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuState(false); });
@@ -66,7 +76,7 @@ if (canUsePointerFX) {
 }
 
 const loaderStartTime = performance.now();
-const minimumLoaderTime = 2200;
+const minimumLoaderTime = 1350;
 
 if (loaderLine) {
   requestAnimationFrame(() => {
@@ -88,7 +98,7 @@ window.addEventListener('load', () => {
 
   window.setTimeout(() => {
     loader?.remove();
-  }, delay + 1400);
+  }, delay + 900);
 });
 
 let scrollFrame = null;
