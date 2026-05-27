@@ -7837,3 +7837,58 @@ img {
     min-height: 64px !important;
   }
 }
+
+/* =========================================================
+   FINAL RESPONSIVE GALLERY SOURCE FIX
+   Desktop loads landscape_slideshow (16:9).
+   Mobile loads portrait_slideshow (9:16).
+   ========================================================= */
+.creations .slideshow-shell.landscape-mode .slide-media {
+  aspect-ratio: 16 / 9 !important;
+}
+
+.creations .slideshow-shell.portrait-mode {
+  max-width: 560px !important;
+}
+
+.creations .slideshow-shell.portrait-mode .slide-media {
+  aspect-ratio: 9 / 16 !important;
+  max-height: 78vh !important;
+}
+
+.creations .slideshow-shell.portrait-mode .slide-stage::after {
+  font-size: clamp(30px, 9vw, 48px) !important;
+  max-width: 82% !important;
+}
+
+.creations .slideshow-shell.portrait-mode .slide-info {
+  position: relative !important;
+  left: auto !important;
+  bottom: auto !important;
+  max-width: none !important;
+  margin-top: 14px !important;
+}
+
+.creations .slide-media img {
+  content-visibility: auto;
+}
+
+@media (max-width: 768px) {
+  .creations .slideshow-shell {
+    width: min(430px, 100%) !important;
+  }
+
+  .creations .slide-media {
+    aspect-ratio: 9 / 16 !important;
+  }
+
+  .creations .slide-thumbs {
+    gap: 10px !important;
+  }
+
+  .creations .slide-thumb {
+    flex: 0 0 58px !important;
+    height: 86px !important;
+    border-radius: 16px !important;
+  }
+}

@@ -77,21 +77,49 @@ const observer = new IntersectionObserver(entries => {
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// Gallery slideshow. Add future dish photos here; thumbnails/counter/lightbox update automatically.
-const gallerySlides = [
-  { title: 'Signature Culinary Direction', kicker: 'Editorial Story', img: 'assets/optimized/slideshow/slide-01.webp', category: 'all' },
-  { title: 'Color, Texture & Detail', kicker: 'Artistic Direction', img: 'assets/optimized/slideshow/slide-02.webp', category: 'story' },
-  { title: 'Emotion Through Food', kicker: 'Philosophy', img: 'assets/optimized/slideshow/slide-03.webp', category: 'vision' },
-  { title: 'Wellness With Elegance', kicker: 'Wellness Vision', img: 'assets/optimized/slideshow/slide-04.webp', category: 'vision' },
-  { title: 'Spice, Depth & Memory', kicker: 'Culinary Identity', img: 'assets/optimized/slideshow/slide-05.webp', category: 'story' },
-  { title: 'Balanced Concept Plates', kicker: 'R&D Method', img: 'assets/optimized/slideshow/slide-06.webp', category: 'rd' },
-  { title: 'Premium Guest Moment', kicker: 'Hospitality', img: 'assets/optimized/slideshow/slide-07.webp', category: 'business' },
-  { title: 'Fresh Flavor Architecture', kicker: 'R&D Method', img: 'assets/optimized/slideshow/slide-08.webp', category: 'rd' },
-  { title: 'Precision & Construction', kicker: 'Technical Craft', img: 'assets/optimized/slideshow/slide-09.webp', category: 'rd' },
-  { title: 'Market-Ready Product', kicker: 'Business Thinking', img: 'assets/optimized/slideshow/slide-10.webp', category: 'business' },
-  { title: 'Sensory Composition', kicker: 'Editorial Food', img: 'assets/optimized/slideshow/slide-11.webp', category: 'story' },
-  { title: 'Luxury Texture Story', kicker: 'Signature Detail', img: 'assets/optimized/slideshow/slide-12.webp', category: 'all' }
+
+// Responsive gallery slideshow.
+// Desktop/laptop uses 16:9 landscape images.
+// Mobile uses 9:16 portrait images.
+// Only the active image + nearby thumbnails are loaded for better performance.
+const slideMeta = [
+  { title: 'Signature Culinary Direction', kicker: 'Editorial Story', category: 'all' },
+  { title: 'Color, Texture & Detail', kicker: 'Artistic Direction', category: 'story' },
+  { title: 'Emotion Through Food', kicker: 'Philosophy', category: 'vision' },
+  { title: 'Wellness With Elegance', kicker: 'Wellness Vision', category: 'vision' },
+  { title: 'Spice, Depth & Memory', kicker: 'Culinary Identity', category: 'story' },
+  { title: 'Balanced Concept Plates', kicker: 'R&D Method', category: 'rd' },
+  { title: 'Premium Guest Moment', kicker: 'Hospitality', category: 'business' },
+  { title: 'Fresh Flavor Architecture', kicker: 'R&D Method', category: 'rd' },
+  { title: 'Precision & Construction', kicker: 'Technical Craft', category: 'rd' },
+  { title: 'Market-Ready Product', kicker: 'Business Thinking', category: 'business' },
+  { title: 'Sensory Composition', kicker: 'Editorial Food', category: 'story' },
+  { title: 'Luxury Texture Story', kicker: 'Signature Detail', category: 'all' },
+  { title: 'Premium Product Styling', kicker: 'Business Thinking', category: 'business' },
+  { title: 'Seasonal Flavor Mood', kicker: 'Wellness Vision', category: 'vision' },
+  { title: 'Refined Plate Memory', kicker: 'Editorial Story', category: 'story' },
+  { title: 'Soft Dessert Moment', kicker: 'Signature Detail', category: 'story' },
+  { title: 'Creative Culinary Study', kicker: 'R&D Method', category: 'rd' },
+  { title: 'Guest-Facing Beauty', kicker: 'Hospitality', category: 'business' },
+  { title: 'Ingredient-Led Concept', kicker: 'R&D Method', category: 'rd' },
+  { title: 'Artistic Brand Moment', kicker: 'Editorial Food', category: 'vision' },
+  { title: 'Premium Dessert Language', kicker: 'Signature Detail', category: 'all' },
+  { title: 'Modern Food Story', kicker: 'Culinary Identity', category: 'story' },
+  { title: 'Light Wellness Touch', kicker: 'Wellness Vision', category: 'vision' },
+  { title: 'Concept to Plate', kicker: 'R&D Method', category: 'rd' },
+  { title: 'Memorable Guest Delight', kicker: 'Hospitality', category: 'business' }
 ];
+
+const landscapeImages = Array.from({ length: 15 }, (_, i) => `assets/optimized/landscape_slideshow/image-${String(i + 1).padStart(2, '0')}.webp`);
+const portraitImages = Array.from({ length: 25 }, (_, i) => `assets/optimized/portrait_slideshow/slide-${String(i + 1).padStart(2, '0')}.webp`);
+
+let isMobileGallery = window.matchMedia('(max-width: 768px)').matches;
+let gallerySlides = buildResponsiveSlides();
+
+function buildResponsiveSlides() {
+  const images = isMobileGallery ? portraitImages : landscapeImages;
+  return images.map((img, index) => ({ ...slideMeta[index % slideMeta.length], img }));
+}
 
 const slideImage = document.getElementById('slideImage');
 const slideKicker = document.getElementById('slideKicker');
@@ -234,6 +262,7 @@ function startAutoSlide() {
 function initGallery(shouldAutoplay = true) {
   if (galleryInitialized) return;
   galleryInitialized = true;
+  updateGalleryModeClass();
   renderThumbs();
   goToSlide(0);
 
@@ -262,6 +291,35 @@ if (slideshowShell && 'IntersectionObserver' in window) {
   initGallery(true);
 }
 
+
+function refreshFilteredSlides() {
+  filteredSlides = activeFilter === 'all'
+    ? [...gallerySlides]
+    : gallerySlides.filter(slide => slide.category === activeFilter || slide.category === 'all');
+}
+
+function updateGalleryModeClass() {
+  slideshowShell?.classList.toggle('portrait-mode', isMobileGallery);
+  slideshowShell?.classList.toggle('landscape-mode', !isMobileGallery);
+}
+
+function refreshResponsiveGallery() {
+  const nextIsMobile = window.matchMedia('(max-width: 768px)').matches;
+  if (nextIsMobile === isMobileGallery) return;
+  isMobileGallery = nextIsMobile;
+  gallerySlides = buildResponsiveSlides();
+  refreshFilteredSlides();
+  currentSlide = Math.min(currentSlide, filteredSlides.length - 1);
+  updateGalleryModeClass();
+  if (galleryInitialized) {
+    renderThumbs();
+    goToSlide(currentSlide, true);
+  }
+}
+
+updateGalleryModeClass();
+window.addEventListener('resize', refreshResponsiveGallery, { passive: true });
+
 // Category filters for the slideshow.
 document.querySelectorAll('.gallery-filter').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -269,9 +327,7 @@ document.querySelectorAll('.gallery-filter').forEach(btn => {
     initGallery(false);
     activeFilter = btn.dataset.filter;
     document.querySelectorAll('.gallery-filter').forEach(item => item.classList.toggle('active', item === btn));
-    filteredSlides = activeFilter === 'all'
-      ? [...gallerySlides]
-      : gallerySlides.filter(slide => slide.category === activeFilter || slide.category === 'all');
+    refreshFilteredSlides();
     currentSlide = 0;
     renderThumbs();
     goToSlide(0, true);

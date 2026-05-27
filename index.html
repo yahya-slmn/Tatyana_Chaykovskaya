@@ -14,6 +14,8 @@
 
   <!-- Performance: preload only the critical first images -->
   <link rel="preload" as="image" href="assets/optimized/intro.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/optimized/landscape_slideshow/image-01.webp" media="(min-width: 769px)" fetchpriority="low">
+  <link rel="preload" as="image" href="assets/optimized/portrait_slideshow/slide-01.webp" media="(max-width: 768px)" fetchpriority="low">
   <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -191,7 +193,7 @@
               class='bx bx-chevron-left'></i></button>
           <div class="slide-media">
             <img id="slideImage" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
-              data-src="assets/optimized/slideshow/slide-01.webp" alt="Featured culinary creation slideshow"
+              data-src="assets/optimized/landscape_slideshow/image-01.webp" alt="Featured culinary creation slideshow"
               loading="lazy" decoding="async" fetchpriority="low">
           </div>
           <button class="slide-nav next" id="nextSlide" aria-label="Next gallery image"><i
@@ -200,7 +202,7 @@
         <div class="slide-info">
           <p id="slideKicker">Editorial Gallery</p>
           <h3 id="slideTitle">Signature Visual Identity</h3>
-          <span id="slideCounter">01 / 08</span>
+          <span id="slideCounter">01 / 15</span>
         </div>
         <div class="slide-thumbs" id="slideThumbs" aria-label="Gallery slideshow thumbnails"></div>
       </div>
