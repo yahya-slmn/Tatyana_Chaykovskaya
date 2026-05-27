@@ -66,7 +66,7 @@ if (canUsePointerFX) {
 }
 
 const loaderStartTime = performance.now();
-const minimumLoaderTime = 1500;
+const minimumLoaderTime = 2200;
 
 if (loaderLine) {
   requestAnimationFrame(() => {
@@ -88,7 +88,7 @@ window.addEventListener('load', () => {
 
   window.setTimeout(() => {
     loader?.remove();
-  }, delay + 850);
+  }, delay + 1400);
 });
 
 let scrollFrame = null;

@@ -8890,3 +8890,127 @@ img {
     opacity: .45;
   }
 }
+
+/* ---------- FINAL CREDIT + LOADER MOTION POLISH ---------- */
+
+.loader-credit {
+  position: absolute;
+  margin-top: 218px !important;
+  font-size: 9px !important;
+  letter-spacing: .3em !important;
+  text-transform: uppercase;
+  color: rgba(77, 55, 31, .42) !important;
+  font-weight: 800 !important;
+  z-index: 3;
+}
+
+.loader-aura {
+  --loader-radius: min(27vw, 270px);
+}
+
+.loader-aura::before,
+.loader-aura::after {
+  left: 50% !important;
+  top: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  margin: -7px 0 0 -7px;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.loader-aura::before {
+  animation: loaderOrbitOne 2.35s linear infinite !important;
+}
+
+.loader-aura::after {
+  opacity: .68;
+  animation: loaderOrbitTwo 2.35s linear infinite !important;
+}
+
+.loader-line span {
+  width: 34%;
+  animation: premiumLoaderLine 1.45s cubic-bezier(.55, .02, .2, 1) infinite !important;
+  will-change: width, transform, opacity;
+}
+
+@keyframes loaderOrbitOne {
+  from {
+    transform: rotate(0deg) translateX(var(--loader-radius)) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(var(--loader-radius)) rotate(-360deg);
+  }
+}
+
+@keyframes loaderOrbitTwo {
+  from {
+    transform: rotate(180deg) translateX(var(--loader-radius)) rotate(-180deg);
+  }
+  to {
+    transform: rotate(540deg) translateX(var(--loader-radius)) rotate(-540deg);
+  }
+}
+
+@keyframes premiumLoaderLine {
+  0% {
+    width: 0%;
+    transform: translateX(-8%);
+    opacity: .28;
+  }
+  48% {
+    width: 68%;
+    transform: translateX(18%);
+    opacity: 1;
+  }
+  78% {
+    width: 100%;
+    transform: translateX(0);
+    opacity: .86;
+  }
+  100% {
+    width: 100%;
+    transform: translateX(0);
+    opacity: .38;
+  }
+}
+
+.site-footer {
+  padding-bottom: 58px;
+}
+
+.site-credit {
+  margin-top: 16px !important;
+  font-size: 10px !important;
+  letter-spacing: .24em !important;
+  text-transform: uppercase;
+  color: rgba(77, 55, 31, .44) !important;
+  font-weight: 700 !important;
+}
+
+.site-credit span {
+  color: #a87942;
+  font-weight: 900;
+}
+
+@media (max-width: 640px) {
+  .loader-credit {
+    margin-top: 176px !important;
+    font-size: 8px !important;
+    letter-spacing: .24em !important;
+  }
+
+  .loader-aura {
+    --loader-radius: min(29vw, 124px);
+  }
+
+  .loader-line {
+    margin-top: 214px !important;
+  }
+
+  .site-credit {
+    font-size: 9px !important;
+    line-height: 1.8;
+    padding: 0 18px;
+  }
+}
