@@ -1228,6 +1228,7 @@ body::after {
   left: 52px;
   bottom: 52px;
   z-index: 4;
+  width: min(420px, 90%);
   max-width: 520px;
   padding: 24px;
   border-radius: 28px;
@@ -1236,6 +1237,8 @@ body::after {
   border: 1px solid rgba(255, 255, 255, .35);
   box-shadow: 0 24px 70px rgba(35, 33, 31, .18);
 }
+
+
 
 .slide-info p {
   color: #9b7041;
@@ -1248,9 +1251,11 @@ body::after {
 
 .slide-info h3 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(32px, 4vw, 56px);
-  line-height: 1;
-  letter-spacing: -.04em;
+  font-size: clamp(38px, 4vw, 62px);
+  line-height: .9;
+  letter-spacing: -.045em;
+  max-width: 420px;
+  text-wrap: balance;
 }
 
 .slide-info span {
@@ -8429,5 +8434,294 @@ img {
 
   .slide-stage {
     touch-action: pan-y;
+  }
+}
+
+@media (max-width: 768px) {
+  .slide-stage::after {
+    display: none !important;
+  }
+
+  .slideshow-shell::before {
+    content: "Editorial Gallery";
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    line-height: 1;
+    color: var(--charcoal);
+    margin: 8px 10px 16px;
+    opacity: .9;
+  }
+
+  .slide-info {
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .slide-info h3 {
+    min-height: 84px;
+    display: flex;
+    align-items: center;
+    font-size: 38px;
+    line-height: 1.05;
+  }
+
+  .slide-info p {
+    min-height: 18px;
+  }
+}
+
+
+/* ---------- FINAL GALLERY POLISH: stable title card + readable gallery heading + swipe effect ---------- */
+
+/* Remove the old white title from inside the image on every screen. */
+.slide-stage::after {
+  display: none !important;
+}
+
+/* Add the gallery heading outside the image so white photos do not hide it. */
+.slideshow-shell::before {
+  content: "Editorial Gallery";
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(38px, 5.2vw, 74px);
+  line-height: .95;
+  letter-spacing: -.045em;
+  color: var(--charcoal);
+  opacity: .92;
+  margin: 6px 10px 22px;
+}
+
+/* Keep the visual image area clean and separate from the text card. */
+.slide-stage {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.slide-media {
+  transform-origin: center;
+  will-change: transform, opacity, filter;
+}
+
+.slide-media img {
+  transition:
+    transform 1.05s ease,
+    opacity .45s ease,
+    filter .45s ease;
+}
+
+/* Move the slide text under the image on all screen sizes.
+   This stops one-line/two-line titles from covering the image or thumbnails. */
+.slide-info {
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  z-index: 4;
+  width: min(520px, 100%);
+  min-height: 188px;
+  margin: 18px 0 0;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.slide-info h3 {
+  min-height: 112px;
+  display: flex;
+  align-items: center;
+  font-size: clamp(38px, 4vw, 56px);
+  line-height: 1.02;
+}
+
+.slide-info p {
+  min-height: 18px;
+}
+
+.slide-info span {
+  min-height: 22px;
+}
+
+/* Thumbnails should remain below the text card without overlap. */
+.slide-thumbs {
+  margin-top: 12px;
+}
+
+/* Mobile: natural swipe, no arrows, and a compact stable card. */
+@media (max-width: 768px) {
+  .slide-nav {
+    display: none !important;
+  }
+
+  .slideshow-shell::before {
+    font-size: 42px;
+    margin: 4px 8px 14px;
+  }
+
+  .slide-stage {
+    touch-action: pan-y;
+    min-height: 0 !important;
+  }
+
+  .slide-info {
+    width: 100%;
+    min-height: 154px;
+    margin-top: 14px;
+    padding: 20px 20px;
+    border-radius: 24px;
+  }
+
+  .slide-info h3 {
+    min-height: 82px;
+    font-size: 38px;
+    line-height: 1.03;
+  }
+
+  .slide-info p {
+    font-size: 11px;
+  }
+
+  .slide-thumbs {
+    display: none;
+  }
+}
+
+/* Soft page-turn effect while swiping on mobile. */
+@media (max-width: 768px) {
+  .slide-stage.swipe-next .slide-media {
+    animation: galleryPageNext .52s cubic-bezier(.22, .68, .26, 1);
+  }
+
+  .slide-stage.swipe-prev .slide-media {
+    animation: galleryPagePrev .52s cubic-bezier(.22, .68, .26, 1);
+  }
+
+  @keyframes galleryPageNext {
+    0% {
+      transform: rotateY(0) translateX(0) scale(1);
+      filter: brightness(1);
+    }
+
+    45% {
+      transform: rotateY(-9deg) translateX(-18px) scale(.985);
+      filter: brightness(.94);
+    }
+
+    100% {
+      transform: rotateY(0) translateX(0) scale(1);
+      filter: brightness(1);
+    }
+  }
+
+  @keyframes galleryPagePrev {
+    0% {
+      transform: rotateY(0) translateX(0) scale(1);
+      filter: brightness(1);
+    }
+
+    45% {
+      transform: rotateY(9deg) translateX(18px) scale(.985);
+      filter: brightness(.94);
+    }
+
+    100% {
+      transform: rotateY(0) translateX(0) scale(1);
+      filter: brightness(1);
+    }
+  }
+}
+
+/* ---------- Luxury Culinary Mobile Menu ---------- */
+
+.culinary-menu{
+  display:none;
+}
+
+.menu-mark{
+  position:relative;
+  width:24px;
+  height:24px;
+  display:block;
+}
+
+.menu-mark span{
+  position:absolute;
+  inset:0;
+  margin:auto;
+
+  width:22px;
+  height:2px;
+
+  background:#a87942;
+  border-radius:999px;
+
+  transition:
+    transform .35s ease,
+    opacity .35s ease;
+}
+
+.menu-mark span:first-child{
+  transform:rotate(45deg);
+}
+
+.menu-mark span:last-child{
+  transform:rotate(-45deg);
+}
+
+.menu-btn[aria-expanded="false"] .menu-mark span:first-child{
+  transform:translateY(-5px);
+}
+
+.menu-btn[aria-expanded="false"] .menu-mark span:last-child{
+  transform:translateY(5px);
+}
+
+.menu-btn[aria-expanded="true"] .menu-mark span:first-child{
+  transform:rotate(45deg);
+}
+
+.menu-btn[aria-expanded="true"] .menu-mark span:last-child{
+  transform:rotate(-45deg);
+}
+
+@media(max-width:1000px){
+
+  .culinary-menu{
+    width:58px;
+    height:58px;
+
+    display:grid;
+    place-items:center;
+
+    border:none;
+    border-radius:20px;
+
+    background:
+      linear-gradient(
+        135deg,
+        rgba(255,255,255,.88),
+        rgba(243,234,223,.76)
+      );
+
+    border:1px solid rgba(216,183,123,.18);
+
+    box-shadow:
+      0 18px 45px rgba(77,55,31,.12);
+
+    backdrop-filter:blur(14px);
+
+    transition:
+      transform .3s ease,
+      box-shadow .3s ease,
+      background .3s ease;
+  }
+
+  .culinary-menu:hover{
+    transform:translateY(-3px);
+    box-shadow:
+      0 24px 60px rgba(77,55,31,.18);
   }
 }

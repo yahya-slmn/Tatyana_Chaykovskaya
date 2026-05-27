@@ -273,6 +273,57 @@ function initGallery(shouldAutoplay = true) {
   if (shouldAutoplay) startAutoSlide();
 }
 
+
+/* ---------- Mobile touch swipe gallery with soft page-turn effect ---------- */
+const slideStageTouch = document.querySelector('.slide-stage');
+let galleryTouchStartX = 0;
+let galleryTouchStartY = 0;
+let galleryTouchLocked = false;
+
+function playPageTurn(direction) {
+  if (!slideStageTouch) return;
+  slideStageTouch.classList.remove('swipe-next', 'swipe-prev');
+  void slideStageTouch.offsetWidth;
+  slideStageTouch.classList.add(direction === 'next' ? 'swipe-next' : 'swipe-prev');
+  window.setTimeout(() => {
+    slideStageTouch.classList.remove('swipe-next', 'swipe-prev');
+  }, 520);
+}
+
+slideStageTouch?.addEventListener('touchstart', (e) => {
+  const touch = e.changedTouches[0];
+  galleryTouchStartX = touch.clientX;
+  galleryTouchStartY = touch.clientY;
+  galleryTouchLocked = false;
+}, { passive: true });
+
+slideStageTouch?.addEventListener('touchmove', (e) => {
+  const touch = e.changedTouches[0];
+  const diffX = touch.clientX - galleryTouchStartX;
+  const diffY = touch.clientY - galleryTouchStartY;
+  if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 18) {
+    galleryTouchLocked = true;
+  }
+}, { passive: true });
+
+slideStageTouch?.addEventListener('touchend', (e) => {
+  const touch = e.changedTouches[0];
+  const diffX = touch.clientX - galleryTouchStartX;
+  const diffY = touch.clientY - galleryTouchStartY;
+
+  if (!galleryTouchLocked && Math.abs(diffX) < 56) return;
+  if (Math.abs(diffX) < 56 || Math.abs(diffX) < Math.abs(diffY)) return;
+
+  if (diffX < 0) {
+    playPageTurn('next');
+    goToSlide(currentSlide + 1, true);
+  } else {
+    playPageTurn('prev');
+    goToSlide(currentSlide - 1, true);
+  }
+}, { passive: true });
+
+
 if (slideshowShell && 'IntersectionObserver' in window) {
   const slideshowObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
