@@ -9014,3 +9014,111 @@ img {
     padding: 0 18px;
   }
 }
+
+
+/* ---------- FINAL FIX: Universe section for 13-inch / mid-size laptop screens ---------- */
+/* Prevents the Universe section from feeling crowded around 1200px–1500px widths. */
+@media (max-width: 1500px) and (min-width: 1001px) {
+
+  .universe {
+    grid-template-columns: .92fr 1.08fr !important;
+    gap: clamp(28px, 3.2vw, 44px) !important;
+    padding-left: 7vw !important;
+    padding-right: 7vw !important;
+    min-height: 100vh !important;
+  }
+
+  .universe-copy h2 {
+    font-size: clamp(64px, 6.2vw, 92px) !important;
+    line-height: .92 !important;
+    max-width: 560px !important;
+  }
+
+  .universe-copy p:not(.eyebrow) {
+    max-width: 470px !important;
+    font-size: 17px !important;
+    line-height: 1.7 !important;
+  }
+
+  .universe-stage {
+    min-height: 610px !important;
+    transform: scale(.9);
+    transform-origin: center right;
+  }
+
+  .universe-stage::before {
+    inset: 12% 11% !important;
+  }
+
+  .universe-card {
+    width: 218px !important;
+    padding: 10px !important;
+    border-radius: 25px !important;
+  }
+
+  .universe-card img {
+    height: 178px !important;
+    border-radius: 18px !important;
+  }
+
+  .universe-card span {
+    padding: 12px 7px 3px !important;
+    font-size: 10px !important;
+    letter-spacing: .075em !important;
+  }
+
+  .u-card-1 {
+    left: 8% !important;
+    top: 9% !important;
+  }
+
+  .u-card-2 {
+    right: 5% !important;
+    top: 20% !important;
+  }
+
+  .u-card-3 {
+    left: 23% !important;
+    bottom: 11% !important;
+  }
+
+  .u-card-4 {
+    right: 18% !important;
+    bottom: 6% !important;
+  }
+}
+
+/* Tighter layout for MacBook 13-inch / small laptops. */
+@media (max-width: 1280px) and (min-width: 1001px) {
+
+  .universe {
+    grid-template-columns: .96fr 1.04fr !important;
+    gap: 26px !important;
+    padding-top: 112px !important;
+    padding-bottom: 90px !important;
+  }
+
+  .universe-copy h2 {
+    font-size: clamp(56px, 5.6vw, 76px) !important;
+    max-width: 500px !important;
+  }
+
+  .universe-copy p:not(.eyebrow) {
+    max-width: 430px !important;
+    font-size: 16px !important;
+  }
+
+  .universe-stage {
+    min-height: 560px !important;
+    transform: scale(.82);
+    transform-origin: center right;
+  }
+
+  .universe-card {
+    width: 205px !important;
+  }
+
+  .universe-card img {
+    height: 166px !important;
+  }
+}
