@@ -8247,3 +8247,187 @@ img {
     padding: 22px 18px !important;
   }
 }
+
+/* =========================================================
+   FINAL MOBILE CONSULTING ORGANIZATION FIX
+   Makes consulting services and operation details feel like
+   compact skill systems instead of long oversized cards.
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .consulting {
+    padding-top: 105px !important;
+    padding-bottom: 90px !important;
+  }
+
+  .consulting .ops-shell {
+    width: min(100%, 680px) !important;
+    padding-inline: 0 !important;
+  }
+
+  .consulting .ops-hero {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    margin-bottom: 24px !important;
+  }
+
+  .consulting .ops-copy {
+    padding: 30px 26px !important;
+    border-radius: 30px !important;
+  }
+
+  .consulting .ops-copy h2 {
+    font-size: clamp(42px, 11vw, 62px) !important;
+    line-height: .96 !important;
+  }
+
+  .consulting .ops-copy p:not(.eyebrow) {
+    font-size: 15px !important;
+    line-height: 1.65 !important;
+    margin-top: 18px !important;
+  }
+
+  .consulting .blueprint-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    margin: 0 !important;
+  }
+
+  .consulting .blueprint-grid span,
+  .consulting .blueprint-grid span:last-child {
+    grid-column: auto !important;
+    min-height: 74px !important;
+    padding: 14px 12px !important;
+    border-radius: 20px !important;
+    font-size: 11px !important;
+    line-height: 1.25 !important;
+    letter-spacing: .055em !important;
+    box-shadow: 0 12px 32px rgba(77, 55, 31, .07) !important;
+  }
+
+  .consulting .blueprint-grid span:nth-child(4),
+  .consulting .blueprint-grid span:nth-child(6),
+  .consulting .blueprint-grid span:nth-child(7) {
+    grid-column: 1 / -1 !important;
+    min-height: 64px !important;
+  }
+
+  .consulting .ops-statement {
+    min-height: auto !important;
+    padding: 28px 24px !important;
+    border-radius: 28px !important;
+  }
+
+  .consulting .ops-statement::before {
+    inset: 14px !important;
+    border-radius: 20px !important;
+  }
+
+  .consulting .ops-statement strong {
+    font-size: clamp(34px, 9vw, 48px) !important;
+  }
+
+  .consulting .ops-statement p {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+  }
+
+  .consulting .ops-pillars {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+    margin-top: 18px !important;
+  }
+
+  .consulting .ops-pillar {
+    padding: 18px !important;
+    border-radius: 24px !important;
+    min-height: auto !important;
+  }
+
+  .consulting .ops-icon {
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 14px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .consulting .ops-icon i {
+    font-size: 22px !important;
+  }
+
+  .consulting .ops-pillar h3 {
+    font-size: 27px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .consulting .ops-pillar ul {
+    gap: 8px !important;
+  }
+
+  .consulting .ops-pillar li {
+    padding: 9px 10px 9px 24px !important;
+    border-radius: 14px !important;
+    background: rgba(243, 234, 223, .58) !important;
+    border: 1px solid rgba(216, 183, 123, .16) !important;
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+  }
+
+  .consulting .ops-pillar li::before {
+    left: 10px !important;
+    top: 50% !important;
+    width: 5px !important;
+    height: 5px !important;
+    transform: translateY(-50%) !important;
+  }
+
+  .consulting .ops-footer-note {
+    margin-top: 16px !important;
+    padding: 18px !important;
+    border-radius: 22px !important;
+  }
+
+  .consulting .ops-footer-note p {
+    font-size: 13px !important;
+    line-height: 1.6 !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .consulting .blueprint-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .consulting .blueprint-grid span,
+  .consulting .blueprint-grid span:nth-child(4),
+  .consulting .blueprint-grid span:nth-child(6),
+  .consulting .blueprint-grid span:nth-child(7) {
+    grid-column: auto !important;
+    min-height: 58px !important;
+  }
+
+  .consulting .ops-pillars {
+    grid-template-columns: 1fr !important;
+  }
+
+  .consulting .ops-pillar {
+    padding: 22px !important;
+  }
+
+  .consulting .ops-pillar ul {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .slide-nav {
+    display: none;
+  }
+
+  .slide-stage {
+    touch-action: pan-y;
+  }
+}

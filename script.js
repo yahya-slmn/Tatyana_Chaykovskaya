@@ -87,7 +87,7 @@ const slideMeta = [
   { title: 'Color, Texture & Detail', kicker: 'Artistic Direction', category: 'story' },
   { title: 'Emotion Through Food', kicker: 'Philosophy', category: 'vision' },
   { title: 'Wellness With Elegance', kicker: 'Wellness Vision', category: 'vision' },
-  { title: 'Spice, Depth & Memory', kicker: 'Culinary Identity', category: 'story' },
+  { title: 'Floral Dessert Elegance', kicker: 'Culinary Identity', category: 'story' },
   { title: 'Balanced Concept Plates', kicker: 'R&D Method', category: 'rd' },
   { title: 'Premium Guest Moment', kicker: 'Hospitality', category: 'business' },
   { title: 'Fresh Flavor Architecture', kicker: 'R&D Method', category: 'rd' },
@@ -98,7 +98,7 @@ const slideMeta = [
   { title: 'Premium Product Styling', kicker: 'Business Thinking', category: 'business' },
   { title: 'Seasonal Flavor Mood', kicker: 'Wellness Vision', category: 'vision' },
   { title: 'Refined Plate Memory', kicker: 'Editorial Story', category: 'story' },
-  { title: 'Soft Dessert Moment', kicker: 'Signature Detail', category: 'story' },
+  { title: 'Elegant Sweet Composition', kicker: 'Signature Detail', category: 'story' },
   { title: 'Creative Culinary Study', kicker: 'R&D Method', category: 'rd' },
   { title: 'Guest-Facing Beauty', kicker: 'Hospitality', category: 'business' },
   { title: 'Ingredient-Led Concept', kicker: 'R&D Method', category: 'rd' },
@@ -295,7 +295,7 @@ if (slideshowShell && 'IntersectionObserver' in window) {
 function refreshFilteredSlides() {
   filteredSlides = activeFilter === 'all'
     ? [...gallerySlides]
-    : gallerySlides.filter(slide => slide.category === activeFilter || slide.category === 'all');
+    : gallerySlides.filter(slide => slide.category === activeFilter);
 }
 
 function updateGalleryModeClass() {
@@ -468,3 +468,22 @@ document.querySelectorAll('.film-card, .future-card, .behind-card, .journey-step
 
 // Experience section is now a stable editorial mosaic, so no horizontal scroll transform is needed.
 if (filmTrack) filmTrack.style.transform = 'none';
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+const slideStage = document.querySelector('.slide-stage');
+
+slideStage?.addEventListener('touchstart', (e) => {
+  touchStartX = e.changedTouches[0].screenX;
+}, { passive: true });
+
+slideStage?.addEventListener('touchend', (e) => {
+  touchEndX = e.changedTouches[0].screenX;
+  const diff = touchStartX - touchEndX;
+
+  if (Math.abs(diff) > 50) {
+    if (diff > 0) goToSlide(currentSlide + 1, true);
+    else goToSlide(currentSlide - 1, true);
+  }
+}, { passive: true });
