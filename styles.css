@@ -8071,16 +8071,14 @@ img {
   border-radius: 28px;
 
   background:
-    linear-gradient(
-      135deg,
-      rgba(255,255,255,.82),
-      rgba(243,234,223,.72)
-    );
+    linear-gradient(135deg,
+      rgba(255, 255, 255, .82),
+      rgba(243, 234, 223, .72));
 
-  border: 1px solid rgba(216,183,123,.18);
+  border: 1px solid rgba(216, 183, 123, .18);
 
   box-shadow:
-    0 18px 50px rgba(77,55,31,.08);
+    0 18px 50px rgba(77, 55, 31, .08);
 
   display: flex;
   align-items: center;
@@ -8114,7 +8112,7 @@ img {
   transform: translateY(-5px);
 
   box-shadow:
-    0 26px 70px rgba(35,33,31,.18);
+    0 26px 70px rgba(35, 33, 31, .18);
 }
 
 .consulting-service:last-child {
@@ -8153,5 +8151,99 @@ img {
     min-height: auto;
     padding: 22px 18px;
     font-size: 14px;
+  }
+}
+
+/* =========================================================
+   FINAL FIX — Consulting section card sizing + text wrapping
+   Applies to the actual consulting HTML:
+   .ops-hero / .blueprint-grid / .ops-copy / .ops-statement
+   ========================================================= */
+
+.consulting .ops-shell {
+  width: min(1280px, 100%) !important;
+  margin-inline: auto !important;
+}
+
+.consulting .ops-hero {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.15fr) minmax(420px, .85fr) !important;
+  gap: clamp(28px, 4vw, 48px) !important;
+  align-items: stretch !important;
+}
+
+.consulting .ops-copy,
+.consulting .ops-statement {
+  min-width: 0 !important;
+  overflow: hidden !important;
+}
+
+.consulting .ops-copy h2,
+.consulting .ops-copy p,
+.consulting .ops-statement strong,
+.consulting .ops-statement p {
+  overflow-wrap: break-word !important;
+  word-break: normal !important;
+}
+
+.consulting .blueprint-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(190px, 1fr)) !important;
+  gap: 16px !important;
+  align-content: start !important;
+  align-self: start !important;
+  min-width: 0 !important;
+}
+
+.consulting .blueprint-grid span {
+  min-width: 0 !important;
+  min-height: 128px !important;
+  padding: 22px 18px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  text-align: center !important;
+  white-space: normal !important;
+  overflow-wrap: break-word !important;
+  word-break: normal !important;
+  hyphens: auto !important;
+
+  font-size: clamp(13px, .9vw, 15px) !important;
+  line-height: 1.35 !important;
+  letter-spacing: .055em !important;
+}
+
+.consulting .blueprint-grid span:last-child {
+  grid-column: 1 / -1 !important;
+  min-height: 112px !important;
+}
+
+@media (max-width: 1180px) {
+  .consulting .ops-hero {
+    grid-template-columns: 1fr !important;
+  }
+
+  .consulting .blueprint-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr)) !important;
+  }
+
+  .consulting .blueprint-grid span {
+    min-height: 112px !important;
+    font-size: 14px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .consulting .blueprint-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .consulting .blueprint-grid span,
+  .consulting .blueprint-grid span:last-child {
+    grid-column: auto !important;
+    min-height: auto !important;
+    padding: 22px 18px !important;
   }
 }
