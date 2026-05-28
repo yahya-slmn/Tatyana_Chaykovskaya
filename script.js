@@ -141,7 +141,22 @@
     const bar      = $('[data-role="bar"]', root);
     const dotsWrap = $('[data-role="dots"]', root);
     const caption  = $(".showcase__caption", root);
-    const delay = 3000, fade = 1100;
+    const frame    = $(".showcase__frame", root);
+    // Philosophy rotates every 2s as requested; others keep their calm pace.
+    const DELAYS = { philosophy: 2000 };
+    const delay = DELAYS[key] || 3000, fade = 1100;
+
+    // Fit the frame to the ACTIVE image's natural ratio so every photo is
+    // shown in full — never cropped, no empty bands — regardless of whether
+    // it is landscape, square or portrait. Inline !important beats any
+    // stylesheet aspect-ratio rule.
+    const fitFrame = (im) => {
+      // Recognition keeps a FIXED frame (set in CSS) so the two certificates,
+      // which have different ratios, don't resize the section and shift the page.
+      if (key === "recognition") return;
+      if (!frame || !im || !(im.naturalWidth > 0 && im.naturalHeight > 0)) return;
+      frame.style.setProperty("aspect-ratio", `${im.naturalWidth} / ${im.naturalHeight}`, "important");
+    };
 
     slides.forEach((s) => preload(s.img));
 
@@ -158,6 +173,7 @@
     imgA.alt = slides[0].t;
     imgA.classList.add("is-active");
     paintCopy(0);
+    if (imgA.complete) fitFrame(imgA); else imgA.addEventListener("load", () => fitFrame(imgA), { once: true });
 
     function paintCopy(i) {
       if (counter) counter.textContent = `${two(i + 1)} / ${two(slides.length)}`;
@@ -186,6 +202,7 @@
 
       const reveal = () => {
         hidden.alt = slide.t;
+        fitFrame(hidden);
         if (caption) caption.classList.add("is-swapping");
         setTimeout(() => { paintCopy(i); if (caption) caption.classList.remove("is-swapping"); }, reduceMotion ? 0 : 220);
         hidden.classList.add("is-active");
@@ -267,6 +284,14 @@
   const gTitle  = $("#slideTitle");
   const gCounter = $("#slideCounter");
   const gDots = $("#galleryDots");
+  const gMeta = $(".gallery__meta");
+  const swipeCue = $("#swipeCue");
+  const hideCue = () => swipeCue?.classList.add("is-hidden");
+  // Fit the gallery frame to each image's natural ratio (no crop, no bands).
+  const fitGallery = (im) => {
+    if (!gFrame || !im || !(im.naturalWidth > 0 && im.naturalHeight > 0)) return;
+    gFrame.style.setProperty("aspect-ratio", `${im.naturalWidth} / ${im.naturalHeight}`, "important");
+  };
 
   let isMobile = window.matchMedia("(max-width: 899px)").matches;
   let all = buildSlides();
@@ -305,6 +330,7 @@
       gIndex = i; gImgA.src = s.img; gImgA.alt = s.title;
       gImgA.classList.add("is-active"); gImgB.classList.remove("is-active"); gShowingA = true;
       paintGallery(i); preload(slides[(i + 1) % slides.length].img);
+      if (gImgA.complete) fitGallery(gImgA); else gImgA.addEventListener("load", () => fitGallery(gImgA), { once: true });
       return;
     }
     if (gLocked || i === gIndex) return;
@@ -315,8 +341,15 @@
       hidden.alt = s.title;
       hidden.classList.add("is-active");
       visible.classList.remove("is-active");
+      fitGallery(hidden);
       gShowingA = !gShowingA;
-      paintGallery(i);
+      // fade the caption/counter, update at the crossfade midpoint, fade back —
+      // so the number changes correctly and smoothly together with the image
+      if (gMeta) gMeta.classList.add("is-swapping");
+      setTimeout(() => {
+        paintGallery(i);
+        if (gMeta) gMeta.classList.remove("is-swapping");
+      }, reduceMotion ? 0 : 180);
       preload(slides[(i + 1) % slides.length].img);
       setTimeout(() => { gLocked = false; }, reduceMotion ? 0 : 800);
     };
@@ -344,11 +377,11 @@
   }
 
   // controls
-  $("#prevSlide")?.addEventListener("click", () => { gGo(gIndex - 1); gStart(); });
-  $("#nextSlide")?.addEventListener("click", () => { gGo(gIndex + 1); gStart(); });
+  $("#prevSlide")?.addEventListener("click", () => { gGo(gIndex - 1); gStart(); hideCue(); });
+  $("#nextSlide")?.addEventListener("click", () => { gGo(gIndex + 1); gStart(); hideCue(); });
   gDots?.addEventListener("click", (e) => {
     const b = e.target.closest("button[data-i]"); if (!b) return;
-    gGo(Number(b.dataset.i)); gStart();
+    gGo(Number(b.dataset.i)); gStart(); hideCue();
   });
 
   // filters
@@ -391,7 +424,7 @@
     const t = e.changedTouches[0];
     const dx = t.clientX - sx, dy = t.clientY - sy;
     if (Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
-    gGo(gIndex + (dx < 0 ? 1 : -1)); gStart();
+    gGo(gIndex + (dx < 0 ? 1 : -1)); gStart(); hideCue();
   }, { passive: true });
 
   /* 6 ── LIGHTBOX ─────────────────────────────────────────────── */

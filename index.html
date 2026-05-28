@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600&display=swap"
     rel="stylesheet">
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
@@ -43,6 +43,7 @@
     <a href="#home" class="brand">Tetiana <span>Chaykovskaya</span></a>
 
     <nav class="nav" id="nav" aria-label="Primary">
+      <span class="nav__eyebrow" aria-hidden="true">Navigation</span>
       <a href="#home">Home</a>
       <a href="#philosophy">Philosophy</a>
       <a href="#creations">Gallery</a>
@@ -52,6 +53,10 @@
       <a href="#lab">R&amp;D</a>
       <a href="#recognition">Recognition</a>
       <a href="#contact">Contact</a>
+      <span class="nav__sign" aria-hidden="true">
+        <span class="nav__mark">TC</span>
+        Culinary R&amp;D · Wellness · Art
+      </span>
     </nav>
 
     <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" type="button">
@@ -145,6 +150,12 @@
             <div class="gallery__frame">
               <img class="gallery__img" id="galleryImgA" alt="Culinary creation" decoding="async">
               <img class="gallery__img" id="galleryImgB" alt="" aria-hidden="true" decoding="async">
+              <span class="swipe-cue" id="swipeCue" aria-hidden="true">
+                <i class='bx bx-chevrons-left'></i>
+                <span class="swipe-cue__hand"><i class='bx bxs-hand-up'></i></span>
+                <i class='bx bx-chevrons-right'></i>
+                <em>Swipe</em>
+              </span>
             </div>
           </figure>
 
@@ -247,28 +258,33 @@
       </div>
     </section>
 
-    <!-- CONSULTING (calm editorial split) -->
+    <!-- CONSULTING (editorial two-column structure) -->
     <section class="section consulting" id="consulting">
-      <div class="container">
-        <header class="section-head section-head--left reveal">
-          <p class="eyebrow">Operational Consulting</p>
-          <h2 class="display">Kitchen strategy that makes <em>concepts work</em></h2>
-          <p class="lede">Menus, kitchens, teams, costs, safety, and flow — from layout to launch.</p>
-        </header>
+      <div class="container consulting__layout">
+        <div class="consulting__intro reveal">
+          <header class="section-head section-head--left">
+            <p class="eyebrow">Operational Consulting</p>
+            <h2 class="display">Kitchen strategy that makes <em>concepts work</em></h2>
+            <p class="lede">Menus, kitchens, teams, costs, safety, and flow — from layout to launch.</p>
+          </header>
 
-        <div class="tag-row reveal" aria-label="Menu development services">
-          <span>Concept &amp; Menu Development</span>
-          <span>Recipe Standardization</span>
-          <span>Food Cost Optimization</span>
-          <span>Seasonal Planning</span>
-          <span>Supplier Sourcing</span>
-          <span>Profitability Analysis</span>
+          <div class="tag-row" aria-label="Menu development services">
+            <span>Concept &amp; Menu Development</span>
+            <span>Recipe Standardization</span>
+            <span>Food Cost Optimization</span>
+            <span>Seasonal Planning</span>
+            <span>Supplier Sourcing</span>
+            <span>Profitability Analysis</span>
+          </div>
         </div>
 
         <div class="capability-grid">
           <article class="capability reveal">
-            <i class='bx bx-layout' aria-hidden="true"></i>
-            <h3>Kitchen Planning</h3>
+            <span class="capability__no">01</span>
+            <div class="capability__head">
+              <i class='bx bx-layout' aria-hidden="true"></i>
+              <h3>Kitchen Planning</h3>
+            </div>
             <ul>
               <li>Space planning &amp; layout</li>
               <li>Equipment specification</li>
@@ -276,8 +292,11 @@
             </ul>
           </article>
           <article class="capability reveal">
-            <i class='bx bx-shield-quarter' aria-hidden="true"></i>
-            <h3>Safety &amp; Systems</h3>
+            <span class="capability__no">02</span>
+            <div class="capability__head">
+              <i class='bx bx-shield-quarter' aria-hidden="true"></i>
+              <h3>Safety &amp; Systems</h3>
+            </div>
             <ul>
               <li>HACCP &amp; compliance</li>
               <li>SOP development</li>
@@ -285,8 +304,11 @@
             </ul>
           </article>
           <article class="capability reveal">
-            <i class='bx bx-group' aria-hidden="true"></i>
-            <h3>People &amp; Workflow</h3>
+            <span class="capability__no">03</span>
+            <div class="capability__head">
+              <i class='bx bx-group' aria-hidden="true"></i>
+              <h3>People &amp; Workflow</h3>
+            </div>
             <ul>
               <li>Staffing &amp; hierarchy plans</li>
               <li>Team onboarding</li>
@@ -294,8 +316,11 @@
             </ul>
           </article>
           <article class="capability reveal">
-            <i class='bx bx-line-chart' aria-hidden="true"></i>
-            <h3>Commercial Control</h3>
+            <span class="capability__no">04</span>
+            <div class="capability__head">
+              <i class='bx bx-line-chart' aria-hidden="true"></i>
+              <h3>Commercial Control</h3>
+            </div>
             <ul>
               <li>Vendor &amp; supply chain</li>
               <li>Budget &amp; capex control</li>

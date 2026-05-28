@@ -2002,12 +2002,14 @@ em,
     padding: .38rem .5rem !important;
   }
 }
+
 /* =====================================================================
    FINAL MOBILE CENTERED TEXT PATCH
    Client request: center all section text on mobile only while preserving
    desktop layout, image order, gallery behavior, and existing structure.
    ===================================================================== */
 @media (max-width: 899px) {
+
   /* Global section text alignment on mobile */
   .section,
   .section-head,
@@ -2042,7 +2044,7 @@ em,
   .section-head .lede,
   .section-head--left .lede,
   .showcase__text,
-  .hero__copy > .lede,
+  .hero__copy>.lede,
   .contact__copy .lede {
     margin-left: auto !important;
     margin-right: auto !important;
@@ -2050,7 +2052,7 @@ em,
 
   /* Center decorative rules under mobile headings */
   .rule,
-  .hero__copy > .rule {
+  .hero__copy>.rule {
     margin-left: auto !important;
     margin-right: auto !important;
   }
@@ -2248,3 +2250,787 @@ h3,
   }
 }
 
+
+/* =====================================================================
+   FINAL CLIENT REVISION  ·  authoritative overrides (loaded last)
+   ---------------------------------------------------------------------
+   1  Classic, simple, readable serif (Lora) — no curly / italic feel
+   2  Creamy mood + TWO alternating cream tones between consecutive pages
+   3  Portrait 9:16 showcases (Philosophy / Experience / Universe) shown
+      FULL — never cropped, capped to the viewport, centered
+   4  Philosophy auto-rotates every 2s (paired with script.js)
+   5  Recognition certificate fits its frame & shows complete (no crop)
+   6  Gallery on mobile: 9:16 fully visible + animated swipe cue
+   7  Consulting elevated to the same premium level as the rest
+   8  Mobile = centered, app-like, luxury menu, centered contact buttons
+   ===================================================================== */
+
+/* 1 ── TYPOGRAPHY : classic · simple · readable ─────────────────── */
+:root {
+  --display: "Lora", Georgia, "Times New Roman", serif;
+}
+
+.display,
+.brand,
+.loader__mark,
+.hero__role,
+.hero__quote,
+.hero__stats strong,
+.timeline__num,
+.gallery__counter,
+.contact__sign span,
+.pillars strong,
+.nav__mark,
+h3 {
+  font-family: var(--display) !important;
+}
+
+/* nothing curly / italic anywhere */
+em,
+.display em,
+.hero__title em,
+.universe__head em,
+.hero__role,
+.hero__quote {
+  font-style: normal !important;
+}
+
+.display {
+  letter-spacing: -.004em;
+  line-height: 1.12;
+}
+
+.display em {
+  font-weight: 600;
+}
+
+.hero__title {
+  letter-spacing: -.012em;
+  font-weight: 600;
+}
+
+.hero__role {
+  font-weight: 500;
+}
+
+.hero__quote {
+  font-weight: 500;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 2 ── ONE CREAM + ONE BROWN→GOLD, ALTERNATING PER SECTION ─────────
+   The page alternates between a single creamy tone and a rich brown→gold
+   tone. On the brown→gold sections the palette tokens are re-mapped, so
+   every heading, body line, accent and border recolours to warm cream
+   automatically and stays perfectly readable. */
+:root {
+  --cream: #fcf5e8;
+  /* the single creamy tone (creamier base) */
+  --cream-a: #fcf5e8;
+  --cream-b: #f4e8d6;
+  --ivory: #fcf5e8;
+  --gold-bright: #e7c277;
+  /* accent gold used on the dark sections */
+}
+
+body {
+  background: var(--cream);
+}
+
+body::before {
+  background:
+    radial-gradient(120% 90% at 85% -10%, rgba(201, 154, 82, .10), transparent 55%),
+    radial-gradient(95% 80% at -10% 110%, rgba(212, 196, 170, .16), transparent 55%),
+    var(--cream);
+}
+
+/* CREAM sections (odd) — warm cream, dark ink */
+main>.section:nth-of-type(odd) {
+  background:
+    radial-gradient(90% 70% at 0% 100%, rgba(201, 154, 82, .08), transparent 55%),
+    var(--cream) !important;
+}
+
+/* BROWN→GOLD sections (even) — cream text + gold accents via token remap */
+main>.section:nth-of-type(even) {
+  --ink: #fbf3e3;
+  --ink-soft: #e8d9bd;
+  --muted: #c9b187;
+  --champagne: var(--gold-bright);
+  --line: rgba(231, 194, 119, .26);
+  --line-soft: rgba(231, 194, 119, .14);
+  --paper-deep: #241a0d;
+  color: #fbf3e3 !important;
+  background:
+    radial-gradient(100% 80% at 100% 0%, rgba(231, 194, 119, .16), transparent 55%),
+    linear-gradient(155deg, #211708 0%, #3a2a13 46%, #6b4e22 100%) !important;
+}
+
+/* let the alternating rhythm govern; remove the old single-tone override */
+.showcase-section--alt {
+  background: none;
+}
+
+/* dark-section accents (consulting is now a borderless row list, styled below) */
+main>.section:nth-of-type(even) .btn--line {
+  border-color: rgba(231, 194, 119, .4);
+}
+
+/* the certificate frame stays light so the document pops on brown→gold */
+main>.section:nth-of-type(even) .showcase[data-showcase="recognition"] .showcase__frame {
+  background: #fffdf8 !important;
+  border-color: rgba(231, 194, 119, .3);
+}
+
+/* 3 ── ADAPTIVE SHOWCASE FRAMES — fit each image exactly ───────────
+   The real photos are mixed ratios (landscape / square / portrait), so a
+   fixed 9:16 frame left ugly empty bands. Instead the frame hugs the
+   ACTIVE image's natural ratio (measured in script.js): every image is
+   shown in full, never cropped, with no letterbox bands. */
+.showcase:not([data-showcase="recognition"]) .showcase__stage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.showcase:not([data-showcase="recognition"]) .showcase__frame {
+  aspect-ratio: 4 / 5;
+  /* graceful default until JS measures */
+  width: 100%;
+  max-width: 540px;
+  height: auto;
+  max-height: 82vh;
+  margin-inline: auto;
+  border-radius: var(--radius-lg);
+  background: var(--paper-deep);
+  transition: aspect-ratio .55s var(--ease);
+}
+
+.showcase:not([data-showcase="recognition"]) .showcase__img {
+  object-fit: cover;
+  /* frame ratio == image ratio → no crop */
+  object-position: center;
+}
+
+.showcase:not([data-showcase="recognition"]) .showcase__frame .framed__echo {
+  display: none;
+}
+
+/* 5 ── RECOGNITION CERTIFICATE — COMPLETE & UNCROPPED ──────────── */
+.showcase[data-showcase="recognition"] .showcase__stage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.showcase[data-showcase="recognition"] .showcase__frame {
+  /* FIXED box for BOTH certificates → no page-dimension jump when the
+     slide changes. object-fit: contain shows each document in full. */
+  aspect-ratio: 3 / 4;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  max-height: 80vh;
+  margin-inline: auto;
+  background: #fffdf8 !important;
+  border: 1px solid rgba(107, 82, 52, .14);
+  border-radius: 18px;
+  box-shadow: 0 22px 54px -30px rgba(77, 55, 31, .42);
+  padding: clamp(.5rem, 1.6vw, 1rem);
+  overflow: hidden;
+}
+
+.showcase[data-showcase="recognition"] .showcase__img {
+  object-fit: contain !important;
+  object-position: center !important;
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+/* 6 ── GALLERY SWIPE CUE (mobile guidance) ─────────────────────── */
+.swipe-cue {
+  display: none;
+}
+
+@keyframes cueHand {
+
+  0%,
+  100% {
+    transform: translateX(-7px);
+  }
+
+  50% {
+    transform: translateX(7px);
+  }
+}
+
+@keyframes cueFade {
+
+  0%,
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* 7 ── CONSULTING — TWO-COLUMN EDITORIAL STRUCTURE ─────────────────
+   Sticky intro (title + service tags) on the left; the four capabilities
+   become a clean vertical list of rows with hairline dividers on the
+   right — a calmer, more editorial structure than the old card grid. */
+.consulting__layout {
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+}
+
+.consulting__intro {
+  position: sticky;
+  top: calc(var(--header-h) + 1.6rem);
+}
+
+.consulting__intro .section-head {
+  margin-bottom: clamp(1.4rem, 3vh, 2rem);
+}
+
+#consulting .section-head h2 {
+  max-width: 15ch;
+}
+
+#consulting .tag-row {
+  gap: .5rem;
+  margin: 0;
+}
+
+#consulting .tag-row span {
+  background: rgba(255, 250, 240, .05);
+  border: 1px solid rgba(231, 194, 119, .26);
+  box-shadow: none;
+  font-size: .68rem;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  color: #efe0c4;
+  padding: .48rem .85rem;
+}
+
+#consulting .capability-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  grid-template-columns: none;
+}
+
+#consulting .capability {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "no head" "no body";
+  column-gap: 1.3rem;
+  align-items: start;
+  background: none;
+  border: 0;
+  border-top: 1px solid rgba(231, 194, 119, .2);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 1.5rem 0;
+  transition: none;
+}
+
+#consulting .capability:last-child {
+  border-bottom: 1px solid rgba(231, 194, 119, .2);
+}
+
+#consulting .capability__no {
+  grid-area: no;
+  font-family: var(--display);
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--champagne);
+  opacity: .7;
+  padding-top: .15rem;
+  min-width: 1.8em;
+}
+
+#consulting .capability__head {
+  grid-area: head;
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+}
+
+#consulting .capability i {
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(231, 194, 119, .14);
+  font-size: 1.15rem;
+  color: var(--champagne);
+  flex: 0 0 auto;
+}
+
+#consulting .capability h3 {
+  font-size: 1.18rem;
+  margin: 0;
+}
+
+#consulting .capability ul {
+  grid-area: body;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem 1.2rem;
+  margin-top: .65rem;
+}
+
+#consulting .capability li {
+  position: relative;
+  padding-left: .95rem;
+  font-size: .9rem;
+}
+
+#consulting .capability li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .62em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--champagne);
+}
+
+/* gold sweep along the row divider on hover */
+#consulting .capability::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 1px;
+  width: 0;
+  background: linear-gradient(90deg, var(--champagne), transparent);
+  transition: width .5s var(--ease);
+}
+
+#consulting .capability:hover::after {
+  width: 100%;
+}
+
+/* =====================================================================
+   8 ── MOBILE  ·  centered, app-like, full luxury  (max-width: 899px)
+   This block is intentionally last so it wins the cascade.
+   ===================================================================== */
+@media (max-width: 899px) {
+
+  /* ---- 8a · Luxury full-screen menu --------------------------------- */
+  .nav {
+    counter-reset: navi;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100svh;
+    flex-direction: column;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    gap: .15rem;
+    padding: max(5.5rem, 12vh) 1.8rem 2.4rem;
+    overflow-y: auto;
+    background:
+      radial-gradient(120% 55% at 50% 0%, rgba(201, 154, 82, .12), transparent 60%),
+      linear-gradient(180deg, var(--cream-a), var(--cream-b)) !important;
+    box-shadow: none !important;
+    transform: translateX(100%);
+  }
+
+  .nav.is-open {
+    transform: translateX(0);
+  }
+
+  .nav__eyebrow {
+    display: block;
+    font-size: .64rem;
+    font-weight: 600;
+    letter-spacing: .34em;
+    text-transform: uppercase;
+    color: var(--champagne);
+    margin-bottom: 1.35rem;
+  }
+
+  .nav a {
+    position: relative;
+    display: inline-flex;
+    align-items: baseline;
+    justify-content: center;
+    font-family: var(--display);
+    font-size: 1.5rem !important;
+    font-weight: 500;
+    color: var(--ink) !important;
+    padding: .48rem 0;
+    counter-increment: navi;
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  .nav.is-open a {
+    animation: navIn .5s var(--ease) forwards;
+  }
+
+  .nav.is-open a:nth-of-type(1) {
+    animation-delay: .05s;
+  }
+
+  .nav.is-open a:nth-of-type(2) {
+    animation-delay: .09s;
+  }
+
+  .nav.is-open a:nth-of-type(3) {
+    animation-delay: .13s;
+  }
+
+  .nav.is-open a:nth-of-type(4) {
+    animation-delay: .17s;
+  }
+
+  .nav.is-open a:nth-of-type(5) {
+    animation-delay: .21s;
+  }
+
+  .nav.is-open a:nth-of-type(6) {
+    animation-delay: .25s;
+  }
+
+  .nav.is-open a:nth-of-type(7) {
+    animation-delay: .29s;
+  }
+
+  .nav.is-open a:nth-of-type(8) {
+    animation-delay: .33s;
+  }
+
+  .nav.is-open a:nth-of-type(9) {
+    animation-delay: .37s;
+  }
+
+  /* number on the left + equal invisible spacer on the right → the word
+     itself is perfectly centered left-to-right */
+  .nav a::before {
+    content: counter(navi, decimal-leading-zero);
+    font-family: var(--body);
+    font-size: .58rem;
+    letter-spacing: .12em;
+    color: var(--champagne);
+    opacity: .7;
+    width: 2.6em;
+    text-align: right;
+    padding-right: .6em;
+  }
+
+  .nav a::after {
+    content: "";
+    width: 2.6em;
+  }
+
+  .nav a.is-active {
+    color: var(--champagne) !important;
+  }
+
+  .nav__sign {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .55rem;
+    margin-top: 1.7rem;
+    font-size: .72rem;
+    letter-spacing: .05em;
+    color: var(--muted);
+  }
+
+  .nav__mark {
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--champagne);
+    border-radius: 50%;
+    color: var(--champagne);
+    font-size: 1.05rem;
+  }
+
+  @keyframes navIn {
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* keep the hamburger / close button clearly above the open panel */
+  .menu-btn {
+    z-index: 80 !important;
+  }
+
+  /* ---- 8b · App-like centering for every section ------------------- */
+  .section,
+  .section-head,
+  .section-head--left,
+  .hero__copy,
+  .showcase__copy,
+  .contact__copy,
+  .showcase__caption,
+  .gallery__meta,
+  .gallery__caption {
+    text-align: center !important;
+  }
+
+  .lede,
+  .showcase__copy .lede,
+  .section-head .lede,
+  .section-head--left .lede,
+  .showcase__text,
+  .contact__copy .lede {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .rule {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .showcase__caption {
+    border-left: 0 !important;
+    border-top: 2px solid var(--champagne) !important;
+    padding-left: 0 !important;
+    padding-top: 1rem !important;
+    margin-inline: auto !important;
+  }
+
+  .showcase__dots,
+  .gallery__dots,
+  .signal-row,
+  .badges,
+  .tag-row,
+  .hero__actions,
+  .pillars {
+    justify-content: center !important;
+  }
+
+  .pillars li {
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  /* ---- 8c · Adaptive showcase frames on phones ------------------- */
+  .showcase:not([data-showcase="recognition"]) .showcase__frame {
+    width: min(86vw, 420px) !important;
+    max-width: 420px !important;
+    max-height: 74vh !important;
+    height: auto !important;
+    margin-inline: auto !important;
+  }
+
+  /* ---- 8d · Gallery fits each image + swipe cue ------------------- */
+  .gallery__frame {
+    width: min(90vw, 420px) !important;
+    max-width: 420px !important;
+    max-height: 74vh !important;
+    margin-inline: auto !important;
+    background: var(--paper-deep) !important;
+  }
+
+  .gallery__img {
+    object-fit: cover !important;
+  }
+
+  .swipe-cue {
+    position: absolute;
+    left: 50%;
+    bottom: 14px;
+    transform: translateX(-50%);
+    z-index: 4;
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    padding: .48rem .9rem;
+    border-radius: 999px;
+    background: rgba(35, 33, 31, .55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    color: #fff8ec;
+    font-size: .68rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    pointer-events: none;
+    animation: cueFade 4.8s ease forwards;
+  }
+
+  .swipe-cue i {
+    font-size: 1rem;
+    opacity: .8;
+  }
+
+  .swipe-cue__hand {
+    display: inline-grid;
+    animation: cueHand 1.4s var(--ease) infinite;
+  }
+
+  .swipe-cue em {
+    font-style: normal;
+  }
+
+  .swipe-cue.is-hidden {
+    opacity: 0 !important;
+    visibility: hidden;
+  }
+
+  /* ---- 8e · Recognition certificate, full width on phones ---------- */
+  .showcase[data-showcase="recognition"] .showcase__frame {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-inline: auto !important;
+  }
+
+  /* ---- 8f · Consulting (new structure) centered on phones ---------- */
+  .consulting__layout {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  .consulting__intro {
+    position: static !important;
+    text-align: center !important;
+  }
+
+  #consulting .section-head,
+  #consulting .section-head h2,
+  #consulting .section-head .lede {
+    text-align: center !important;
+    margin-inline: auto !important;
+  }
+
+  #consulting .section-head h2 {
+    max-width: 100%;
+  }
+
+  #consulting .tag-row {
+    justify-content: center !important;
+  }
+
+  #consulting .capability {
+    grid-template-columns: 1fr !important;
+    grid-template-areas: "no" "head" "body" !important;
+    justify-items: center !important;
+    text-align: center !important;
+    column-gap: 0 !important;
+    padding: 1.6rem 0 !important;
+  }
+
+  #consulting .capability__no {
+    padding-top: 0 !important;
+    margin-bottom: .5rem;
+  }
+
+  #consulting .capability__head {
+    justify-content: center !important;
+  }
+
+  #consulting .capability ul {
+    justify-content: center !important;
+    margin-top: .7rem;
+  }
+
+  #consulting .capability li {
+    padding-left: .95rem !important;
+    text-align: left !important;
+  }
+
+  /* ---- 8g · R&D timeline + contact, centered ----------------------- */
+  .timeline__step {
+    text-align: center !important;
+    border-top: 0 !important;
+  }
+
+  .timeline__step::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    margin: 0 auto .9rem;
+    background: var(--champagne);
+  }
+
+  .contact__links {
+    justify-items: center !important;
+  }
+
+  .contact__link {
+    width: min(100%, 340px) !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: .7rem !important;
+    padding: 1rem 1.15rem !important;
+  }
+
+  /* invisible spacer equal to the icon width → the label sits dead-center */
+  .contact__link::after {
+    content: "";
+    flex: 0 0 1.35rem;
+  }
+
+  .contact__link span,
+  .contact__link strong,
+  .contact__link small {
+    text-align: center !important;
+  }
+
+  .contact__visual {
+    margin-inline: auto !important;
+  }
+}
+
+@media (max-width: 600px) {
+  #consulting .capability-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .swipe-cue {
+    font-size: .64rem;
+    padding: .42rem .8rem;
+  }
+}
+
+/* =====================================================================
+   POST-VIDEO FIXES
+   - Mobile-menu labels (Navigation / TC tagline) must NOT show in the
+     desktop top bar — they belong only to the full-screen mobile menu.
+   - Gallery frame adapts to each image's ratio (set in script.js); give
+     it a smooth resize and a viewport cap so nothing is cropped.
+   ===================================================================== */
+@media (min-width: 900px) {
+
+  .nav__eyebrow,
+  .nav__sign {
+    display: none !important;
+  }
+}
+
+.gallery__frame {
+  transition: aspect-ratio .5s var(--ease);
+  max-height: 80vh;
+}
+
+/* smooth caption + counter swap, synced to the image crossfade (desktop + mobile) */
+.gallery__meta {
+  transition: opacity .3s var(--ease);
+}
+
+.gallery__meta.is-swapping {
+  opacity: .12;
+}
