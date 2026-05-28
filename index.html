@@ -3,570 +3,444 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tatyana Chaykovskaya | Culinary R&D Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#fbf7ef" />
+  <title>Tatyana Chaykovskaya — Culinary R&amp;D Portfolio</title>
+  <meta name="description"
+    content="Tatyana Chaykovskaya — Head of Culinary R&D. Editorial, wellness-led culinary direction for premium, guest-ready experiences." />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@300;400;500;600&display=swap"
     rel="stylesheet">
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
-  <!-- Performance: preload only the critical first images -->
+  <!-- Preload only the truly critical first images (no spaces / special chars). -->
   <link rel="preload" as="image" href="assets/optimized/intro.webp" fetchpriority="high">
-  <link rel="preload" as="image" href="assets/optimized/landscape_slideshow/image-01.webp" media="(min-width: 769px)"
+  <link rel="preload" as="image" href="assets/optimized/landscape_slideshow/image-01.webp" media="(min-width: 900px)"
     fetchpriority="low">
-  <link rel="preload" as="image" href="assets/optimized/portrait_slideshow/slide-01.webp" media="(max-width: 768px)"
+  <link rel="preload" as="image" href="assets/optimized/portrait_slideshow/slide-01.webp" media="(max-width: 899px)"
     fetchpriority="low">
+
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-  <div class="cinematic-loader" id="cinematicLoader" aria-label="Loading culinary portfolio">
-    <div class="loader-aura"></div>
-    <div class="loader-mark">TC</div>
-    <p>Culinary R&D Experience</p>
-    <p class="loader-credit">Crafted by Yahya Sleiman</p>
-    <div class="loader-line"><span id="loaderLine"></span></div>
-  </div>
-  <div class="scroll-progress" id="scrollProgress"></div>
-  <div class="grain"></div>
-  <div class="cursor-glow" aria-hidden="true"></div>
-  <div class="luxury-spotlight" id="luxurySpotlight" aria-hidden="true"></div>
-  <div class="ambient-dishes" aria-hidden="true">
-    <span></span><span></span><span></span><span></span><span></span>
+  <!-- Minimal cinematic loader -->
+  <div class="loader" id="loader" aria-label="Loading portfolio">
+    <div class="loader__mark">TC</div>
+    <p class="loader__label">Culinary&nbsp;R&amp;D&nbsp;·&nbsp;Wellness&nbsp;·&nbsp;Art</p>
+    <span class="loader__bar"><i id="loaderBar"></i></span>
   </div>
 
-  <header class="site-header">
+  <span class="scroll-progress" id="scrollProgress" aria-hidden="true"></span>
+  <span class="grain" aria-hidden="true"></span>
+
+  <!-- Header -->
+  <header class="header" id="header">
     <a href="#home" class="brand">Tatyana <span>Chaykovskaya</span></a>
-    <button class="menu-btn culinary-menu" id="menuBtn" aria-label="Open menu" type="button">
-      <span class="menu-mark" aria-hidden="true">
-        <span></span>
-        <span></span>
-        <span></span>
-      </span>
-    </button>
-    <nav class="nav" id="nav">
+
+    <nav class="nav" id="nav" aria-label="Primary">
       <a href="#home">Home</a>
       <a href="#philosophy">Philosophy</a>
       <a href="#creations">Gallery</a>
       <a href="#experience">Experience</a>
       <a href="#universe">Universe</a>
       <a href="#consulting">Consulting</a>
-      <a href="#lab">R&D Future</a>
+      <a href="#lab">R&amp;D</a>
       <a href="#recognition">Recognition</a>
       <a href="#contact">Contact</a>
     </nav>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" type="button">
+      <span></span><span></span>
+    </button>
   </header>
+  <div class="nav-scrim" id="navScrim" aria-hidden="true"></div>
 
   <main>
-    <section class="hero section" id="home">
-      <div class="hero-copy reveal">
-        <p class="eyebrow">Culinary R&D • Wellness • Artistic Food</p>
-        <h1>Tatyana<br><span>Chaykovskaya</span></h1>
-        <div class="mobile-hero-portrait" aria-label="Tatyana Chaykovskaya portrait">
-          <img src="assets/optimized/intro.webp" alt="Tatyana Chaykovskaya portrait preview" loading="eager"
-            decoding="async" fetchpriority="high" />
+    <!-- HERO -->
+    <section class="section hero" id="home">
+      <div class="container hero__inner">
+        <div class="hero__copy reveal">
+          <p class="eyebrow">Culinary R&amp;D · Wellness · Artistic Food</p>
+          <h1 class="display hero__title">Tatyana<br><em>Chaykovskaya</em></h1>
+          <p class="hero__role">Head of Culinary R&amp;D</p>
+          <span class="rule" aria-hidden="true"></span>
+          <p class="lede">Refined, wellness-led culinary direction shaped into premium, guest-ready experiences.</p>
+          <div class="hero__actions">
+            <a class="btn btn--solid" href="#creations">Explore Creations</a>
+            <a class="btn btn--line" href="#philosophy">Discover Philosophy</a>
+          </div>
+          <ul class="hero__stats" aria-label="Highlights">
+            <li><strong>18+</strong><span>Years in the Middle East</span></li>
+            <li><strong>R&amp;D</strong><span>Recipe Innovation</span></li>
+            <li><strong>Future</strong><span>Functional Food Vision</span></li>
+          </ul>
         </div>
-        <h2>Head of Culinary R&D</h2>
-        <div class="title-line" aria-hidden="true"></div>
-        <p class="hero-text">Refined culinary direction for wellness-led, guest-ready experiences.</p>
-        <div class="hero-actions">
-          <a class="btn primary magnetic" href="#creations">Explore Creations</a>
-          <a class="btn ghost magnetic" href="#philosophy">Discover Philosophy</a>
-        </div>
-        <div class="hero-stats">
-          <div><strong>18+</strong><span>Years in the Middle East</span></div>
-          <div><strong>R&D</strong><span>Recipe Innovation</span></div>
-          <div><strong>Health</strong><span>Future Food Vision</span></div>
-        </div>
-        <div class="hero-quote reveal">
-          <i class='bx bxs-quote-alt-left'></i>
-          <span>Food should carry care, beauty, and a memory.</span>
-        </div>
-      </div>
 
-      <div class="hero-visual reveal">
-        <div class="hero-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
-        <div class="portrait-frame tilt-card">
-          <img src="assets/optimized/intro.webp" alt="Tatyana Chaykovskaya portrait preview" loading="eager"
-            decoding="async" fetchpriority="high" />
-          <span class="portrait-glass"></span>
-        </div>
-        <div class="floating-card card-one"><i class='bx bx-leaf'></i> Functional Nutrition</div>
-        <div class="floating-card card-two"><i class='bx bx-bowl-hot'></i> Culinary Innovation</div>
-        <div class="floating-card card-three"><i class='bx bx-diamond'></i> Premium Creations</div>
+        <figure class="hero__visual reveal">
+          <div class="framed">
+            <span class="framed__echo" aria-hidden="true"></span>
+            <img class="framed__img" src="assets/optimized/intro.webp" alt="Portrait of Tatyana Chaykovskaya"
+              loading="eager" decoding="async" fetchpriority="high" />
+          </div>
+          <figcaption class="hero__quote">
+            <i class='bx bxs-quote-alt-left' aria-hidden="true"></i>
+            Food should carry care, beauty, and a memory.
+          </figcaption>
+        </figure>
       </div>
     </section>
 
-    <section class="feature-strip feature-ticker" aria-label="Featured highlights">
-      <div class="ticker-shell reveal">
-        <div class="ticker-track" aria-hidden="true">
-          <span>Gastro Erasmus 2026</span>
-          <span>World Feature</span>
-          <span>Business Women Recognition</span>
-          <span>Culinary R&amp;D Leadership</span>
-          <span>Functional Nutrition Vision</span>
-          <span>Gastro Erasmus 2026</span>
-          <span>World Feature</span>
-          <span>Business Women Recognition</span>
-          <span>Culinary R&amp;D Leadership</span>
-          <span>Functional Nutrition Vision</span>
+    <!-- PHILOSOPHY (showcase) -->
+    <section class="section showcase-section" id="philosophy">
+      <div class="container showcase reveal" data-showcase="philosophy" data-side="right">
+        <div class="showcase__copy">
+          <p class="eyebrow">Philosophy</p>
+          <h2 class="display">Food created <em>with purpose</em></h2>
+          <p class="lede">Every concept begins with meaning, then becomes an experience worth remembering.</p>
+          <div class="showcase__caption">
+            <span class="showcase__index" data-role="counter"></span>
+            <h3 class="showcase__title" data-role="title"></h3>
+            <p class="showcase__text" data-role="text"></p>
+          </div>
+          <div class="showcase__dots" data-role="dots" aria-label="Philosophy slides"></div>
         </div>
+        <figure class="showcase__stage">
+          <div class="showcase__frame">
+            <span class="framed__echo" aria-hidden="true"></span>
+            <img class="showcase__img" data-role="imgA" alt="" decoding="async">
+            <img class="showcase__img" data-role="imgB" alt="" aria-hidden="true" decoding="async">
+            <span class="showcase__bar" aria-hidden="true"><i data-role="bar"></i></span>
+          </div>
+        </figure>
       </div>
     </section>
 
-    <section class="brand-lens" aria-label="Portfolio positioning lens">
-      <div class="lens-card reveal">
-        <span>01</span>
-        <strong>Culinary Identity</strong>
-        <p>Taste, plating, and visual story.</p>
-      </div>
-      <div class="lens-card reveal">
-        <span>02</span>
-        <strong>Wellness Logic</strong>
-        <p>Wellness without losing pleasure.</p>
-      </div>
-      <div class="lens-card reveal">
-        <span>03</span>
-        <strong>R&amp;D Method</strong>
-        <p>Tested, refined, ready to scale.</p>
-      </div>
-      <div class="lens-card reveal">
-        <span>04</span>
-        <strong>Market Impact</strong>
-        <p>Built for guests, brands, and growth.</p>
-      </div>
-    </section>
-
-    <section class="philosophy section philosophy-editorial" id="philosophy">
-      <div class="philosophy-heading reveal">
-        <p class="eyebrow">Our Philosophy</p>
-        <h2>Food created <em>with purpose.</em></h2>
-        <div class="philosophy-ornament" aria-hidden="true">
-          <span></span><i class='bx bx-leaf'></i><span></span>
-        </div>
-        <p>Every concept begins with meaning and becomes an experience worth remembering.</p>
-      </div>
-
-      <div class="philosophy-grid visual-philosophy-grid philosophy-editorial-grid">
-        <article class="story-card philosophy-card reveal">
-          <div class="story-image">
-            <img src="assets/optimized/philosophy/philosophy-01.webp" alt="Emotional culinary inspiration visual"
-              loading="lazy" decoding="async">
-          </div>
-          <div class="philosophy-card-body">
-            <span>01</span>
-            <h3>Inspiration</h3>
-            <div class="philosophy-mini-line" aria-hidden="true"></div>
-            <p>Concepts begin with emotion, texture, and the memory they leave.</p>
-          </div>
-        </article>
-
-        <article class="story-card philosophy-card reveal">
-          <div class="story-image">
-            <img src="assets/optimized/philosophy/philosophy-02.webp" alt="Wellness and balance culinary visual"
-              loading="lazy" decoding="async">
-          </div>
-          <div class="philosophy-card-body">
-            <span>02</span>
-            <h3>Better Living</h3>
-            <div class="philosophy-mini-line" aria-hidden="true"></div>
-            <p>Smarter choices shaped with pleasure, balance, and care.</p>
-          </div>
-        </article>
-
-        <article class="story-card philosophy-card reveal">
-          <div class="story-image">
-            <img src="assets/optimized/philosophy/philosophy-03.webp" alt="Creative culinary identity visual"
-              loading="lazy" decoding="async">
-          </div>
-          <div class="philosophy-card-body">
-            <span>03</span>
-            <h3>Positive Impact</h3>
-            <div class="philosophy-mini-line" aria-hidden="true"></div>
-            <p>Creativity gains value when lifestyle, service, and market needs meet.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="creations section" id="creations">
-      <div class="split-heading reveal">
-        <div>
+    <!-- GALLERY -->
+    <section class="section gallery" id="creations">
+      <div class="container">
+        <header class="section-head reveal">
           <p class="eyebrow">Signature Creations</p>
-          <h2>Editorial Gallery</h2>
+          <h2 class="display">Editorial Gallery</h2>
+        </header>
+
+        <div class="gallery__filters reveal" role="tablist" aria-label="Gallery categories">
+          <button class="chip is-active" data-filter="all" type="button">All</button>
+          <button class="chip" data-filter="vision" type="button">Vision</button>
+          <button class="chip" data-filter="rd" type="button">R&amp;D</button>
+          <button class="chip" data-filter="business" type="button">Business</button>
+          <button class="chip" data-filter="story" type="button">Story</button>
         </div>
 
-      </div>
-      <div class="gallery-controls reveal" aria-label="Gallery category filters">
-        <button class="gallery-filter active" data-filter="all">All</button>
-        <button class="gallery-filter" data-filter="vision">Vision</button>
-        <button class="gallery-filter" data-filter="rd">R&D</button>
-        <button class="gallery-filter" data-filter="business">Business</button>
-        <button class="gallery-filter" data-filter="story">Story</button>
-      </div>
+        <div class="gallery__shell reveal" id="galleryShell">
+          <button class="gallery__nav gallery__nav--prev" id="prevSlide" type="button" aria-label="Previous image">
+            <i class='bx bx-chevron-left'></i>
+          </button>
 
-      <div class="slideshow-shell reveal">
-        <div class="slide-stage">
-          <button class="slide-nav prev" id="prevSlide" aria-label="Previous gallery image"><i
-              class='bx bx-chevron-left'></i></button>
-          <div class="slide-media">
-            <img id="slideImage" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
-              data-src="assets/optimized/landscape_slideshow/image-01.webp" alt="Featured culinary creation slideshow"
-              loading="lazy" decoding="async" fetchpriority="low">
+          <figure class="gallery__stage" id="galleryStage">
+            <div class="gallery__frame">
+              <img class="gallery__img" id="galleryImgA" alt="Culinary creation" decoding="async">
+              <img class="gallery__img" id="galleryImgB" alt="" aria-hidden="true" decoding="async">
+            </div>
+          </figure>
+
+          <button class="gallery__nav gallery__nav--next" id="nextSlide" type="button" aria-label="Next image">
+            <i class='bx bx-chevron-right'></i>
+          </button>
+        </div>
+
+        <div class="gallery__meta reveal">
+          <div class="gallery__caption">
+            <span class="gallery__kicker" id="slideKicker"></span>
+            <h3 class="gallery__title" id="slideTitle"></h3>
           </div>
-          <button class="slide-nav next" id="nextSlide" aria-label="Next gallery image"><i
-              class='bx bx-chevron-right'></i></button>
+          <span class="gallery__counter" id="slideCounter">01 / 15</span>
         </div>
-        <div class="slide-info">
-          <h3 id="slideTitle">Signature Visual Identity</h3>
-          <span id="slideCounter">01 / 15</span>
-        </div>
-        <div class="gallery-swipe-hint" aria-hidden="true">Swipe / drag to explore</div>
-        <div class="gallery-dots" id="galleryDots" aria-label="Gallery slide indicators"></div>
-        <div class="slide-thumbs" id="slideThumbs" aria-label="Gallery slideshow thumbnails"></div>
+
+        <div class="gallery__dots" id="galleryDots" aria-label="Gallery slides"></div>
+        <p class="gallery__hint" aria-hidden="true">Swipe or use the arrows · tap to enlarge</p>
       </div>
     </section>
 
-
-    <section class="signature-film section" id="experience">
-      <div class="experience-shell reveal">
-        <div class="experience-heading">
+    <!-- EXPERIENCE (showcase, mirrored) -->
+    <section class="section showcase-section showcase-section--alt" id="experience">
+      <div class="container showcase showcase--mirror reveal" data-showcase="experience" data-side="left">
+        <div class="showcase__copy">
           <p class="eyebrow">Signature Experience</p>
-          <h2>Emotion to plate.</h2>
-          <p>A concept shaped into atmosphere, hospitality, and memory.</p>
+          <h2 class="display">Emotion <em>to plate</em></h2>
+          <p class="lede">A concept shaped into atmosphere, hospitality, and a memory the guest keeps.</p>
+          <div class="showcase__caption">
+            <span class="showcase__index" data-role="counter"></span>
+            <h3 class="showcase__title" data-role="title"></h3>
+            <p class="showcase__text" data-role="text"></p>
+          </div>
+          <div class="showcase__dots" data-role="dots" aria-label="Experience slides"></div>
         </div>
-
-        <div class="experience-gallery" aria-label="Signature experience visual story">
-          <article class="experience-card experience-card-large reveal">
-            <img src="assets/optimized/experience/Signature Experience.webp"
-              alt="Signature cinematic culinary experience" loading="lazy" decoding="async">
-            <div class="experience-overlay">
-              <span>01 / Signature</span>
-              <h3>Define the emotion</h3>
-              <p>Start with feeling.</p>
-            </div>
-          </article>
-
-          <article class="experience-card reveal">
-            <img src="assets/optimized/experience/Premium Hospitality.webp" alt="Premium hospitality dessert experience"
-              loading="lazy" decoding="async">
-            <div class="experience-overlay">
-              <span>02 / Hospitality</span>
-              <h3>Shape the purpose</h3>
-              <p>Balance pleasure with nourishment.</p>
-            </div>
-          </article>
-
-          <article class="experience-card reveal">
-            <img src="assets/optimized/experience/Culinary Emotion.webp" alt="Culinary emotion and sensory composition"
-              loading="lazy" decoding="async">
-            <div class="experience-overlay">
-              <span>03 / Emotion</span>
-              <h3>Build the memory</h3>
-              <p>Turn detail into memory.</p>
-            </div>
-          </article>
-
-          <article class="experience-card reveal">
-            <img src="assets/optimized/experience/Guest Delight.webp" alt="Guest delight dessert presentation"
-              loading="lazy" decoding="async">
-            <div class="experience-overlay">
-              <span>04 / Delight</span>
-              <h3>Deliver the result</h3>
-              <p>Make beauty practical.</p>
-            </div>
-          </article>
-        </div>
+        <figure class="showcase__stage">
+          <div class="showcase__frame">
+            <span class="framed__echo" aria-hidden="true"></span>
+            <img class="showcase__img" data-role="imgA" alt="" decoding="async">
+            <img class="showcase__img" data-role="imgB" alt="" aria-hidden="true" decoding="async">
+            <span class="showcase__bar" aria-hidden="true"><i data-role="bar"></i></span>
+          </div>
+        </figure>
       </div>
     </section>
 
-    <section class="universe section" id="universe">
-      <div class="universe-copy reveal">
-        <p class="eyebrow">Culinary Universe</p>
-        <h2>Taste, wellness, design, strategy.</h2>
-        <p>An elegant world of craft, research, and market sense.</p>
-      </div>
-      <div class="universe-stage reveal" aria-label="Floating culinary storytelling cards">
-        <article class="universe-card u-card-1" data-depth="0.18">
-          <img src="assets/optimized/universe/Artistic Direction.webp" alt="Signature creation preview" loading="lazy"
-            decoding="async">
-          <span>Artistic Direction</span>
-        </article>
-        <article class="universe-card u-card-2" data-depth="0.28">
-          <img src="assets/optimized/universe/Wellness Vision.webp" alt="Health vision preview" loading="lazy"
-            decoding="async">
-          <span>Wellness Vision</span>
-        </article>
-        <article class="universe-card u-card-3" data-depth="0.22">
-          <img src="assets/optimized/universe/R&D Method.webp" alt="R&D strategy preview" loading="lazy"
-            decoding="async">
-          <span>R&D Method</span>
-        </article>
-        <article class="universe-card u-card-4" data-depth="0.32">
-          <img src="assets/optimized/universe/Market Thinking.webp" alt="Market demand preview" loading="lazy"
-            decoding="async">
-          <span>Market Thinking</span>
-        </article>
+    <!-- UNIVERSE (signature showcase) -->
+    <section class="section showcase-section" id="universe">
+      <div class="container showcase showcase--universe reveal" data-showcase="universe" data-side="right">
+        <div class="showcase__copy">
+          <p class="eyebrow">Culinary Universe</p>
+          <h2 class="display universe__head">Taste,<br>wellness,<br>design,<br><em>strategy</em></h2>
+          <div class="showcase__caption">
+            <span class="showcase__index" data-role="counter"></span>
+            <h3 class="showcase__title" data-role="title"></h3>
+            <p class="showcase__text" data-role="text"></p>
+          </div>
+          <ul class="pillars" aria-label="Culinary universe pillars">
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2.8l1.65 5.05L18.8 9.5l-5.15 1.65L12 16.2l-1.65-5.05L5.2 9.5l5.15-1.65L12 2.8Z" />
+                <path d="M5 15.2l.75 2.25L8 18.2l-2.25.75L5 21.2l-.75-2.25L2 18.2l2.25-.75L5 15.2Z" />
+              </svg>
+              <strong>Taste</strong><span>Sensorial identity</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M19.5 4.5C12.2 4.8 6.3 8.2 5.2 15.4c-.35 2.25.95 4.1 3.15 4.1 6.85 0 10.65-7.1 11.15-15Z" />
+                <path d="M6.2 18.2c2.9-4.55 6.1-7.25 10.6-9" />
+              </svg>
+              <strong>Wellness</strong><span>Balanced vision</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="7.2" r="4.1" />
+                <circle cx="7.7" cy="14.8" r="4.1" />
+                <circle cx="16.3" cy="14.8" r="4.1" />
+              </svg>
+              <strong>Design</strong><span>Visual intention</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7.2 7.2h9.6" />
+                <path d="M8.5 7.2l1.05 5.3h4.9l1.05-5.3" />
+                <path d="M9.1 15.7h5.8l1.1 4.1H8l1.1-4.1Z" />
+              </svg>
+              <strong>Strategy</strong><span>Market clarity</span>
+            </li>
+          </ul>
+          <div class="showcase__dots" data-role="dots" aria-label="Universe slides"></div>
+        </div>
+        <figure class="showcase__stage">
+          <div class="showcase__frame">
+            <span class="framed__echo" aria-hidden="true"></span>
+            <img class="showcase__img" data-role="imgA" alt="" decoding="async">
+            <img class="showcase__img" data-role="imgB" alt="" aria-hidden="true" decoding="async">
+            <span class="showcase__bar" aria-hidden="true"><i data-role="bar"></i></span>
+          </div>
+        </figure>
       </div>
     </section>
 
-    <section class="consulting section" id="consulting">
-      <div class="ops-shell reveal">
-        <div class="ops-hero">
-          <div class="ops-copy">
-            <p class="eyebrow">Operational Consulting</p>
-            <h2>Kitchen strategy that makes concepts work.</h2>
-            <p>Menus, kitchens, teams, costs, safety, and flow.</p>
-          </div>
+    <!-- CONSULTING (calm editorial split) -->
+    <section class="section consulting" id="consulting">
+      <div class="container">
+        <header class="section-head section-head--left reveal">
+          <p class="eyebrow">Operational Consulting</p>
+          <h2 class="display">Kitchen strategy that makes <em>concepts work</em></h2>
+          <p class="lede">Menus, kitchens, teams, costs, safety, and flow — from layout to launch.</p>
+        </header>
 
-          <div class="blueprint-grid">
-
-            <span>Menu Development</span>
-            <span>Concept & Menu Development</span>
-            <span>Recipe Standardization</span>
-            <span>Strategic Food Cost Optimization</span>
-            <span>Seasonal Menu Planning</span>
-            <span>Ingredient & Supplier Sourcing</span>
-            <span>Menu Profitability Analysis</span>
-          </div>
-
-          <div class="ops-statement" aria-label="Consulting focus statement">
-            <span>Consulting Scope</span>
-            <strong>From layout to launch</strong>
-            <p>Clear systems. Safe flow. Team readiness.</p>
-          </div>
+        <div class="tag-row reveal" aria-label="Menu development services">
+          <span>Concept &amp; Menu Development</span>
+          <span>Recipe Standardization</span>
+          <span>Food Cost Optimization</span>
+          <span>Seasonal Planning</span>
+          <span>Supplier Sourcing</span>
+          <span>Profitability Analysis</span>
         </div>
 
-        <div class="ops-pillars" aria-label="Consulting and operational expertise pillars">
-          <article class="ops-pillar reveal">
-            <div class="ops-icon"><i class='bx bx-layout'></i></div>
+        <div class="capability-grid">
+          <article class="capability reveal">
+            <i class='bx bx-layout' aria-hidden="true"></i>
             <h3>Kitchen Planning</h3>
             <ul>
-              <li>Space Planning &amp; Layout Design</li>
-              <li>Heavy Equipment Specification</li>
-              <li>Smallwares Inventory Sourcing</li>
-              <li>Production Line Balancing</li>
+              <li>Space planning &amp; layout</li>
+              <li>Equipment specification</li>
+              <li>Production line balancing</li>
             </ul>
           </article>
-
-          <article class="ops-pillar reveal">
-            <div class="ops-icon"><i class='bx bx-shield-quarter'></i></div>
+          <article class="capability reveal">
+            <i class='bx bx-shield-quarter' aria-hidden="true"></i>
             <h3>Safety &amp; Systems</h3>
             <ul>
-              <li>HACCP &amp; Safety Compliance</li>
-              <li>SOP Development</li>
-              <li>Inventory Control Systems</li>
-              <li>Food Waste Reduction</li>
+              <li>HACCP &amp; compliance</li>
+              <li>SOP development</li>
+              <li>Food-waste reduction</li>
             </ul>
           </article>
-
-          <article class="ops-pillar reveal">
-            <div class="ops-icon"><i class='bx bx-group'></i></div>
+          <article class="capability reveal">
+            <i class='bx bx-group' aria-hidden="true"></i>
             <h3>People &amp; Workflow</h3>
             <ul>
-              <li>Kitchen Hierarchy &amp; Staffing Plans</li>
-              <li>Team Onboarding Frameworks</li>
-              <li>Labor Cost Optimization</li>
+              <li>Staffing &amp; hierarchy plans</li>
+              <li>Team onboarding</li>
+              <li>Labour cost optimization</li>
             </ul>
           </article>
-
-          <article class="ops-pillar reveal">
-            <div class="ops-icon"><i class='bx bx-line-chart'></i></div>
+          <article class="capability reveal">
+            <i class='bx bx-line-chart' aria-hidden="true"></i>
             <h3>Commercial Control</h3>
             <ul>
-              <li>Vendor &amp; Supply Chain Management</li>
-              <li>Capex &amp; Budget Control</li>
-              <li>Operational Cost Awareness</li>
+              <li>Vendor &amp; supply chain</li>
+              <li>Budget &amp; capex control</li>
+              <li>Operational cost awareness</li>
             </ul>
           </article>
         </div>
-
-        <div class="ops-footer-note reveal">
-          <i class='bx bx-bulb'></i>
-          <p>Structure turns ideas into operations.</p>
-        </div>
       </div>
     </section>
 
-    <section class="development section" id="lab">
-      <div class="development-shell reveal">
-        <div class="development-left">
+    <!-- R&D FUTURE (timeline) -->
+    <section class="section lab" id="lab">
+      <div class="container">
+        <header class="section-head reveal">
           <p class="eyebrow">Concept Development</p>
-          <h2>Idea to launch-ready experience.</h2>
-          <p>Story, taste, design, and execution — refined for market launch.</p>
-        </div>
+          <h2 class="display">Idea to <em>launch-ready</em> experience</h2>
+          <p class="lede">Story, taste, design, and execution — refined for a confident market launch.</p>
+        </header>
 
-        <div class="development-roadmap" aria-label="Concept development roadmap">
-          <article class="dev-step reveal">
-            <span>01</span>
-            <div>
-              <strong>Concept Direction</strong>
-              <p>Define audience, occasion, emotion, and wellness intent.</p>
-            </div>
-          </article>
-          <article class="dev-step reveal">
-            <span>02</span>
-            <div>
-              <strong>Flavor Architecture</strong>
-              <p>Balance aroma, acidity, sweetness, texture, mouthfeel, contrast, and finish.</p>
-            </div>
-          </article>
-          <article class="dev-step reveal">
-            <span>03</span>
-            <div>
-              <strong>Visual Identity</strong>
-              <p>Shape plating, color, proportion, and presentation rhythm.</p>
-            </div>
-          </article>
-          <article class="dev-step reveal">
-            <span>04</span>
-            <div>
-              <strong>Launch Readiness</strong>
-              <p>Refine cost, consistency, flow, and team execution.</p>
-            </div>
-          </article>
-        </div>
+        <ol class="timeline" aria-label="Concept development roadmap">
+          <li class="timeline__step reveal">
+            <span class="timeline__num">01</span>
+            <h3>Concept Direction</h3>
+            <p>Define audience, occasion, emotion, and wellness intent.</p>
+          </li>
+          <li class="timeline__step reveal">
+            <span class="timeline__num">02</span>
+            <h3>Flavor Architecture</h3>
+            <p>Balance aroma, acidity, texture, contrast, and finish.</p>
+          </li>
+          <li class="timeline__step reveal">
+            <span class="timeline__num">03</span>
+            <h3>Visual Identity</h3>
+            <p>Shape plating, colour, proportion, and presentation rhythm.</p>
+          </li>
+          <li class="timeline__step reveal">
+            <span class="timeline__num">04</span>
+            <h3>Launch Readiness</h3>
+            <p>Refine cost, consistency, flow, and team execution.</p>
+          </li>
+        </ol>
 
-        <div class="development-signals reveal" aria-label="Future-facing development priorities">
-          <div><i class='bx bx-heart-circle'></i><span>Wellness-led</span></div>
-          <div><i class='bx bx-test-tube'></i><span>R&amp;D tested</span></div>
-          <div><i class='bx bx-diamond'></i><span>Brand-ready</span></div>
-          <div><i class='bx bx-trending-up'></i><span>Market-aware</span></div>
-        </div>
+        <ul class="signal-row reveal" aria-label="Development priorities">
+          <li><i class='bx bx-heart-circle' aria-hidden="true"></i>Wellness-led</li>
+          <li><i class='bx bx-test-tube' aria-hidden="true"></i>R&amp;D tested</li>
+          <li><i class='bx bx-diamond' aria-hidden="true"></i>Brand-ready</li>
+          <li><i class='bx bx-trending-up' aria-hidden="true"></i>Market-aware</li>
+        </ul>
       </div>
     </section>
 
-    <section class="recognition section" id="recognition">
-      <div class="recognition-shell reveal">
-        <div class="recognition-copy">
-          <p class="eyebrow">Recognition & Influence</p>
-          <h2>Culinary artistry with global presence.</h2>
-          <p>Media, competitions, leadership, and signature work — presented with quiet confidence.</p>
-          <div class="recognition-badges">
+    <!-- RECOGNITION (showcase) -->
+    <section class="section showcase-section showcase-section--alt" id="recognition">
+      <div class="container showcase reveal" data-showcase="recognition" data-side="right">
+        <div class="showcase__copy">
+          <p class="eyebrow">Recognition &amp; Influence</p>
+          <h2 class="display">Culinary artistry with <em>global presence</em></h2>
+          <p class="lede">Media, competitions, and leadership — presented with quiet confidence.</p>
+          <div class="showcase__caption">
+            <span class="showcase__index" data-role="counter"></span>
+            <h3 class="showcase__title" data-role="title"></h3>
+            <p class="showcase__text" data-role="text"></p>
+          </div>
+          <div class="badges" aria-label="Recognition">
             <span>World Feature</span>
             <span>Gastro Erasmus 2026</span>
             <span>Business Women Recognition</span>
-            <span>Culinary R&D Leadership</span>
+            <span>R&amp;D Leadership</span>
           </div>
-        </div>
-
-        <div class="recognition-gallery" aria-label="Recognition and awards visuals">
-          <figure class="recognition-figure primary-recognition">
-            <img src="assets/awards/culinary_competition.jpg" alt="Gastro Erasmus culinary competition recognition"
-              loading="lazy" decoding="async">
-            <figcaption>Gastro Erasmus 2026</figcaption>
-          </figure>
-          <figure class="recognition-figure certificate-card">
-            <img src="assets/awards/judge_certification.jpg" alt="WACS judge certificate" loading="lazy"
-              decoding="async">
-            <figcaption>WACS Judge Certificate</figcaption>
-          </figure>
-          <a class="award-link" href="assets/awards/AWARDS.pdf" target="_blank" rel="noopener">
-            <i class='bx bxs-file-pdf'></i>
-            <span>Open Awards PDF</span>
+          <a class="btn btn--line btn--sm" href="assets/awards/AWARDS.pdf" target="_blank" rel="noopener">
+            <i class='bx bxs-file-pdf' aria-hidden="true"></i> Open Awards PDF
           </a>
+          <div class="showcase__dots" data-role="dots" aria-label="Recognition slides"></div>
         </div>
+        <figure class="showcase__stage">
+          <div class="showcase__frame">
+            <span class="framed__echo" aria-hidden="true"></span>
+            <img class="showcase__img" data-role="imgA" alt="" decoding="async">
+            <img class="showcase__img" data-role="imgB" alt="" aria-hidden="true" decoding="async">
+            <span class="showcase__bar" aria-hidden="true"><i data-role="bar"></i></span>
+          </div>
+        </figure>
       </div>
     </section>
 
-    <section class="blueprint section" id="blueprint">
-      <div class="blueprint-panel reveal">
-        <div>
-          <p class="eyebrow">Recipe Blueprint</p>
-          <h2>Luxury on the surface. Discipline underneath.</h2>
-          <p>A disciplined framework for concept, ingredients, wellness, cost, production, and quality.</p>
-        </div>
-        <div class="blueprint-grid" aria-label="Recipe blueprint layers">
-          <span>Concept</span><span>Ingredients</span><span>Texture</span><span>Allergens</span><span>Nutrition</span><span>Cost</span><span>Production</span><span>Quality</span>
-        </div>
-      </div>
-    </section>
-
-
-    <section class="contact section contact-editorial" id="contact">
-      <div class="contact-shell reveal">
-        <div class="contact-portrait-card">
-          <div class="contact-image-frame">
-            <img src="assets/optimized/outro.webp" alt="Tatyana Chaykovskaya cinematic outro portrait" loading="lazy"
-              decoding="async">
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <div class="container contact__inner">
+        <figure class="contact__visual reveal">
+          <div class="framed">
+            <span class="framed__echo" aria-hidden="true"></span>
+            <img class="framed__img" src="assets/optimized/outro.webp" alt="Portrait of Tatyana Chaykovskaya"
+              loading="lazy" decoding="async">
           </div>
-          <div class="contact-signature">
-            <span>TC</span>
-            <p>Culinary R&amp;D • Wellness • Art direction.</p>
-          </div>
-        </div>
+          <figcaption class="contact__sign"><span>TC</span> Culinary R&amp;D · Wellness · Art direction</figcaption>
+        </figure>
 
-        <div class="contact-content">
+        <div class="contact__copy reveal">
           <p class="eyebrow">Contact &amp; Collaborations</p>
-          <h2>Let’s create memorable culinary work.</h2>
-          <p class="contact-lead">Open to innovation, wellness, hospitality, brand, and international collaborations.
-          </p>
+          <h2 class="display">Let's create memorable <em>culinary work</em></h2>
+          <p class="lede">Open to innovation, wellness, hospitality, brand, and international collaborations.</p>
 
-          <div class="contact-links" aria-label="Contact links">
-            <a class="contact-link" href="https://www.linkedin.com/in/tatyana-chaykovskaya-870b68101/" target="_blank"
+          <div class="contact__links">
+            <a class="contact__link" href="https://www.linkedin.com/in/tatyana-chaykovskaya-870b68101/" target="_blank"
               rel="noopener">
-              <i class='bx bxl-linkedin'></i>
-              <span>
-                <strong>LinkedIn</strong>
-                <small>Portfolio &amp; collaborations</small>
-              </span>
+              <i class='bx bxl-linkedin' aria-hidden="true"></i>
+              <span><strong>LinkedIn</strong><small>Portfolio &amp; collaborations</small></span>
             </a>
-
-            <a class="contact-link" href="https://www.instagram.com/tatyana_chaykovskaya/" target="_blank"
+            <a class="contact__link" href="https://www.instagram.com/tatyana_chaykovskaya/" target="_blank"
               rel="noopener">
-              <i class='bx bxl-instagram'></i>
-              <span>
-                <strong>Instagram</strong>
-                <small>Visual culinary world</small>
-              </span>
+              <i class='bx bxl-instagram' aria-hidden="true"></i>
+              <span><strong>Instagram</strong><small>Visual culinary world</small></span>
             </a>
-
-            <a class="contact-link" href="https://www.facebook.com/studiocarving" target="_blank" rel="noopener">
-              <i class='bx bxl-facebook'></i>
-              <span>
-                <strong>Facebook</strong>
-                <small>Projects &amp; updates</small>
-              </span>
+            <a class="contact__link" href="https://www.facebook.com/studiocarving" target="_blank" rel="noopener">
+              <i class='bx bxl-facebook' aria-hidden="true"></i>
+              <span><strong>Facebook</strong><small>Projects &amp; updates</small></span>
             </a>
-
-            <a class="contact-link" href="mailto:mywayislife@gmail.com">
-              <i class='bx bx-envelope'></i>
-              <span>
-                <strong>Email</strong>
-                <small>mywayislife@gmail.com</small>
-              </span>
+            <a class="contact__link" href="mailto:mywayislife@gmail.com">
+              <i class='bx bx-envelope' aria-hidden="true"></i>
+              <span><strong>Email</strong><small>mywayislife@gmail.com</small></span>
             </a>
-
-            <a class="contact-link" href="https://wa.me/380962219623" target="_blank" rel="noopener">
-              <i class='bx bxl-whatsapp'></i>
-              <span>
-                <strong>WhatsApp</strong>
-                <small>Direct collaborations</small>
-              </span>
+            <a class="contact__link" href="https://wa.me/380962219623" target="_blank" rel="noopener">
+              <i class='bx bxl-whatsapp' aria-hidden="true"></i>
+              <span><strong>WhatsApp</strong><small>Direct collaborations</small></span>
             </a>
           </div>
-
-
         </div>
       </div>
     </section>
-    <footer class="site-footer">
+
+    <footer class="footer">
       <p>© 2026 Tatyana Chaykovskaya — All Rights Reserved</p>
-      <p class="site-credit">Crafted &amp; Developed by <span>Yahya Sleiman</span></p>
+      <p class="footer__credit">Crafted &amp; Developed by <span>Yahya Sleiman</span></p>
     </footer>
   </main>
 
+  <!-- Lightbox -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
-    <button id="closeLightbox" aria-label="Close image"><i class='bx bx-x'></i></button>
-    <button class="lightbox-arrow lightbox-prev" id="lightboxPrev" aria-label="Previous image"><i
+    <button class="lightbox__close" id="closeLightbox" type="button" aria-label="Close"><i class='bx bx-x'></i></button>
+    <button class="lightbox__arrow lightbox__arrow--prev" id="lightboxPrev" type="button" aria-label="Previous"><i
         class='bx bx-chevron-left'></i></button>
-    <img id="lightboxImg" src="" alt="Expanded portfolio image" />
-    <button class="lightbox-arrow lightbox-next" id="lightboxNext" aria-label="Next image"><i
+    <img class="lightbox__img" id="lightboxImg" src="" alt="Expanded culinary image">
+    <button class="lightbox__arrow lightbox__arrow--next" id="lightboxNext" type="button" aria-label="Next"><i
         class='bx bx-chevron-right'></i></button>
-    <p id="lightboxTitle"></p>
+    <p class="lightbox__caption" id="lightboxCaption"></p>
   </div>
 
   <script src="script.js"></script>
