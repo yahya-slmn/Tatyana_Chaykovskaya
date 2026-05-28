@@ -25,7 +25,7 @@
   --white: #fff;
 
   /* type */
-  --display: "Fraunces", "Cormorant Garamond", Georgia, serif;
+  --display: "Playfair Display", Georgia, serif;
   --body: "Hanken Grotesk", "Inter", system-ui, sans-serif;
 
   /* fluid type scale */
@@ -1874,5 +1874,94 @@ main>.section:nth-of-type(odd) {
 
   .hero__quote {
     margin-top: 1rem !important;
+  }
+}
+
+/* =====================================================================
+   FINAL FONT-ONLY PATCH
+   Client request: remove the curly/italic feeling while keeping the same
+   layout, spacing, mobile ordering, colors, and behaviour.
+   ===================================================================== */
+:root {
+  --display: "Playfair Display", Georgia, "Times New Roman", serif;
+}
+
+/* Keep highlighted words gold, but not curly/italic. */
+em,
+.display em,
+.hero__title em,
+.universe__head em,
+.hero__role,
+.hero__quote {
+  font-style: normal !important;
+}
+
+/* Make the main name feel premium but cleaner and less decorative. */
+.display,
+.brand,
+.loader__mark,
+.hero__role,
+.hero__quote,
+.hero__stats strong,
+.timeline__num,
+.gallery__counter,
+.contact__sign span {
+  font-family: var(--display) !important;
+}
+
+/* Slightly reduce the dramatic curve/contrast of the large hero name. */
+.hero__title {
+  letter-spacing: -0.025em;
+}
+
+.hero__title em {
+  font-weight: 600;
+}
+
+/* Quote should read clean, not handwritten. */
+.hero__quote {
+  font-weight: 500;
+}
+
+
+/* Contact outro placement: title/subtitle first, photo second, buttons third */
+.contact__inner {
+  grid-template-columns: 1fr;
+  max-width: 920px;
+}
+
+.contact__copy {
+  width: 100%;
+}
+
+.contact__visual {
+  max-width: 520px;
+  margin: clamp(1.8rem, 4vw, 2.6rem) auto 0;
+}
+
+.contact__visual .framed__img {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.contact__links {
+  margin-top: clamp(1.7rem, 3vw, 2.3rem);
+}
+
+@media (max-width: 899px) {
+
+  .contact__inner,
+  .contact__copy {
+    display: block !important;
+  }
+
+  .contact__visual {
+    order: initial !important;
+    max-width: 360px;
+    margin: 1.8rem auto 0;
+  }
+
+  .contact__links {
+    margin-top: 1.7rem;
   }
 }
