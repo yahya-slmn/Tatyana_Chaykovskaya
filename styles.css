@@ -22,7 +22,7 @@ html {
 }
 
 body {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Inter', sans-serif;
   color: var(--charcoal);
   background: radial-gradient(circle at 15% 8%, rgba(233, 191, 196, .45), transparent 28%), radial-gradient(circle at 85% 12%, rgba(216, 183, 123, .35), transparent 28%), linear-gradient(135deg, var(--ivory), #fff);
   overflow-x: hidden
@@ -65,7 +65,7 @@ body {
 }
 
 .brand {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 31px;
   font-weight: 700;
   color: var(--charcoal);
@@ -127,7 +127,7 @@ body {
 }
 
 .hero h1 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(72px, 9vw, 142px);
   line-height: .78;
   letter-spacing: -.06em
@@ -292,7 +292,7 @@ body {
 .split-heading h2,
 .recognition-card h2,
 .contact-panel h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(46px, 6vw, 86px);
   line-height: 1;
   color: var(--charcoal);
@@ -319,7 +319,7 @@ body {
 }
 
 .story-card span {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 72px;
   color: rgba(216, 183, 123, .42)
 }
@@ -430,7 +430,7 @@ body {
 }
 
 .process-step span {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 64px;
   color: rgba(155, 112, 65, .28)
 }
@@ -1011,7 +1011,7 @@ body::after {
 }
 
 .loader-mark {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(88px, 13vw, 170px);
   color: #b5894f;
   letter-spacing: -.08em;
@@ -1250,7 +1250,7 @@ body::after {
 }
 
 .slide-info h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(38px, 4vw, 62px);
   line-height: .9;
   letter-spacing: -.045em;
@@ -1347,7 +1347,7 @@ body::after {
 .future-bg-word {
   position: absolute;
   inset: 8% auto auto -3%;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(120px, 24vw, 380px);
   line-height: 1;
   color: rgba(155, 112, 65, .055);
@@ -1363,7 +1363,7 @@ body::after {
 }
 
 .future-content h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(52px, 8vw, 112px);
   line-height: .95;
   letter-spacing: -.055em;
@@ -1591,7 +1591,8 @@ body::after {
   border-radius: 999px;
   border: 1px solid rgba(216, 183, 123, .28);
   background: rgba(255, 255, 255, .55);
-  color: #7d5b34;
+  color: #8d6536;
+  opacity: 1;
   font-weight: 900;
   letter-spacing: .08em;
   text-transform: uppercase;
@@ -1603,8 +1604,22 @@ body::after {
 .gallery-filter:hover,
 .gallery-filter.active {
   transform: translateY(-3px);
-  color: var(--ivory);
-  background: #23211f;
+  background: #23211f !important;
+  color: #f8f4ee !important;
+  border-color: #23211f !important;
+  box-shadow: 0 12px 30px rgba(35, 33, 31, 0.18);
+  opacity: 1 !important;
+}
+
+.gallery-filter:hover *,
+.gallery-filter.active * {
+  color: #f8f4ee !important;
+  opacity: 1 !important;
+}
+
+
+.gallery-filter.active {
+  pointer-events: none;
 }
 
 .slideshow-shell::after {
@@ -1635,7 +1650,7 @@ body::after {
 }
 
 .universe-copy h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(52px, 7vw, 110px);
   line-height: .94;
   letter-spacing: -.06em;
@@ -1769,7 +1784,7 @@ body::after {
 }
 
 .behind-card span {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 68px;
   color: rgba(181, 137, 79, .26);
 }
@@ -1880,7 +1895,7 @@ body::after {
   position: absolute;
   top: -11%;
   left: -7%;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(150px, 24vw, 360px);
   line-height: 1;
   letter-spacing: -.1em;
@@ -1909,7 +1924,7 @@ body::after {
 }
 
 .lab-intro h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(54px, 7vw, 112px);
   line-height: .92;
   letter-spacing: -.06em;
@@ -1962,7 +1977,7 @@ body::after {
   height: 108px;
   border-radius: 50%;
   margin-left: 22px;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 44px;
   color: #b5894f;
   background:
@@ -2160,7 +2175,7 @@ body::after {
 }
 
 .film-copy h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(54px, 8vw, 116px);
   line-height: .9;
   letter-spacing: -.06em;
@@ -2221,7 +2236,7 @@ body::after {
   top: 22px;
   right: 28px;
   z-index: 2;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 82px;
   color: rgba(255, 255, 255, .42);
   line-height: 1;
@@ -2250,7 +2265,7 @@ body::after {
 
 .film-card strong {
   display: block;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 38px;
   line-height: 1;
   letter-spacing: -.04em;
@@ -2279,7 +2294,7 @@ body::after {
   position: absolute;
   right: -8vw;
   top: -8rem;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(130px, 22vw, 340px);
   color: rgba(155, 112, 65, .055);
   letter-spacing: -.08em;
@@ -2292,7 +2307,7 @@ body::after {
 }
 
 .lab-intro h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(54px, 7vw, 104px);
   line-height: .92;
   letter-spacing: -.055em;
@@ -2343,7 +2358,7 @@ body::after {
 }
 
 .journey-number {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 94px;
   color: rgba(155, 112, 65, .22);
   line-height: 1;
@@ -2378,7 +2393,7 @@ body::after {
 
 .journey-content h3 {
   margin: 10px 0;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 44px;
   line-height: 1;
   letter-spacing: -.04em;
@@ -2412,7 +2427,7 @@ body::after {
 }
 
 .blueprint-panel h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(48px, 6vw, 86px);
   line-height: .94;
   letter-spacing: -.055em;
@@ -2712,7 +2727,7 @@ body::after {
   position: absolute;
   right: 3vw;
   bottom: 2vh;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(72px, 14vw, 220px);
   line-height: 1;
   color: rgba(155, 112, 65, .045);
@@ -2768,7 +2783,7 @@ body::after {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 23px;
   color: #9b7041;
   background: rgba(255, 255, 255, .7);
@@ -2885,7 +2900,7 @@ body::after {
   background: radial-gradient(circle, #fff 42%, rgba(243, 234, 223, .72));
   border: 1px solid rgba(181, 137, 79, .22);
   box-shadow: 0 22px 60px rgba(77, 55, 31, .12);
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 62px;
   color: rgba(155, 112, 65, .42)
 }
@@ -2908,7 +2923,7 @@ body::after {
 }
 
 .journey-content h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(38px, 4vw, 56px);
   line-height: .95;
   letter-spacing: -.05em;
@@ -4058,7 +4073,7 @@ body::-webkit-scrollbar-thumb:hover,
   left: 6.2vw;
   top: 130px;
   z-index: -1;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(90px, 16vw, 245px);
   line-height: .8;
   font-weight: 700;
@@ -4593,7 +4608,7 @@ body::-webkit-scrollbar-thumb:hover,
 
 .rd-visual-card strong {
   display: block;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(27px, 3vw, 38px);
   line-height: 1;
   letter-spacing: -.035em;
@@ -4825,7 +4840,7 @@ section[id] {
 }
 
 .experience-heading h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(64px, 7vw, 120px);
   line-height: .92;
   letter-spacing: -.06em;
@@ -4911,7 +4926,7 @@ section[id] {
 }
 
 .experience-overlay h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(30px, 3vw, 54px);
   line-height: .96;
   letter-spacing: -.04em;
@@ -4942,7 +4957,7 @@ section[id] {
 }
 
 .clean-lab-intro h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(56px, 8vw, 118px);
   line-height: .92;
   letter-spacing: -.06em;
@@ -5003,7 +5018,7 @@ section[id] {
 }
 
 .recognition-shell .recognition-copy h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(48px, 6vw, 86px);
   line-height: .98;
   letter-spacing: -.05em;
@@ -5353,7 +5368,7 @@ section[id] {
   display: grid;
   place-items: center;
   border-radius: 50%;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 28px;
   font-weight: 700;
   color: #fffaf3;
@@ -5375,7 +5390,7 @@ section[id] {
 }
 
 .contact-content h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(50px, 6.8vw, 94px);
   line-height: .94;
   letter-spacing: -.055em;
@@ -6315,7 +6330,7 @@ main>section:not(.hero) {
 }
 
 .consulting-heading h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(52px, 7vw, 104px);
   line-height: .94;
   letter-spacing: -.06em;
@@ -6347,7 +6362,7 @@ main>section:not(.hero) {
 }
 
 .system-bridge span {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   display: block;
   color: rgba(181, 137, 79, .32);
   font-size: 58px;
@@ -6415,7 +6430,7 @@ main>section:not(.hero) {
   top: 20px;
   right: 22px;
   color: rgba(181, 137, 79, .35);
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 34px;
   font-weight: 700;
 }
@@ -6543,7 +6558,7 @@ main>section:not(.hero) {
 
 .ops-copy h2,
 .development-left h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(52px, 7vw, 104px);
   line-height: .92;
   letter-spacing: -.06em;
@@ -6597,7 +6612,7 @@ main>section:not(.hero) {
   z-index: 1;
   display: block;
   margin-top: 12px;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(42px, 4vw, 64px);
   line-height: .95;
   letter-spacing: -.05em;
@@ -6651,7 +6666,7 @@ main>section:not(.hero) {
 }
 
 .ops-pillar h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 32px;
   line-height: 1;
   letter-spacing: -.03em;
@@ -6733,7 +6748,7 @@ main>section:not(.hero) {
   z-index: -1;
   left: -8%;
   top: -75px;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(110px, 18vw, 250px);
   line-height: 1;
   color: rgba(155, 112, 65, .055);
@@ -6771,7 +6786,7 @@ main>section:not(.hero) {
   border-radius: 50%;
   display: grid;
   place-items: center;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 34px;
   color: #b5894f;
   background: rgba(255, 255, 255, .58);
@@ -6797,7 +6812,7 @@ main>section:not(.hero) {
 
 .dev-step strong {
   display: block;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 38px;
   line-height: 1;
   letter-spacing: -.04em;
@@ -9344,7 +9359,7 @@ img {
    Manrope gives all paragraphs/buttons/navigation a modern hospitality-brand finish. */
 
 body {
-  font-family: 'Manrope', sans-serif !important;
+  font-family: 'Inter', sans-serif !important;
   font-weight: 400;
   letter-spacing: -0.01em;
 }
@@ -9410,7 +9425,7 @@ body {
 .consulting-copy p,
 .consulting-scope-card li,
 .contact-panel p {
-  font-family: 'Manrope', sans-serif !important;
+  font-family: 'Inter', sans-serif !important;
   letter-spacing: -0.01em;
   line-height: 1.72;
 }
@@ -9427,7 +9442,7 @@ body {
 .btn,
 .hero-stats span,
 .hero-quote span {
-  font-family: 'Manrope', sans-serif !important;
+  font-family: 'Inter', sans-serif !important;
 }
 
 /* Mobile screenshots: reduce the heavy newspaper feeling */
@@ -9482,7 +9497,7 @@ body {
 }
 
 .slide-info h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(38px, 4vw, 62px);
   line-height: .92;
   letter-spacing: -.045em;
@@ -9525,4 +9540,1271 @@ body {
 .slide-stage::after {
   content: none !important;
   display: none !important;
+}
+
+/* =========================================================
+   FINAL EDITORIAL POLISH — reduced copy, unified system,
+   stronger mobile, calmer luxury behavior
+   ========================================================= */
+:root {
+  --radius-xl: 34px;
+  --radius-lg: 26px;
+  --radius-md: 18px;
+  --soft-border: rgba(155, 112, 65, .16);
+  --soft-panel: rgba(255, 255, 255, .58);
+  --editorial-shadow: 0 26px 90px rgba(77, 55, 31, .13);
+  --editorial-shadow-hover: 0 38px 120px rgba(77, 55, 31, .18);
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.section {
+  padding-top: clamp(96px, 9vw, 145px);
+  padding-bottom: clamp(88px, 9vw, 140px);
+}
+
+.section-heading,
+.split-heading,
+.experience-heading,
+.universe-copy,
+.ops-copy,
+.development-left,
+.recognition-copy,
+.contact-content,
+.blueprint-panel>div:first-child {
+  text-wrap: balance;
+}
+
+.eyebrow {
+  margin-bottom: 14px;
+  letter-spacing: .22em;
+}
+
+.hero-text,
+.hero-quote span,
+.story-card p,
+.experience-heading p,
+.experience-overlay p,
+.universe-copy p:not(.eyebrow),
+.ops-copy p,
+.ops-statement p,
+.ops-footer-note p,
+.development-left p:not(.eyebrow),
+.dev-step p,
+.recognition-copy p,
+.blueprint-panel p,
+.contact-lead,
+.contact-signature p {
+  line-height: 1.58 !important;
+  color: rgba(35, 33, 31, .64) !important;
+}
+
+.hero-text {
+  max-width: 560px;
+  font-size: clamp(17px, 1.6vw, 20px);
+}
+
+.hero-quote {
+  max-width: 540px;
+  padding: 16px 18px;
+  border-radius: var(--radius-lg);
+}
+
+.brand-lens,
+.philosophy-grid,
+.ops-pillars,
+.development-roadmap,
+.recognition-badges,
+.contact-links {
+  gap: clamp(14px, 2vw, 22px) !important;
+}
+
+.lens-card,
+.story-card,
+.experience-card,
+.universe-card,
+.ops-statement,
+.ops-pillar,
+.dev-step,
+.recognition-figure,
+.contact-link,
+.contact-portrait-card,
+.blueprint-panel,
+.slideshow-shell {
+  border-color: var(--soft-border) !important;
+  box-shadow: var(--editorial-shadow) !important;
+}
+
+.lens-card:hover,
+.story-card:hover,
+.experience-card:hover,
+.universe-card:hover,
+.ops-pillar:hover,
+.dev-step:hover,
+.contact-link:hover,
+.recognition-figure:hover {
+  box-shadow: var(--editorial-shadow-hover) !important;
+}
+
+/* Navbar: editorial mobile menu instead of generic dropdown */
+.site-header {
+  padding-block: 18px;
+  transition: padding .25s ease, background .25s ease, box-shadow .25s ease;
+}
+
+.nav a {
+  position: relative;
+  padding: 8px 0;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  width: 0;
+  height: 1px;
+  background: #9b7041;
+  transition: width .25s ease;
+}
+
+.nav a:hover::after,
+.nav a.active::after {
+  width: 100%;
+}
+
+.culinary-menu {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid rgba(155, 112, 65, .16);
+  background: rgba(255, 255, 255, .48);
+  place-items: center;
+}
+
+.menu-mark {
+  width: 20px;
+  display: grid;
+  gap: 5px;
+}
+
+.menu-mark span {
+  display: block;
+  height: 1.5px;
+  width: 100%;
+  background: var(--charcoal);
+  border-radius: 999px;
+  transition: transform .28s ease, opacity .28s ease;
+}
+
+body.menu-open .menu-mark span:nth-child(1) {
+  transform: translateY(6.5px) rotate(42deg);
+}
+
+body.menu-open .menu-mark span:nth-child(2) {
+  opacity: 0;
+}
+
+body.menu-open .menu-mark span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-42deg);
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+/* Philosophy: image-led cards with less text pressure */
+.philosophy .section-heading {
+  max-width: 760px;
+  margin-bottom: clamp(38px, 5vw, 64px);
+}
+
+.philosophy-card {
+  padding: 18px 18px 28px !important;
+  min-height: 0 !important;
+  border-radius: var(--radius-xl) !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.philosophy-card .story-image {
+  aspect-ratio: 4 / 3;
+  border-radius: 24px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  background: #eadfce;
+}
+
+.philosophy-card .story-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .8s ease;
+}
+
+.philosophy-card:hover .story-image img {
+  transform: scale(1.04);
+}
+
+.philosophy-card span {
+  font-size: 42px !important;
+  line-height: 1;
+}
+
+.philosophy-card h3 {
+  margin: 10px 0 8px !important;
+  font-size: clamp(22px, 2.2vw, 28px) !important;
+}
+
+.philosophy-card p {
+  font-size: 15.5px !important;
+}
+
+/* Gallery: more cinematic, less component-like */
+.creations .split-heading {
+  margin-bottom: 24px !important;
+}
+
+.gallery-controls {
+  justify-content: center;
+  margin: 0 0 28px !important;
+}
+
+.gallery-filter {
+  min-height: 40px !important;
+  padding: 0 16px !important;
+  font-size: 10px !important;
+  background: rgba(255, 255, 255, .42) !important;
+}
+
+.slideshow-shell {
+  padding: clamp(10px, 2vw, 20px) !important;
+  border-radius: clamp(26px, 4vw, 46px) !important;
+  max-width: 1260px;
+  margin-inline: auto;
+}
+
+.slide-stage {
+  min-height: unset !important;
+  height: clamp(520px, 58vw, 760px) !important;
+  border-radius: clamp(22px, 3vw, 34px) !important;
+}
+
+.slide-media {
+  height: 100% !important;
+  border-radius: inherit !important;
+}
+
+.slide-info {
+  left: clamp(22px, 4vw, 54px) !important;
+  bottom: clamp(22px, 4vw, 54px) !important;
+  padding: clamp(18px, 2vw, 26px) !important;
+  width: min(420px, calc(100% - 44px)) !important;
+}
+
+.slide-info h3 {
+  font-size: clamp(34px, 4.4vw, 66px) !important;
+}
+
+.gallery-swipe-hint {
+  display: none;
+  margin: 14px 2px 0;
+  color: rgba(35, 33, 31, .48);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.slide-thumbs {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none;
+  scroll-snap-type: x proximity;
+  padding-top: 14px !important;
+}
+
+.slide-thumbs::-webkit-scrollbar {
+  display: none;
+}
+
+.slide-thumb {
+  scroll-snap-align: center;
+}
+
+/* Experience: stronger image dominance */
+.experience-heading {
+  max-width: 740px !important;
+  margin-inline: auto !important;
+  text-align: center !important;
+  margin-bottom: clamp(34px, 5vw, 58px) !important;
+}
+
+.experience-heading h2 {
+  max-width: 650px;
+  margin-inline: auto;
+}
+
+.experience-heading p:not(.eyebrow) {
+  max-width: 520px !important;
+  margin-inline: auto !important;
+  font-size: clamp(16px, 1.5vw, 18px) !important;
+}
+
+.experience-gallery {
+  gap: clamp(14px, 2vw, 22px) !important;
+}
+
+.experience-card {
+  border-radius: var(--radius-xl) !important;
+  overflow: hidden;
+}
+
+.experience-overlay {
+  padding: clamp(18px, 2.4vw, 28px) !important;
+}
+
+.experience-overlay p {
+  font-size: 14px !important;
+  max-width: 280px !important;
+}
+
+/* Universe: cleaner concept statement */
+.universe {
+  gap: clamp(28px, 5vw, 56px) !important;
+}
+
+.universe-copy p:not(.eyebrow) {
+  max-width: 440px !important;
+  font-size: clamp(16px, 1.5vw, 18px) !important;
+}
+
+.universe-card {
+  border-radius: 28px !important;
+}
+
+/* Consulting + development: less dense, consistent cards */
+.ops-copy p,
+.ops-statement p,
+.ops-footer-note p,
+.development-left p:not(.eyebrow) {
+  max-width: 620px !important;
+  font-size: clamp(16px, 1.45vw, 18px) !important;
+}
+
+.blueprint-grid span,
+.ops-pillar li,
+.dev-step p {
+  font-size: 14.5px !important;
+}
+
+.ops-pillar,
+.dev-step {
+  border-radius: var(--radius-lg) !important;
+}
+
+.ops-footer-note {
+  max-width: 780px;
+  margin-inline: auto;
+}
+
+/* Contact: tighter language, better mobile containment */
+.contact-link small {
+  line-height: 1.35;
+}
+
+.contact-content h2 {
+  max-width: 680px;
+}
+
+.contact-lead {
+  max-width: 560px !important;
+}
+
+/* Performance-friendly: reduce heavy effects on touch/smaller screens */
+@media (hover: none),
+(max-width: 900px) {
+
+  .cursor-glow,
+  .luxury-spotlight,
+  .ambient-dishes,
+  .hero-orbit {
+    display: none !important;
+  }
+
+  .grain {
+    opacity: .08 !important;
+  }
+
+  .reveal {
+    transition-duration: .55s !important;
+  }
+
+  .story-card:hover,
+  .process-step:hover,
+  .recognition-card:hover,
+  .contact-panel:hover,
+  .lens-card:hover,
+  .experience-card:hover,
+  .universe-card:hover,
+  .ops-pillar:hover,
+  .dev-step:hover,
+  .contact-link:hover {
+    transform: none !important;
+  }
+}
+
+@media (max-width: 1180px) {
+  .nav {
+    position: fixed !important;
+    inset: 78px 16px auto 16px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    padding: 10px !important;
+    border-radius: 28px !important;
+    background: rgba(251, 247, 239, .96) !important;
+    border: 1px solid rgba(155, 112, 65, .18) !important;
+    box-shadow: 0 26px 90px rgba(77, 55, 31, .18) !important;
+    backdrop-filter: blur(22px) !important;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-12px) scale(.98);
+    pointer-events: none;
+    transition: opacity .28s ease, transform .28s ease, visibility .28s ease;
+  }
+
+  .nav.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+
+  .nav a {
+    padding: 16px 18px !important;
+    border-radius: 18px;
+    font-size: 12px !important;
+    letter-spacing: .16em !important;
+    border-bottom: 1px solid rgba(155, 112, 65, .08);
+  }
+
+  .nav a:last-child {
+    border-bottom: 0;
+  }
+
+  .nav a:hover,
+  .nav a.active {
+    background: rgba(243, 234, 223, .74);
+  }
+
+  .nav a::after {
+    display: none;
+  }
+
+  .menu-btn {
+    display: grid !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    min-height: auto !important;
+    padding: 88px 5.5vw !important;
+  }
+
+  .site-header {
+    padding: 14px 5vw !important;
+  }
+
+  .brand {
+    font-size: clamp(20px, 6vw, 25px) !important;
+    max-width: 76%;
+    line-height: 1.05;
+  }
+
+  .hero {
+    padding-top: 96px !important;
+    gap: 26px !important;
+  }
+
+  .hero-copy {
+    text-align: left !important;
+  }
+
+  .hero h1 {
+    font-size: clamp(54px, 17vw, 82px) !important;
+    line-height: .86 !important;
+  }
+
+  .hero h2 {
+    font-size: 16px !important;
+    margin-top: 18px !important;
+  }
+
+  .hero-text {
+    font-size: 16.5px !important;
+    margin: 18px 0 !important;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    min-height: 50px;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr 1fr 1fr !important;
+    gap: 8px !important;
+    margin-top: 22px !important;
+  }
+
+  .hero-stats div {
+    padding: 14px 10px !important;
+    border-radius: 18px !important;
+  }
+
+  .hero-stats strong {
+    font-size: 20px !important;
+  }
+
+  .hero-stats span {
+    font-size: 10px !important;
+    line-height: 1.25 !important;
+  }
+
+  .hero-quote {
+    margin-top: 18px !important;
+  }
+
+  .hero-visual {
+    display: none !important;
+  }
+
+  .mobile-hero-portrait {
+    display: block !important;
+    margin: 22px 0 4px !important;
+    border-radius: 34px !important;
+    overflow: hidden;
+    box-shadow: 0 26px 80px rgba(77, 55, 31, .16);
+    border: 1px solid rgba(155, 112, 65, .16);
+  }
+
+  .mobile-hero-portrait img {
+    width: 100%;
+    height: clamp(360px, 105vw, 520px) !important;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  .section-heading h2,
+  .split-heading h2,
+  .experience-heading h2,
+  .universe-copy h2,
+  .ops-copy h2,
+  .development-left h2,
+  .recognition-copy h2,
+  .blueprint-panel h2,
+  .contact-content h2 {
+    font-size: clamp(38px, 12vw, 56px) !important;
+    line-height: .96 !important;
+    letter-spacing: -.045em !important;
+  }
+
+  .brand-lens,
+  .philosophy-grid,
+  .ops-pillars,
+  .development-roadmap,
+  .recognition-shell,
+  .contact-shell,
+  .blueprint-panel {
+    grid-template-columns: 1fr !important;
+  }
+
+  .brand-lens {
+    padding-inline: 5.5vw !important;
+  }
+
+  .lens-card {
+    min-height: unset !important;
+    padding: 22px !important;
+  }
+
+  .philosophy-card .story-image {
+    aspect-ratio: 1 / .82;
+  }
+
+  .creations {
+    padding-inline: 0 !important;
+  }
+
+  .creations .split-heading,
+  .creations .gallery-controls {
+    padding-inline: 5.5vw !important;
+  }
+
+  .gallery-controls {
+    justify-content: flex-start !important;
+    overflow-x: auto;
+    flex-wrap: nowrap !important;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .gallery-controls::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gallery-filter {
+    flex: 0 0 auto;
+  }
+
+  .slideshow-shell {
+    border-radius: 0 !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    padding: 12px 5.5vw 18px !important;
+  }
+
+  .slideshow-shell::after {
+    display: none !important;
+  }
+
+  .slide-stage {
+    height: min(118vw, 560px) !important;
+    min-height: 430px !important;
+    border-radius: 28px !important;
+  }
+
+  .slide-info {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    margin-top: 12px !important;
+    padding: 18px !important;
+    border-radius: 24px !important;
+  }
+
+  .slide-info h3 {
+    font-size: clamp(32px, 10vw, 44px) !important;
+  }
+
+  .gallery-swipe-hint {
+    display: block;
+  }
+
+  .slide-thumbs {
+    padding-bottom: 4px !important;
+  }
+
+  .slide-thumb {
+    flex-basis: 70px !important;
+    height: 58px !important;
+    border-radius: 16px !important;
+  }
+
+  .slide-nav {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .universe {
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+  }
+
+  .universe-stage {
+    min-height: 560px !important;
+    transform: scale(.94);
+    transform-origin: top center;
+  }
+
+  .ops-hero,
+  .development-shell,
+  .recognition-shell,
+  .contact-shell,
+  .blueprint-panel {
+    gap: 26px !important;
+  }
+
+  .ops-copy p,
+  .development-left p:not(.eyebrow),
+  .recognition-copy p,
+  .blueprint-panel p,
+  .contact-lead {
+    font-size: 16px !important;
+  }
+
+  .blueprint-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .contact-link {
+    padding: 16px !important;
+    border-radius: 20px !important;
+    align-items: center !important;
+  }
+
+  .contact-link small {
+    font-size: 12px !important;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 430px) {
+  .section {
+    padding-inline: 5vw !important;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-stats div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+  }
+
+  .slide-stage {
+    min-height: 390px !important;
+  }
+
+  .universe-stage {
+    min-height: 500px !important;
+    transform: scale(.86);
+  }
+
+  .contact-link {
+    gap: 12px !important;
+  }
+}
+
+/* =========================================================
+   FINAL CLIENT FIXES — mobile name, portrait medals, gallery dots,
+   compact philosophy, unified consulting containers
+   ========================================================= */
+@media (max-width: 768px) {
+  .hero {
+    overflow: visible !important;
+  }
+
+  .hero h1 {
+    font-size: clamp(44px, 13.8vw, 58px) !important;
+    line-height: .9 !important;
+    letter-spacing: -.052em !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+  }
+
+  .hero h1 span {
+    display: block;
+    white-space: nowrap;
+    font-size: .92em;
+  }
+
+  .mobile-hero-portrait {
+    border-radius: 30px !important;
+    background: #111 !important;
+  }
+
+  .mobile-hero-portrait img {
+    height: clamp(390px, 112vw, 560px) !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    background: #111 !important;
+  }
+
+  .philosophy .section-heading {
+    margin-bottom: 26px !important;
+  }
+
+  .philosophy-card {
+    padding: 16px 16px 24px !important;
+    border-radius: 30px !important;
+    gap: 0 !important;
+  }
+
+  .philosophy-card .story-image {
+    aspect-ratio: 1 / .82 !important;
+    margin-bottom: 16px !important;
+    border-radius: 22px !important;
+  }
+
+  .philosophy-card span {
+    font-size: 34px !important;
+    margin: 0 0 4px !important;
+  }
+
+  .philosophy-card h3 {
+    margin: 4px 0 6px !important;
+    font-size: 24px !important;
+  }
+
+  .philosophy-card p {
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: none !important;
+    font-size: 14.5px !important;
+    line-height: 1.5 !important;
+  }
+
+  .gallery-controls {
+    padding-right: 5.5vw !important;
+    scroll-padding-inline: 5.5vw !important;
+  }
+
+  .gallery-filter {
+    min-width: max-content !important;
+    padding-inline: 18px !important;
+    white-space: nowrap !important;
+  }
+
+  .gallery-filter:last-child {
+    margin-right: 5.5vw !important;
+  }
+
+  .gallery-dots {
+    display: flex !important;
+  }
+
+  .slide-thumbs {
+    display: none !important;
+  }
+
+  .gallery-swipe-hint {
+    margin-top: 12px !important;
+  }
+
+  .consulting .ops-shell {
+    display: grid !important;
+    gap: 18px !important;
+  }
+
+  .consulting .ops-hero {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .consulting .ops-copy,
+  .consulting .ops-statement,
+  .consulting .ops-pillar,
+  .consulting .ops-footer-note,
+  .consulting .blueprint-grid {
+    border-radius: 28px !important;
+    background: rgba(255, 255, 255, .62) !important;
+    border: 1px solid rgba(155, 112, 65, .15) !important;
+    box-shadow: 0 20px 70px rgba(77, 55, 31, .11) !important;
+  }
+
+  .consulting .ops-copy {
+    padding: 26px 24px !important;
+  }
+
+  .consulting .ops-copy h2 {
+    font-size: clamp(36px, 10.8vw, 48px) !important;
+  }
+
+  .consulting .ops-copy p:not(.eyebrow) {
+    font-size: 15.5px !important;
+    line-height: 1.55 !important;
+  }
+
+  .consulting .blueprint-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    padding: 18px !important;
+  }
+
+  .consulting .blueprint-grid span,
+  .consulting .blueprint-grid span:nth-child(4),
+  .consulting .blueprint-grid span:nth-child(6),
+  .consulting .blueprint-grid span:nth-child(7) {
+    width: 100% !important;
+    min-height: 48px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    border-radius: 18px !important;
+    background: rgba(243, 234, 223, .7) !important;
+    box-shadow: none !important;
+    font-size: 11px !important;
+    letter-spacing: .08em !important;
+    text-align: center !important;
+  }
+
+  .consulting .ops-statement {
+    padding: 24px !important;
+    min-height: 0 !important;
+    color: var(--charcoal) !important;
+    background: linear-gradient(135deg, rgba(255, 255, 255, .74), rgba(243, 234, 223, .66)) !important;
+  }
+
+  .consulting .ops-statement span,
+  .consulting .ops-statement strong,
+  .consulting .ops-statement p {
+    color: var(--charcoal) !important;
+  }
+
+  .consulting .ops-statement strong {
+    font-size: clamp(34px, 10vw, 44px) !important;
+  }
+
+  .consulting .ops-statement p {
+    color: rgba(35, 33, 31, .62) !important;
+  }
+
+  .consulting .ops-pillars {
+    gap: 14px !important;
+  }
+
+  .consulting .ops-pillar {
+    padding: 22px !important;
+  }
+
+  .consulting .ops-pillar h3 {
+    font-size: 24px !important;
+    margin: 12px 0 14px !important;
+  }
+
+  .consulting .ops-pillar li {
+    min-height: 38px !important;
+    padding: 9px 12px 9px 26px !important;
+    font-size: 12.5px !important;
+    border-radius: 14px !important;
+  }
+}
+
+.gallery-dots {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 12px auto 0;
+  max-width: 92%;
+  flex-wrap: wrap;
+}
+
+.gallery-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  border: 0;
+  padding: 0;
+  background: rgba(35, 33, 31, .22);
+  cursor: pointer;
+  transition: width .25s ease, background .25s ease, transform .25s ease;
+}
+
+.gallery-dot.active {
+  width: 26px;
+  background: #9b7041;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 430px) {
+  .hero h1 {
+    font-size: clamp(42px, 13vw, 50px) !important;
+  }
+
+  .mobile-hero-portrait img {
+    height: clamp(370px, 108vw, 500px) !important;
+  }
+
+  .philosophy-card .story-image {
+    aspect-ratio: 1 / .78 !important;
+  }
+
+  .consulting .ops-copy,
+  .consulting .ops-statement,
+  .consulting .ops-pillar,
+  .consulting .blueprint-grid {
+    border-radius: 24px !important;
+  }
+}
+
+/* =========================================================
+   FINAL REDESIGN — Philosophy editorial luxury section
+   Inspired by the approved mockup: centered classic title,
+   image-led cards, calm spacing, rounded luxury system.
+   ========================================================= */
+.philosophy-editorial {
+  min-height: auto !important;
+  padding-top: clamp(130px, 10vw, 170px) !important;
+  padding-bottom: clamp(95px, 8vw, 140px) !important;
+  background:
+    radial-gradient(circle at 10% 18%, rgba(216, 183, 123, .12), transparent 28%),
+    radial-gradient(circle at 88% 12%, rgba(233, 191, 196, .14), transparent 32%),
+    linear-gradient(135deg, #fffaf3 0%, #f5eadc 54%, #fff8ef 100%) !important;
+  overflow: hidden !important;
+}
+
+.philosophy-heading {
+  width: min(980px, 92vw);
+  margin: 0 auto clamp(48px, 5vw, 76px) !important;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.philosophy-heading .eyebrow {
+  margin-bottom: 18px !important;
+  color: #a77741 !important;
+  letter-spacing: .34em !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+}
+
+.philosophy-heading h2 {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: clamp(58px, 7.4vw, 128px) !important;
+  line-height: .88 !important;
+  letter-spacing: -.045em !important;
+  font-weight: 600 !important;
+  color: #23211f !important;
+  text-wrap: balance;
+}
+
+.philosophy-heading h2 em {
+  font-style: italic;
+  font-weight: 500;
+  color: #b1844b;
+  letter-spacing: -.035em;
+}
+
+.philosophy-heading>p:not(.eyebrow) {
+  max-width: 610px;
+  margin: 20px auto 0 !important;
+  color: rgba(35, 33, 31, .62) !important;
+  font-size: clamp(17px, 1.45vw, 22px) !important;
+  line-height: 1.6 !important;
+  font-weight: 400 !important;
+}
+
+.philosophy-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin: 24px auto 8px;
+  color: rgba(181, 137, 79, .5);
+}
+
+.philosophy-ornament span {
+  width: min(120px, 24vw);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(181, 137, 79, .38), transparent);
+}
+
+.philosophy-ornament i {
+  font-size: 19px;
+}
+
+.philosophy-editorial-grid {
+  width: min(1640px, 92vw) !important;
+  margin: 0 auto !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: clamp(24px, 2.3vw, 38px) !important;
+  align-items: stretch !important;
+}
+
+.philosophy-editorial .philosophy-card {
+  padding: 0 !important;
+  min-height: 0 !important;
+  border-radius: 34px !important;
+  overflow: hidden !important;
+  background: rgba(255, 252, 246, .78) !important;
+  border: 1px solid rgba(181, 137, 79, .16) !important;
+  box-shadow: 0 28px 90px rgba(77, 55, 31, .11) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  backdrop-filter: blur(14px);
+}
+
+.philosophy-editorial .philosophy-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 40px 120px rgba(77, 55, 31, .16) !important;
+  border-color: rgba(181, 137, 79, .28) !important;
+}
+
+.philosophy-editorial .philosophy-card .story-image {
+  width: 100% !important;
+  height: clamp(280px, 23vw, 420px) !important;
+  min-height: 0 !important;
+  aspect-ratio: auto !important;
+  margin: 0 !important;
+  border-radius: 34px 34px 0 0 !important;
+  overflow: hidden !important;
+  background: #fff8ef !important;
+}
+
+.philosophy-editorial .philosophy-card .story-image img {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  transition: transform .9s ease, filter .9s ease !important;
+}
+
+.philosophy-editorial .philosophy-card:hover .story-image img {
+  transform: scale(1.035) !important;
+  filter: saturate(1.03) contrast(1.02) !important;
+}
+
+.philosophy-card-body {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 clamp(26px, 2.4vw, 44px) clamp(34px, 3vw, 48px) !important;
+}
+
+.philosophy-card-body span {
+  width: 78px;
+  height: 78px;
+  display: grid !important;
+  place-items: center;
+  margin: -39px auto 22px !important;
+  border-radius: 50%;
+  background: rgba(255, 252, 246, .92);
+  border: 1px solid rgba(181, 137, 79, .18);
+  box-shadow: 0 18px 46px rgba(77, 55, 31, .09);
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 38px !important;
+  line-height: 1 !important;
+  font-weight: 600 !important;
+  color: #b1844b !important;
+}
+
+.philosophy-card-body h3 {
+  margin: 0 !important;
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: clamp(34px, 3vw, 48px) !important;
+  line-height: 1 !important;
+  letter-spacing: -.035em !important;
+  font-weight: 600 !important;
+  color: #23211f !important;
+}
+
+.philosophy-mini-line {
+  width: 76px;
+  height: 14px;
+  margin: 14px auto 16px;
+  position: relative;
+}
+
+.philosophy-mini-line::before,
+.philosophy-mini-line::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 30px;
+  height: 1px;
+  background: rgba(181, 137, 79, .38);
+}
+
+.philosophy-mini-line::before {
+  left: 0;
+}
+
+.philosophy-mini-line::after {
+  right: 0;
+}
+
+.philosophy-mini-line {
+  background: radial-gradient(circle at center, #b1844b 0 4px, transparent 4.5px);
+}
+
+.philosophy-card-body p {
+  max-width: 360px;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  color: rgba(35, 33, 31, .6) !important;
+  font-size: clamp(15px, 1.05vw, 17px) !important;
+  line-height: 1.65 !important;
+  font-weight: 400 !important;
+}
+
+@media (max-width: 1180px) {
+  .philosophy-editorial-grid {
+    grid-template-columns: 1fr !important;
+    width: min(760px, 90vw) !important;
+  }
+
+  .philosophy-editorial .philosophy-card .story-image {
+    height: clamp(310px, 55vw, 470px) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .philosophy-editorial {
+    padding-top: 104px !important;
+    padding-bottom: 82px !important;
+  }
+
+  .philosophy-heading {
+    width: min(350px, 90vw);
+    margin-bottom: 34px !important;
+  }
+
+  .philosophy-heading .eyebrow {
+    font-size: 11px !important;
+    letter-spacing: .26em !important;
+  }
+
+  .philosophy-heading h2 {
+    font-size: clamp(46px, 14vw, 64px) !important;
+    line-height: .9 !important;
+  }
+
+  .philosophy-heading>p:not(.eyebrow) {
+    font-size: 15.5px !important;
+    line-height: 1.55 !important;
+  }
+
+  .philosophy-editorial-grid {
+    width: min(348px, 90vw) !important;
+    gap: 18px !important;
+  }
+
+  .philosophy-editorial .philosophy-card {
+    border-radius: 28px !important;
+  }
+
+  .philosophy-editorial .philosophy-card .story-image {
+    height: 260px !important;
+    border-radius: 28px 28px 0 0 !important;
+  }
+
+  .philosophy-card-body {
+    padding: 0 24px 32px !important;
+  }
+
+  .philosophy-card-body span {
+    width: 68px;
+    height: 68px;
+    margin-top: -34px !important;
+    margin-bottom: 18px !important;
+    font-size: 32px !important;
+  }
+
+  .philosophy-card-body h3 {
+    font-size: 34px !important;
+  }
+
+  .philosophy-card-body p {
+    font-size: 14.5px !important;
+  }
 }

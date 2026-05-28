@@ -14,6 +14,14 @@ function setMenuState(isOpen) {
 }
 menuBtn?.setAttribute('aria-expanded', 'false');
 menuBtn?.addEventListener('click', () => setMenuState(!nav?.classList.contains('active')));
+
+// Close the mobile menu when the user taps outside the navigation.
+document.addEventListener('click', (e) => {
+  if (!nav?.classList.contains('active')) return;
+  if (nav.contains(e.target) || menuBtn?.contains(e.target)) return;
+  setMenuState(false);
+});
+
 function scrollToSection(target, behavior = 'smooth') {
   if (!target) return;
 
@@ -76,7 +84,7 @@ if (canUsePointerFX) {
 }
 
 const loaderStartTime = performance.now();
-const minimumLoaderTime = 1350;
+const minimumLoaderTime = window.matchMedia('(max-width: 768px)').matches ? 650 : 900;
 
 if (loaderLine) {
   requestAnimationFrame(() => {
@@ -131,31 +139,31 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 // Mobile uses 9:16 portrait images.
 // Only the active image + nearby thumbnails are loaded for better performance.
 const slideMeta = [
-  { title: 'Signature Culinary Direction', kicker: 'Editorial Story', category: 'all' },
-  { title: 'Color, Texture & Detail', kicker: 'Artistic Direction', category: 'story' },
-  { title: 'Emotion Through Food', kicker: 'Philosophy', category: 'vision' },
-  { title: 'Wellness With Elegance', kicker: 'Wellness Vision', category: 'vision' },
-  { title: 'Floral Dessert Elegance', kicker: 'Culinary Identity', category: 'story' },
-  { title: 'Balanced Concept Plates', kicker: 'R&D Method', category: 'rd' },
-  { title: 'Premium Guest Moment', kicker: 'Hospitality', category: 'business' },
-  { title: 'Fresh Flavor Architecture', kicker: 'R&D Method', category: 'rd' },
-  { title: 'Precision & Construction', kicker: 'Technical Craft', category: 'rd' },
-  { title: 'Market-Ready Product', kicker: 'Business Thinking', category: 'business' },
-  { title: 'Sensory Composition', kicker: 'Editorial Food', category: 'story' },
-  { title: 'Luxury Texture Story', kicker: 'Signature Detail', category: 'all' },
-  { title: 'Premium Product Styling', kicker: 'Business Thinking', category: 'business' },
-  { title: 'Seasonal Flavor Mood', kicker: 'Wellness Vision', category: 'vision' },
-  { title: 'Refined Plate Memory', kicker: 'Editorial Story', category: 'story' },
-  { title: 'Elegant Sweet Composition', kicker: 'Signature Detail', category: 'story' },
-  { title: 'Creative Culinary Study', kicker: 'R&D Method', category: 'rd' },
-  { title: 'Guest-Facing Beauty', kicker: 'Hospitality', category: 'business' },
-  { title: 'Ingredient-Led Concept', kicker: 'R&D Method', category: 'rd' },
-  { title: 'Artistic Brand Moment', kicker: 'Editorial Food', category: 'vision' },
-  { title: 'Premium Dessert Language', kicker: 'Signature Detail', category: 'all' },
-  { title: 'Modern Food Story', kicker: 'Culinary Identity', category: 'story' },
-  { title: 'Light Wellness Touch', kicker: 'Wellness Vision', category: 'vision' },
-  { title: 'Concept to Plate', kicker: 'R&D Method', category: 'rd' },
-  { title: 'Memorable Guest Delight', kicker: 'Hospitality', category: 'business' }
+  { title: 'Signature Direction', kicker: 'Story', category: 'all' },
+  { title: 'Color & Texture', kicker: 'Direction', category: 'story' },
+  { title: 'Food Emotion', kicker: 'Vision', category: 'vision' },
+  { title: 'Wellness Elegance', kicker: 'Wellness', category: 'vision' },
+  { title: 'Floral Detail', kicker: 'Identity', category: 'story' },
+  { title: 'Balanced Plates', kicker: 'R&D', category: 'rd' },
+  { title: 'Guest Moment', kicker: 'Guest', category: 'business' },
+  { title: 'Flavor Architecture', kicker: 'R&D', category: 'rd' },
+  { title: 'Precision Craft', kicker: 'Craft', category: 'rd' },
+  { title: 'Market Ready', kicker: 'Business', category: 'business' },
+  { title: 'Sensory Story', kicker: 'Editorial', category: 'story' },
+  { title: 'Texture Story', kicker: 'Detail', category: 'all' },
+  { title: 'Product Styling', kicker: 'Business', category: 'business' },
+  { title: 'Seasonal Mood', kicker: 'Wellness', category: 'vision' },
+  { title: 'Plate Memory', kicker: 'Story', category: 'story' },
+  { title: 'Sweet Composition', kicker: 'Detail', category: 'story' },
+  { title: 'Culinary Study', kicker: 'R&D', category: 'rd' },
+  { title: 'Guest Beauty', kicker: 'Guest', category: 'business' },
+  { title: 'Ingredient Concept', kicker: 'R&D', category: 'rd' },
+  { title: 'Brand Moment', kicker: 'Editorial', category: 'vision' },
+  { title: 'Dessert Language', kicker: 'Detail', category: 'all' },
+  { title: 'Modern Food', kicker: 'Identity', category: 'story' },
+  { title: 'Wellness Touch', kicker: 'Wellness', category: 'vision' },
+  { title: 'Concept to Plate', kicker: 'R&D', category: 'rd' },
+  { title: 'Guest Delight', kicker: 'Guest', category: 'business' }
 ];
 
 const landscapeImages = Array.from({ length: 15 }, (_, i) => `assets/optimized/landscape_slideshow/image-${String(i + 1).padStart(2, '0')}.webp`);
@@ -174,6 +182,7 @@ const slideKicker = document.getElementById('slideKicker');
 const slideTitle = document.getElementById('slideTitle');
 const slideCounter = document.getElementById('slideCounter');
 const slideThumbs = document.getElementById('slideThumbs');
+const galleryDots = document.getElementById('galleryDots');
 const prevSlide = document.getElementById('prevSlide');
 const nextSlide = document.getElementById('nextSlide');
 let currentSlide = 0;
@@ -247,6 +256,30 @@ function renderThumbs() {
   setupThumbLazyLoad();
 }
 
+
+function renderDots() {
+  if (!galleryDots) return;
+  galleryDots.innerHTML = filteredSlides.map((slide, index) => `
+    <button class="gallery-dot ${index === currentSlide ? 'active' : ''}" data-index="${index}" aria-label="Open slide ${index + 1}"></button>
+  `).join('');
+
+  if (!galleryDots.dataset.bound) {
+    galleryDots.dataset.bound = 'true';
+    galleryDots.addEventListener('click', (e) => {
+      const btn = e.target.closest('.gallery-dot');
+      if (!btn) return;
+      goToSlide(Number(btn.dataset.index), true);
+    });
+  }
+}
+
+function updateDotsActive() {
+  if (!galleryDots) return;
+  galleryDots.querySelectorAll('.gallery-dot').forEach((dot, index) => {
+    dot.classList.toggle('active', index === currentSlide);
+  });
+}
+
 function updateThumbActive() {
   if (!slideThumbs) return;
   slideThumbs.querySelectorAll('.slide-thumb').forEach((thumb, index) => {
@@ -298,13 +331,14 @@ function goToSlide(index, resetTimer = false) {
   if (slideTitle) slideTitle.textContent = slide.title;
   if (slideCounter) slideCounter.textContent = `${twoDigits(currentSlide + 1)} / ${twoDigits(filteredSlides.length)}`;
   updateThumbActive();
+  updateDotsActive();
   if (resetTimer) startAutoSlide();
 }
 
 function startAutoSlide() {
   clearInterval(autoSlideTimer);
   if (!galleryInitialized || !galleryInView) return;
-  autoSlideTimer = setInterval(() => goToSlide(currentSlide + 1), 5200);
+  autoSlideTimer = setInterval(() => goToSlide(currentSlide + 1), 6200);
 }
 
 function initGallery(shouldAutoplay = true) {
@@ -312,6 +346,7 @@ function initGallery(shouldAutoplay = true) {
   galleryInitialized = true;
   updateGalleryModeClass();
   renderThumbs();
+  renderDots();
   goToSlide(0);
 
   prevSlide?.addEventListener('click', () => goToSlide(currentSlide - 1, true));
@@ -428,6 +463,7 @@ function refreshResponsiveGallery() {
   updateGalleryModeClass();
   if (galleryInitialized) {
     renderThumbs();
+    renderDots();
     goToSlide(currentSlide, true);
   }
 }
@@ -445,6 +481,7 @@ document.querySelectorAll('.gallery-filter').forEach(btn => {
     refreshFilteredSlides();
     currentSlide = 0;
     renderThumbs();
+    renderDots();
     goToSlide(0, true);
   });
 });
