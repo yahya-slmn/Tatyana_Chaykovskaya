@@ -1,5 +1,5 @@
 /* =====================================================================
-   Tatyana Chaykovskaya — Portfolio behaviour
+   Tetiana Chaykovskaya — Portfolio behaviour
    1 Header + nav + scrollspy   2 Loader + progress   3 Reveal
    4 Showcase crossfade engine  5 Gallery slideshow   6 Lightbox
    ===================================================================== */

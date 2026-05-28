@@ -1,4 +1,4 @@
-# Tatyana Chaykovskaya — Culinary R&D Portfolio V2
+# Tetiana Chaykovskaya — Culinary R&D Portfolio V2
 
 Premium luxury culinary portfolio starter built with HTML, CSS, and JavaScript.
 

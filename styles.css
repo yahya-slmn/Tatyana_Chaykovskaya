@@ -1,5 +1,5 @@
 /* =====================================================================
-   Tatyana Chaykovskaya — Culinary R&D Portfolio
+   Tetiana Chaykovskaya — Culinary R&D Portfolio
    Clean, single-source design system. No stacked overrides.
    Sections:  1 Tokens · 2 Reset/base · 3 Typography · 4 Layout
               5 Header/nav · 6 Buttons/chips · 7 Hero · 8 Showcase
@@ -1526,5 +1526,353 @@ h3 {
   .reveal {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* =====================================================================
+   FINAL MOBILE / SECTION REFINEMENT PATCH
+   Purpose:
+   - Every mobile section starts with heading/copy, then image/content media.
+   - Alternate section backgrounds so consecutive areas feel separated.
+   - Recognition certificates fit cleanly without cropping or heavy extra space.
+   - Gallery dots stay as one swipe indicator line on mobile.
+   ===================================================================== */
+
+/* Calm alternating section backgrounds across the page */
+main>.section {
+  background: var(--ivory);
+}
+
+main>.section:nth-of-type(even) {
+  background:
+    radial-gradient(80% 70% at 100% 0%, rgba(216, 183, 123, .10), transparent 52%),
+    var(--paper);
+}
+
+main>.section:nth-of-type(odd) {
+  background:
+    radial-gradient(80% 70% at 0% 100%, rgba(200, 212, 191, .12), transparent 55%),
+    var(--ivory);
+}
+
+/* Keep alternate showcase sections from blending into the previous section */
+.showcase-section--alt {
+  background:
+    radial-gradient(90% 80% at 100% 100%, rgba(195, 154, 82, .12), transparent 54%),
+    var(--paper-deep) !important;
+}
+
+/* Recognition: certificate frame behaves like a document, not a cropped food image */
+.showcase[data-showcase="recognition"] .showcase__frame {
+  aspect-ratio: 1.48 / 1;
+  border-radius: 24px;
+  background: transparent;
+  box-shadow: 0 22px 54px -30px rgba(77, 55, 31, .42);
+}
+
+.showcase[data-showcase="recognition"] .showcase__img {
+  object-fit: contain !important;
+  object-position: center !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+.showcase[data-showcase="recognition"] .showcase__bar {
+  display: none;
+}
+
+/* Mobile-first reading rhythm: title/copy first, image second, always */
+@media (max-width: 899px) {
+  .section {
+    padding-block: clamp(3.4rem, 8vh, 5rem);
+  }
+
+  .hero__inner,
+  .showcase,
+  .showcase--mirror,
+  .contact__inner {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero__copy,
+  .showcase__copy,
+  .showcase--mirror .showcase__copy,
+  .contact__copy,
+  .section-head {
+    order: 1 !important;
+  }
+
+  .hero__visual,
+  .showcase__stage,
+  .showcase--mirror .showcase__stage,
+  .contact__visual,
+  .gallery__shell,
+  .capability-grid,
+  .timeline,
+  .signal-row {
+    order: 2 !important;
+  }
+
+  .showcase__copy,
+  .section-head,
+  .section-head--left {
+    text-align: left;
+    margin-inline: 0;
+  }
+
+  .showcase__copy .lede,
+  .section-head .lede,
+  .section-head--left .lede,
+  .lede {
+    margin-inline: 0;
+  }
+
+  .showcase__stage {
+    width: 100%;
+  }
+
+  /* Food/portrait showcase images stay elegant but not too tall on phones */
+  .showcase:not([data-showcase="recognition"]) .showcase__frame {
+    aspect-ratio: 4 / 3.15;
+  }
+
+  /* Recognition certificate: larger, complete, and with little empty frame */
+  .showcase[data-showcase="recognition"] .showcase__frame {
+    width: 100%;
+    max-width: 680px;
+    aspect-ratio: 1.48 / 1 !important;
+    margin-inline: auto;
+    border-radius: 20px;
+  }
+
+  .showcase[data-showcase="recognition"] .showcase__img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important;
+  }
+}
+
+@media (max-width: 600px) {
+
+  /* One clean row of dots: user understands swipe without visual clutter */
+  .gallery__dots {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 7px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: .35rem .2rem .45rem;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .gallery__dots::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gallery__dots button {
+    flex: 0 0 auto;
+    width: 6px;
+    height: 6px;
+    opacity: .8;
+  }
+
+  .gallery__dots button.is-active {
+    width: 18px;
+    border-radius: 999px;
+    transform: none;
+    opacity: 1;
+  }
+
+  /* Better certificate fit on narrow phones */
+  .showcase[data-showcase="recognition"] .showcase__frame {
+    aspect-ratio: 1.46 / 1 !important;
+    border-radius: 18px;
+  }
+}
+
+/* =====================================================================
+   FINAL MOBILE SHOWCASE ORDER PATCH
+   Mobile showcase rhythm:
+   eyebrow → title → subtitle → image → slide description/details.
+   This keeps the image directly after the main heading area instead of
+   pushing it below the dynamic description.
+   ===================================================================== */
+@media (max-width: 899px) {
+
+  .showcase,
+  .showcase--mirror {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1.35rem !important;
+    align-items: start;
+  }
+
+  /* Let the text children and media become direct grid items on mobile. */
+  .showcase__copy,
+  .showcase--mirror .showcase__copy {
+    display: contents !important;
+  }
+
+  .showcase__copy>.eyebrow {
+    order: 1 !important;
+    width: 100%;
+    margin-bottom: .85rem;
+  }
+
+  .showcase__copy>h2,
+  .showcase__copy>.display {
+    order: 2 !important;
+    width: 100%;
+    margin-bottom: .45rem;
+  }
+
+  .showcase__copy>.lede {
+    order: 3 !important;
+    width: 100%;
+    margin: 0 0 .85rem !important;
+    max-width: 46ch;
+  }
+
+  .showcase__stage,
+  .showcase--mirror .showcase__stage {
+    order: 4 !important;
+    width: 100%;
+    margin: .15rem 0 1.2rem;
+  }
+
+  .showcase__caption {
+    order: 5 !important;
+    width: 100%;
+    margin: 0 0 1rem;
+  }
+
+  .pillars,
+  .badges,
+  .showcase__copy>.btn {
+    order: 6 !important;
+    width: 100%;
+  }
+
+  .showcase__dots {
+    order: 7 !important;
+    width: 100%;
+    margin-top: .4rem;
+  }
+
+  .showcase__stage+.showcase__caption {
+    margin-top: 0;
+  }
+}
+
+/* =====================================================================
+   FINAL MOBILE HEADER BRAND PATCH
+   On phones, avoid repeating the full name directly above the hero title.
+   Keep the full name in the hero only and turn the navbar brand into a
+   quiet TC monogram.
+   ===================================================================== */
+@media (max-width: 899px) {
+  .header .brand {
+    font-size: 0 !important;
+    letter-spacing: 0 !important;
+    width: 42px;
+    height: 42px;
+    display: inline-grid;
+    place-items: center;
+    border-radius: 999px;
+    color: var(--champagne);
+  }
+
+  .header .brand span {
+    display: none !important;
+  }
+
+  .header .brand::before {
+    content: "TC";
+    font-family: var(--display);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--champagne);
+  }
+}
+
+/* =====================================================================
+   FINAL HERO MOBILE POSITION PATCH
+   Mobile hero rhythm:
+   eyebrow → name → role → image/quote → description → buttons → stats.
+   The hero photo must sit directly after the name/title area, not after
+   the description, buttons, and stats.
+   ===================================================================== */
+@media (max-width: 899px) {
+  .hero__inner {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+    align-items: start !important;
+  }
+
+  /* Break the copy wrapper only on mobile so the image can be placed
+     between the role and the description without changing desktop layout. */
+  .hero__copy {
+    display: contents !important;
+  }
+
+  .hero__copy>.eyebrow {
+    order: 1 !important;
+    width: 100%;
+    margin-bottom: .55rem !important;
+  }
+
+  .hero__title {
+    order: 2 !important;
+    width: 100%;
+    margin-bottom: .25rem !important;
+  }
+
+  .hero__role {
+    order: 3 !important;
+    width: 100%;
+    margin-bottom: 1.15rem !important;
+  }
+
+  .hero__visual {
+    order: 4 !important;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto 1.15rem !important;
+  }
+
+  .hero__copy>.rule {
+    order: 5 !important;
+    width: 64px;
+    margin: .15rem 0 1.1rem !important;
+  }
+
+  .hero__copy>.lede {
+    order: 6 !important;
+    width: 100%;
+    margin: 0 0 1.35rem !important;
+  }
+
+  .hero__actions {
+    order: 7 !important;
+    width: 100%;
+    margin: 0 0 1.55rem !important;
+  }
+
+  .hero__stats {
+    order: 8 !important;
+    width: 100%;
+    margin-top: .2rem;
+  }
+
+  .hero__quote {
+    margin-top: 1rem !important;
   }
 }
