@@ -2114,3 +2114,137 @@ em,
     text-align: center !important;
   }
 }
+
+
+/* =====================================================================
+   FINAL CREAMY PALETTE + CONTACT BUTTON CENTERING PATCH
+   Client request: softer creamy text/color mood and cleaner centered
+   contact buttons on mobile. Desktop layout remains unchanged.
+   ===================================================================== */
+
+/* Softer, creamier luxury palette */
+:root {
+  --ivory: #fffaf1;
+  --paper: #f6ebdc;
+  --paper-deep: #ead9c4;
+  --champagne: #b98a45;
+  --champagne-soft: #d7b879;
+  --rose: #ead0c7;
+  --sage: #d4d8c5;
+  --ink: #3a3028;
+  --ink-soft: #6d6054;
+  --muted: #9a8b79;
+  --line: rgba(107, 82, 52, .16);
+  --line-soft: rgba(107, 82, 52, .09);
+  --white: #fffdf8;
+}
+
+/* Make the page feel creamier without reducing readability */
+body {
+  color: var(--ink);
+  background: var(--ivory);
+}
+
+body::before {
+  background:
+    radial-gradient(120% 90% at 85% -10%, rgba(215, 184, 121, .22), transparent 55%),
+    radial-gradient(90% 80% at -10% 110%, rgba(218, 202, 178, .28), transparent 55%),
+    linear-gradient(180deg, #fffaf1 0%, #fbf2e5 100%);
+}
+
+.display,
+h3,
+.brand,
+.loader__mark {
+  color: var(--ink);
+}
+
+.lede,
+.showcase__text,
+.timeline__step p,
+.capability li,
+.contact__link small,
+.hero__stats span,
+.footer {
+  color: var(--ink-soft);
+}
+
+.eyebrow,
+.display em,
+.brand span,
+.hero__stats strong,
+.timeline__num,
+.contact__link i,
+.contact__sign span {
+  color: var(--champagne);
+}
+
+.header.is-stuck {
+  background: rgba(255, 250, 241, .86);
+}
+
+/* Creamier cards/buttons */
+.hero__quote,
+.capability,
+.contact__link,
+.tag-row span {
+  background: rgba(255, 253, 248, .86);
+  border-color: var(--line-soft);
+}
+
+.btn--solid {
+  background: #2f2924;
+  color: #fff8ec;
+}
+
+.btn--solid:hover {
+  background: var(--champagne);
+  color: #fffaf1;
+}
+
+.btn--line,
+.chip {
+  background: rgba(255, 253, 248, .45);
+  border-color: var(--line);
+  color: var(--ink-soft);
+}
+
+/* Mobile: keep contact buttons beautifully centered */
+@media (max-width: 899px) {
+  .contact__links {
+    justify-items: center !important;
+  }
+
+  .contact__link {
+    width: min(100%, 330px) !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: .7rem !important;
+    padding: 1rem 1.15rem !important;
+  }
+
+  .contact__link i {
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+  }
+
+  .contact__link span {
+    flex: 0 1 auto !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    min-width: 0 !important;
+  }
+
+  .contact__link strong,
+  .contact__link small {
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  .contact__link small {
+    overflow-wrap: anywhere !important;
+  }
+}
+
