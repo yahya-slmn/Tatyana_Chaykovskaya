@@ -1965,3 +1965,152 @@ em,
     margin-top: 1.7rem;
   }
 }
+
+/* =====================================================================
+   FINAL MOBILE GALLERY FILTER PATCH
+   Keep all gallery filter chips on one clean horizontal line on phones.
+   ===================================================================== */
+@media (max-width: 899px) {
+  .gallery__filters {
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: .35rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .gallery__filters .chip {
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
+    font-size: .68rem !important;
+    letter-spacing: .01em !important;
+    padding: .42rem .58rem !important;
+    line-height: 1.1 !important;
+  }
+}
+
+@media (max-width: 370px) {
+  .gallery__filters {
+    gap: .25rem !important;
+  }
+
+  .gallery__filters .chip {
+    font-size: .64rem !important;
+    padding: .38rem .5rem !important;
+  }
+}
+/* =====================================================================
+   FINAL MOBILE CENTERED TEXT PATCH
+   Client request: center all section text on mobile only while preserving
+   desktop layout, image order, gallery behavior, and existing structure.
+   ===================================================================== */
+@media (max-width: 899px) {
+  /* Global section text alignment on mobile */
+  .section,
+  .section-head,
+  .section-head--left,
+  .hero__copy,
+  .hero__title,
+  .hero__role,
+  .hero .lede,
+  .showcase__copy,
+  .showcase__copy .lede,
+  .showcase__caption,
+  .showcase__title,
+  .showcase__text,
+  .gallery__meta,
+  .gallery__caption,
+  .gallery__title,
+  .gallery__kicker,
+  .gallery__counter,
+  .gallery__hint,
+  .consulting,
+  .lab,
+  .timeline__step,
+  .capability,
+  .contact__copy,
+  .contact__links,
+  .footer {
+    text-align: center !important;
+  }
+
+  /* Center text blocks that previously had left-only margins */
+  .lede,
+  .section-head .lede,
+  .section-head--left .lede,
+  .showcase__text,
+  .hero__copy > .lede,
+  .contact__copy .lede {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* Center decorative rules under mobile headings */
+  .rule,
+  .hero__copy > .rule {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* Showcase detail card: remove left editorial border on mobile and use a centered top accent */
+  .showcase__caption {
+    border-left: 0 !important;
+    border-top: 2px solid var(--champagne) !important;
+    padding-left: 0 !important;
+    padding-top: 1rem !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .showcase__dots,
+  .gallery__dots,
+  .signal-row,
+  .badges,
+  .tag-row,
+  .hero__actions {
+    justify-content: center !important;
+  }
+
+  /* Center universe pillars and consulting/service content */
+  .pillars li,
+  .capability,
+  .timeline__step,
+  .contact__link span {
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .capability li {
+    padding-left: 0 !important;
+    text-align: center !important;
+  }
+
+  .capability li::before {
+    display: none !important;
+  }
+
+  /* Gallery title/counter should stack cleanly when centered */
+  .gallery__meta {
+    align-items: center !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+    gap: .35rem !important;
+  }
+
+  .gallery__counter {
+    width: 100% !important;
+  }
+
+  /* Hero highlight numbers centered */
+  .hero__stats {
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .hero__stats li {
+    text-align: center !important;
+  }
+}
