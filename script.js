@@ -151,9 +151,10 @@
     // it is landscape, square or portrait. Inline !important beats any
     // stylesheet aspect-ratio rule.
     const fitFrame = (im) => {
-      // Recognition keeps a FIXED frame (set in CSS) so the two certificates,
-      // which have different ratios, don't resize the section and shift the page.
-      if (key === "recognition") return;
+      // Every showcase — including Recognition — hugs the active image's
+      // natural ratio so there is no empty letterbox space. Recognition keeps
+      // a FIXED height in CSS, so hugging only changes the card WIDTH between
+      // slides — the section height stays constant and the page never jumps.
       if (!frame || !im || !(im.naturalWidth > 0 && im.naturalHeight > 0)) return;
       frame.style.setProperty("aspect-ratio", `${im.naturalWidth} / ${im.naturalHeight}`, "important");
     };

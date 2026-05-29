@@ -296,6 +296,12 @@ h3 {
   align-items: center;
 }
 
+/* wrapper is transparent on desktop so the top bar row is unchanged;
+   on mobile it becomes a left-aligned, centered column (see mobile block) */
+.nav__links {
+  display: contents;
+}
+
 .nav a {
   position: relative;
   font-size: .82rem;
@@ -2327,11 +2333,11 @@ body {
    every heading, body line, accent and border recolours to warm cream
    automatically and stays perfectly readable. */
 :root {
-  --cream: #fcf5e8;
-  /* the single creamy tone (creamier base) */
-  --cream-a: #fcf5e8;
-  --cream-b: #f4e8d6;
-  --ivory: #fcf5e8;
+  --cream: #f4e1d3;
+  /* the single creamy tone — airy, soft */
+  --cream-a: #f4e1d3;
+  --cream-b: #ecd3c1;
+  --ivory: #f4e1d3;
   --gold-bright: #e7c277;
   /* accent gold used on the dark sections */
 }
@@ -2427,19 +2433,17 @@ main>.section:nth-of-type(even) .showcase[data-showcase="recognition"] .showcase
 }
 
 .showcase[data-showcase="recognition"] .showcase__frame {
-  /* FIXED box for BOTH certificates → no page-dimension jump when the
-     slide changes. object-fit: contain shows each document in full. */
-  aspect-ratio: 3 / 4;
-  width: 100%;
-  max-width: 520px;
-  height: auto;
-  max-height: 80vh;
+  /* Fixed HEIGHT keeps the section identical on both slides → no page jump.
+     width:auto + the JS-measured aspect-ratio makes the card hug each
+     certificate exactly → no extra white space inside the frame. */
+  height: min(68vh, 540px);
+  width: auto;
+  max-width: 100%;
   margin-inline: auto;
   background: #fffdf8 !important;
   border: 1px solid rgba(107, 82, 52, .14);
   border-radius: 18px;
   box-shadow: 0 22px 54px -30px rgba(77, 55, 31, .42);
-  padding: clamp(.5rem, 1.6vw, 1rem);
   overflow: hidden;
 }
 
@@ -2663,11 +2667,19 @@ main>.section:nth-of-type(even) .showcase[data-showcase="recognition"] .showcase
     margin-bottom: 1.35rem;
   }
 
+  .nav__links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* all links share ONE left edge; the whole column is centered by the
+       parent .nav (align-items:center) → "aligned left, but in the middle" */
+    gap: .1rem;
+  }
+
   .nav a {
     position: relative;
-    display: inline-flex;
-    align-items: baseline;
-    justify-content: center;
+    display: block;
+    text-align: left;
     font-family: var(--display);
     font-size: 1.5rem !important;
     font-weight: 500;
@@ -2718,8 +2730,6 @@ main>.section:nth-of-type(even) .showcase[data-showcase="recognition"] .showcase
     animation-delay: .37s;
   }
 
-  /* number on the left + equal invisible spacer on the right → the word
-     itself is perfectly centered left-to-right */
   .nav a::before {
     content: counter(navi, decimal-leading-zero);
     font-family: var(--body);
@@ -2727,14 +2737,12 @@ main>.section:nth-of-type(even) .showcase[data-showcase="recognition"] .showcase
     letter-spacing: .12em;
     color: var(--champagne);
     opacity: .7;
-    width: 2.6em;
-    text-align: right;
-    padding-right: .6em;
+    margin-right: .55rem;
+    vertical-align: middle;
   }
 
   .nav a::after {
-    content: "";
-    width: 2.6em;
+    display: none;
   }
 
   .nav a.is-active {
@@ -2770,12 +2778,10 @@ main>.section:nth-of-type(even) .showcase[data-showcase="recognition"] .showcase
     }
   }
 
-  /* keep the hamburger / close button clearly above the open panel */
   .menu-btn {
     z-index: 80 !important;
   }
 
-  /* ---- 8b · App-like centering for every section ------------------- */
   .section,
   .section-head,
   .section-head--left,
@@ -2826,7 +2832,7 @@ main>.section:nth-of-type(even) .showcase[data-showcase="recognition"] .showcase
     text-align: center !important;
   }
 
-  /* ---- 8c · Adaptive showcase frames on phones ------------------- */
+
   .showcase:not([data-showcase="recognition"]) .showcase__frame {
     width: min(86vw, 420px) !important;
     max-width: 420px !important;
@@ -2835,7 +2841,7 @@ main>.section:nth-of-type(even) .showcase[data-showcase="recognition"] .showcase
     margin-inline: auto !important;
   }
 
-  /* ---- 8d · Gallery fits each image + swipe cue ------------------- */
+
   .gallery__frame {
     width: min(90vw, 420px) !important;
     max-width: 420px !important;
@@ -2889,14 +2895,14 @@ main>.section:nth-of-type(even) .showcase[data-showcase="recognition"] .showcase
     visibility: hidden;
   }
 
-  /* ---- 8e · Recognition certificate, full width on phones ---------- */
+
   .showcase[data-showcase="recognition"] .showcase__frame {
-    width: 100% !important;
-    max-width: 100% !important;
+    height: min(54vh, 86vw) !important;
+    width: auto !important;
+    max-width: 90vw !important;
     margin-inline: auto !important;
   }
 
-  /* ---- 8f · Consulting (new structure) centered on phones ---------- */
   .consulting__layout {
     grid-template-columns: 1fr !important;
     gap: 2rem !important;
@@ -2950,7 +2956,7 @@ main>.section:nth-of-type(even) .showcase[data-showcase="recognition"] .showcase
     text-align: left !important;
   }
 
-  /* ---- 8g · R&D timeline + contact, centered ----------------------- */
+
   .timeline__step {
     text-align: center !important;
     border-top: 0 !important;
@@ -2973,21 +2979,16 @@ main>.section:nth-of-type(even) .showcase[data-showcase="recognition"] .showcase
     width: min(100%, 340px) !important;
     justify-content: center !important;
     align-items: center !important;
-    text-align: center !important;
-    gap: .7rem !important;
+    text-align: left !important;
+    gap: .8rem !important;
     padding: 1rem 1.15rem !important;
   }
 
-  /* invisible spacer equal to the icon width → the label sits dead-center */
-  .contact__link::after {
-    content: "";
-    flex: 0 0 1.35rem;
-  }
-
+  /* icon and text stay together, left-aligned, and the pair is centered */
   .contact__link span,
   .contact__link strong,
   .contact__link small {
-    text-align: center !important;
+    text-align: left !important;
   }
 
   .contact__visual {
@@ -3006,13 +3007,6 @@ main>.section:nth-of-type(even) .showcase[data-showcase="recognition"] .showcase
   }
 }
 
-/* =====================================================================
-   POST-VIDEO FIXES
-   - Mobile-menu labels (Navigation / TC tagline) must NOT show in the
-     desktop top bar — they belong only to the full-screen mobile menu.
-   - Gallery frame adapts to each image's ratio (set in script.js); give
-     it a smooth resize and a viewport cap so nothing is cropped.
-   ===================================================================== */
 @media (min-width: 900px) {
 
   .nav__eyebrow,
