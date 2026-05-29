@@ -1048,7 +1048,9 @@ h3 {
 .contact__link i {
   font-size: 1.35rem;
   color: var(--champagne);
-  flex-shrink: 0;
+  flex: 0 0 1.6rem;
+  display: inline-flex;
+  justify-content: center;
 }
 
 .contact__link span {
@@ -2659,35 +2661,41 @@ main>.section:nth-of-type(even) .showcase[data-showcase="recognition"] .showcase
 
   .nav__eyebrow {
     display: block;
-    font-size: .64rem;
+    width: min(80vw, 330px);
+    margin: 0 auto .7rem;
+    font-size: .62rem;
     font-weight: 600;
-    letter-spacing: .34em;
+    letter-spacing: .38em;
     text-transform: uppercase;
     color: var(--champagne);
-    margin-bottom: 1.35rem;
   }
 
+  /* centered container; every row, the eyebrow and the footer share its edges
+     → one clean, consistent alignment (professional indexed menu) */
   .nav__links {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    /* all links share ONE left edge; the whole column is centered by the
-       parent .nav (align-items:center) → "aligned left, but in the middle" */
-    gap: .1rem;
+    width: min(80vw, 330px);
+    margin-inline: auto;
+    border-top: 1px solid rgba(107, 82, 52, .16);
   }
 
   .nav a {
     position: relative;
-    display: block;
-    text-align: left;
+    display: flex;
+    align-items: baseline;
+    gap: 1.1rem;
+    width: 100%;
+    padding: 1.05rem .2rem;
+    border-bottom: 1px solid rgba(107, 82, 52, .16);
     font-family: var(--display);
-    font-size: 1.5rem !important;
+    font-size: 1.4rem !important;
     font-weight: 500;
     color: var(--ink) !important;
-    padding: .48rem 0;
     counter-increment: navi;
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(12px);
+    transition: color .3s var(--ease), padding-left .35s var(--ease);
   }
 
   .nav.is-open a {
@@ -2730,45 +2738,50 @@ main>.section:nth-of-type(even) .showcase[data-showcase="recognition"] .showcase
     animation-delay: .37s;
   }
 
+  /* index numbers sit in a fixed-width column → perfectly aligned */
   .nav a::before {
     content: counter(navi, decimal-leading-zero);
+    flex: 0 0 2.1em;
     font-family: var(--body);
-    font-size: .58rem;
-    letter-spacing: .12em;
+    font-size: .6rem;
+    letter-spacing: .14em;
     color: var(--champagne);
-    opacity: .7;
-    margin-right: .55rem;
-    vertical-align: middle;
+    opacity: .65;
+    align-self: center;
   }
 
   .nav a::after {
     display: none;
   }
 
+  .nav a:hover,
   .nav a.is-active {
     color: var(--champagne) !important;
+    padding-left: .7rem;
   }
 
+  /* footer lockup aligned to the same centered container */
   .nav__sign {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: .55rem;
-    margin-top: 1.7rem;
+    gap: .85rem;
+    width: min(80vw, 330px);
+    margin: 1.9rem auto 0;
     font-size: .72rem;
     letter-spacing: .05em;
     color: var(--muted);
   }
 
   .nav__mark {
-    width: 46px;
-    height: 46px;
+    flex: 0 0 auto;
+    width: 44px;
+    height: 44px;
     display: grid;
     place-items: center;
     border: 1px solid var(--champagne);
     border-radius: 50%;
     color: var(--champagne);
-    font-size: 1.05rem;
+    font-size: 1rem;
   }
 
   @keyframes navIn {
@@ -2977,14 +2990,14 @@ main>.section:nth-of-type(even) .showcase[data-showcase="recognition"] .showcase
 
   .contact__link {
     width: min(100%, 340px) !important;
-    justify-content: center !important;
+    justify-content: flex-start !important;
     align-items: center !important;
     text-align: left !important;
-    gap: .8rem !important;
-    padding: 1rem 1.15rem !important;
+    gap: 1rem !important;
+    padding: 1rem 1.5rem !important;
   }
 
-  /* icon and text stay together, left-aligned, and the pair is centered */
+  /* icon and text stay together, left-aligned; icons line up across buttons */
   .contact__link span,
   .contact__link strong,
   .contact__link small {
