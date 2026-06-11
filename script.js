@@ -344,13 +344,11 @@
       visible.classList.remove("is-active");
       fitGallery(hidden);
       gShowingA = !gShowingA;
-      // fade the caption/counter, update at the crossfade midpoint, fade back —
-      // so the number changes correctly and smoothly together with the image
       if (gMeta) gMeta.classList.add("is-swapping");
       setTimeout(() => {
         paintGallery(i);
         if (gMeta) gMeta.classList.remove("is-swapping");
-      }, reduceMotion ? 0 : 180);
+      }, reduceMotion ? 0 : 370);
       preload(slides[(i + 1) % slides.length].img);
       setTimeout(() => { gLocked = false; }, reduceMotion ? 0 : 800);
     };

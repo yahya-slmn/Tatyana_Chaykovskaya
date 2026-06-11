@@ -3061,9 +3061,9 @@ main>.section:nth-of-type(even) .showcase[data-showcase="recognition"] .showcase
 
 /* smooth caption + counter swap, synced to the image crossfade (desktop + mobile) */
 .gallery__meta {
-  transition: opacity .3s var(--ease);
+  transition: opacity 350ms var(--ease);
 }
 
 .gallery__meta.is-swapping {
-  opacity: .12;
+  opacity: 0;
 }
