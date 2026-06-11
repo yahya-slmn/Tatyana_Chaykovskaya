@@ -252,7 +252,7 @@
     { title: "Suspended Wonder",     kicker: "Vision",    cat: "vision" },
     { title: "Magnolia in Dark",     kicker: "Editorial", cat: "vision" },
     { title: "Crystal Garden",       kicker: "Vision",    cat: "vision" },
-    { title: "Bread of the Land",    kicker: "Story",     cat: "story" },
+    { title: "Rahash Cake",    kicker: "Story",     cat: "story" },
     { title: "A Portrait in Cake",   kicker: "Vision",    cat: "vision" },
     { title: "Wrapped in Amber",     kicker: "Detail",    cat: "rd" },
     { title: "Into the Wild",        kicker: "Vision",    cat: "vision" },
