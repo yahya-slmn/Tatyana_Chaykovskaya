@@ -496,6 +496,7 @@ h3 {
 
 .hero__visual .framed__img {
   aspect-ratio: 4 / 5;
+  object-position: top center;
 }
 
 .hero__quote {
@@ -1269,9 +1270,12 @@ h3 {
   }
 
   .showcase__frame,
-  .hero__visual .framed__img,
   .contact__visual .framed__img {
     aspect-ratio: 5 / 5.4;
+  }
+
+  .hero__visual .framed__img {
+    aspect-ratio: 3 / 4;
   }
 
   .showcase__caption {

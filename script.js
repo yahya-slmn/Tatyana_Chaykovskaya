@@ -275,7 +275,7 @@
     { title: "Guest Delight",       kicker: "Guest",     cat: "business" },
   ];
   const landscape = Array.from({ length: 15 }, (_, i) => `assets/optimized/landscape_slideshow/image-${two(i + 1)}.webp`);
-  const portrait  = Array.from({ length: 25 }, (_, i) => `assets/optimized/portrait_slideshow/slide-${two(i + 1)}.webp`);
+  const portrait  = Array.from({ length: 26 }, (_, i) => `assets/optimized/portrait_slideshow/slide-${two(i + 1)}.webp`);
 
   const gImgA = $("#galleryImgA");
   const gImgB = $("#galleryImgB");
