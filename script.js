@@ -142,8 +142,7 @@
     const dotsWrap = $('[data-role="dots"]', root);
     const caption  = $(".showcase__caption", root);
     const frame    = $(".showcase__frame", root);
-    // Philosophy rotates every 2s as requested; others keep their calm pace.
-    const DELAYS = { philosophy: 2000 };
+    const DELAYS = { philosophy: 1200, experience: 1800, universe: 1800 };
     const delay = DELAYS[key] || 3000, fade = 1100;
 
     // Fit the frame to the ACTIVE image's natural ratio so every photo is
